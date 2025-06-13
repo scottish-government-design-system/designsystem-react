@@ -5,23 +5,23 @@ import ContentsNav, {Link} from './contents-nav';
 test('contents nav renders correctly', () => {
     const items = [
         {
-            content: 'Apply for Blue Badge',
+            title: 'Apply for Blue Badge',
             current: true
         },
         {
-            content: 'Eligibility',
+            title: 'Eligibility',
             href: '#2'
         },
         {
-            content: 'Using your Blue Badge',
+            title: 'Using your Blue Badge',
             href: '#3'
         },
         {
-            content: 'Report a lost, stolen or misuesd Blue Badge',
+            title: 'Report a lost, stolen or misuesd Blue Badge',
             href: '#4'
         },
         {
-            content: 'Changing or handing back a Blue Badge',
+            title: 'Changing or handing back a Blue Badge',
             href: '#5'
         }
     ];
@@ -63,7 +63,7 @@ test('contents nav item', () => {
     const content = 'My content';
 
     render(
-        <Link href={href} content={content} />
+        <Link href={href} title={content} />
     );
 
     const listItem = screen.getByRole('listitem');
@@ -82,7 +82,7 @@ test('contents nav current item with href', () => {
     const content = 'My content';
 
     render(
-        <Link current href={href} content={content} />
+        <Link current href={href} title={content} />
     );
 
     const listItem = screen.getByRole('listitem');
@@ -97,7 +97,7 @@ test('contents nav current item without href', () => {
     const content = 'My content';
 
     render(
-        <Link current content={content} />
+        <Link current title={content} />
     );
 
     const listItem = screen.getByRole('listitem');
@@ -112,7 +112,7 @@ test('contents nav item without href', () => {
     const content = 'My content';
 
     render(
-        <Link content={content} />
+        <Link title={content} />
     );
 
     const listItem = screen.getByRole('listitem');
@@ -126,7 +126,7 @@ test('passing additional props', () => {
     render(
         <ContentsNav data-test="foo" items={[
             {
-                content: 'Apply for Blue Badge',
+                title: 'Apply for Blue Badge',
             }
         ]} />
     )
