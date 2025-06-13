@@ -42,7 +42,7 @@ const ContentsNav: React.FC<SGDS.Component.ContentsNav> = function({
             <h2 className="ds_contents-nav__title">{title}</h2>
             <ul className="ds_contents-nav__list">
                 {items && items.map((item, index: number) => (
-                    <Link current={item.current} href={item.href} content={item.content} key={'link' + index} />
+                    <Link current={item.current} href={item.href} title={item.title} key={'link' + index} />
                 ))}
             </ul>
         </nav>
