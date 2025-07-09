@@ -14,12 +14,20 @@
     "svgr": "npx @svgr/cli node_modules/@scottish-government/design-system/src/images/icons/svg --config-file .svgrrc",
     "svgr_documents": "npx @svgr/cli node_modules/@scottish-government/design-system/src/images/documents/svg --config-file .svgrrc_documents",
     "test": "vitest",
-    "tsc": "node ./node_modules/typescript/bin/tsc"
+    "tsc": "node ./node_modules/typescript/bin/tsc",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@scottish-government/design-system": "^3.2.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^4.0.1",
+    "@storybook/addon-a11y": "^9.0.15",
+    "@storybook/addon-docs": "^9.0.15",
+    "@storybook/addon-onboarding": "^9.0.15",
+    "@storybook/addon-vitest": "^9.0.15",
+    "@storybook/react-vite": "^9.0.15",
     "@svgr/cli": "^8.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -33,7 +41,10 @@
     "jsdom": "^26.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "storybook": "^9.0.15",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.0"
+    "vitest": "^3.2.0",
+    "@vitest/browser": "3.2.4",
+    "playwright": "^1.53.2"
   }
 }

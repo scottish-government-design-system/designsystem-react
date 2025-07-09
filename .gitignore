@@ -6,3 +6,6 @@
 
 # typescript
 *.tsbuildinfo
+
+*storybook.log
+storybook-static
