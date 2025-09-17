@@ -11,10 +11,10 @@ const Buttons = ({
 const AbstractNotificationBanner = ({
     children,
     className,
-    close,
     hasColourIcon,
     hasInverseIcon,
     icon,
+    isDismissable,
     title = 'Information',
     ...props
 }: SGDS.Common.AbstractNotificationBanner) => {
@@ -43,7 +43,7 @@ const AbstractNotificationBanner = ({
                 <div className={
                     [
                         'ds_notification__content',
-                        close && 'ds_notification__content--has-close'
+                        isDismissable && 'ds_notification__content--has-close'
                     ].join(' ')}
                 >
                     <h2 className="visually-hidden">{title}</h2>
@@ -63,10 +63,10 @@ const AbstractNotificationBanner = ({
                         {content}
                     </div>
 
-                    {close &&
+                    {isDismissable &&
                         <button type="button" className="ds_notification__close js-close-notification">
                             <ScreenReaderText>Close this notification</ScreenReaderText>
-                            <Icon fill icon="Close" aria-hidden="true" />
+                            <Icon isFilled icon="Close" aria-hidden="true" />
                         </button>
                     }
 

@@ -8,7 +8,7 @@ const ERROR_ID = 'errormessage';
 test('error message renders correctly', () => {
 
     render(
-        <ErrorMessage text={ERROR_TEXT} id={ERROR_ID}/>
+        <ErrorMessage id={ERROR_ID}>{ERROR_TEXT}</ErrorMessage>
     );
 
     const errorMessageElement = screen.getByRole('paragraph');
@@ -18,21 +18,9 @@ test('error message renders correctly', () => {
     expect(errorMessageElement.textContent).toEqual(ERROR_TEXT);
 });
 
-test('error message with HTML content', () => {
-    const ERROR_ID = 'errormessage';
-
-    render(
-        <ErrorMessage id={ERROR_ID}>hello <a href="#foo">world</a></ErrorMessage>
-    );
-
-    const errorMessageElement = screen.getByRole('paragraph');
-
-    expect(errorMessageElement.innerHTML).toEqual('hello <a href="#foo">world</a>');
-});
-
 test('passing additional props', () => {
     render(
-        <ErrorMessage data-test="foo" text={ERROR_TEXT} id={ERROR_ID}/>
+        <ErrorMessage data-test="foo" id={ERROR_ID}>{ERROR_TEXT}</ErrorMessage>
     )
 
     const errorMessageElement = screen.getByRole('paragraph');
@@ -41,7 +29,7 @@ test('passing additional props', () => {
 
 test('passing additional CSS classes', () => {
     render(
-        <ErrorMessage className="foo" text={ERROR_TEXT} id={ERROR_ID}/>
+        <ErrorMessage className="foo" id={ERROR_ID}>{ERROR_TEXT}</ErrorMessage>
     )
 
     const errorMessageElement = screen.getByRole('paragraph');

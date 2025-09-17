@@ -1,81 +1,29 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {Checkbox} from './Checkbox';
+import argTypes from '../../../.storybook/sgdsArgTypes';
+
+import Checkbox from './Checkbox';
 
 const meta = {
     title: 'Components/Checkbox',
     component: Checkbox,
-    tags: ['autodocs'],
     argTypes: {
         checked: {
             control: 'boolean',
-            table: {
-                type: {
-                    summary: 'boolean'
-                }
-            }
+            description: 'The checkbox is checked on load'
         },
-        hintText: {
-            control: { type: 'text' },
-            table: {
-                type: {
-                    summary: 'string'
-                }
-            }
-        },
+        hintText: argTypes.hintText,
         exclusive: {
             control: 'boolean',
-            table: {
-                type: {
-                    summary: 'boolean'
-                }
-            }
+            description: 'Whether the checkbox is exclusive (e.g. a \'none\' option)'
         },
-        id: {
-            control: { type: 'text' },
-            table: {
-                type: {
-                    summary: 'string'
-                }
-            }
-        },
-        label: {
-            control: { type: 'text' },
-            table: {
-                type: {
-                    summary: 'string'
-                }
-            }
-        },
+        id: argTypes.id(),
+        label: argTypes.label(),
         name: {
-            control: { type: 'text' },
-            table: {
-                type: {
-                    summary: 'string'
-                }
-            }
+            type: 'string'
         },
-        onBlur: {
-            table: {
-                type: {
-                    summary: 'function'
-                }
-            }
-        },
-        onChange: {
-            table: {
-                type: {
-                    summary: 'function'
-                }
-            }
-        },
-        small: {
-            control: 'boolean',
-            table: {
-                type: {
-                    summary: 'boolean'
-                }
-            }
-        }
+        onBlur: argTypes.onBlur(),
+        onChange: argTypes.onChange(),
+        small: argTypes.isSmall()
     },
     args: {
         label: 'Benefits and grants',
@@ -98,7 +46,7 @@ export const CheckedByDefault: Story = {
 
 export const SmallCheckbox: Story = {
     args: {
-        small: true,
+        isSmall: true,
         id: 'small'
     }
 };
@@ -110,23 +58,28 @@ export const HintText: Story = {
     }
 };
 
-export const BlurEvent: Story = {
-    args: {
-        onBlur: function () { alert('on blur!') },
-        id: 'onblur'
-    }
-};
-
-export const ChangeEvent: Story = {
-    args: {
-        onChange: function () { alert('on change!') },
-        id: 'onchange'
-    }
-};
-
 export const CustomNameAttribute: Story = {
     args: {
         name: 'myName',
         id: 'nameattribute'
     }
 };
+
+export const Blur: Story = {
+    args: {
+        onBlur: () => {console.log('checkbox blur')}
+    },
+    play: async ({ canvas, userEvent }) => {
+        await userEvent.click(canvas.getByRole('checkbox'));
+        await userEvent.tab();
+    }
+}
+
+export const Change: Story = {
+    args: {
+        onChange: () => {console.log('checkbox change')}
+    },
+    play: async ({ canvas, userEvent }) => {
+        await userEvent.click(canvas.getByRole('checkbox'));
+    }
+}

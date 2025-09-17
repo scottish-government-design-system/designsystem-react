@@ -72,7 +72,7 @@ test('contents nav item without href', () => {
 
 test('current contents nav item with href', () => {
     render(
-        <ContentsNav.Item current href={ITEM_HREF}>{ITEM_TITLE}</ContentsNav.Item>
+        <ContentsNav.Item isCurrent href={ITEM_HREF}>{ITEM_TITLE}</ContentsNav.Item>
     );
 
     const listItem = screen.getByRole('listitem');
@@ -84,7 +84,7 @@ test('current contents nav item with href', () => {
 
 test('current contents nav item without href', () => {
     render(
-        <ContentsNav.Item current>{ITEM_TITLE}</ContentsNav.Item>
+        <ContentsNav.Item isCurrent>{ITEM_TITLE}</ContentsNav.Item>
     );
 
     const listItem = screen.getByRole('listitem');

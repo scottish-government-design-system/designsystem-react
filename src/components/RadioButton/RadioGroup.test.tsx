@@ -22,7 +22,7 @@ test('radio group passes all expected item params', () => {
     const RADIO_NAME = 'radioname';
 
     render(
-        <RadioGroup name={RADIO_NAME} small>
+        <RadioGroup name={RADIO_NAME} isSmall>
             <RadioButton id="banana" />
             <p>foo</p>
         </RadioGroup>
@@ -36,7 +36,7 @@ test('radio group passes all expected item params', () => {
 
 test('inline radio group', () => {
     render(
-        <RadioGroup inline>
+        <RadioGroup isInline>
             <RadioButton id="banana" />
         </RadioGroup>
     );

@@ -1,9 +1,9 @@
 declare namespace SGDS.Component {
     namespace RadioButton {
         interface Group extends React.AllHTMLAttributes<HTMLElement> {
-            inline?: boolean,
+            isInline?: boolean,
             name: string,
-            small?: boolean
+            isSmall?: boolean
         }
     }
 

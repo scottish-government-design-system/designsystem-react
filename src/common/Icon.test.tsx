@@ -38,7 +38,7 @@ test('icon with fill', () => {
     render(
         <Icon data-testid="icon"
             icon={ICON_NAME}
-            fill
+            isFilled
         />
     );
 

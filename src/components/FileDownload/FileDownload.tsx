@@ -4,8 +4,8 @@ import FileIcon from '../../common/FileIcon';
 const FileDownload = ({
     className,
     cover,
-    highlighted,
     icon = 'Generic',
+    isHighlighted,
     fileSize,
     fileType,
     fileUrl,
@@ -18,7 +18,7 @@ const FileDownload = ({
     return (
         <div className={[
             'ds_file-download',
-            highlighted && 'ds_file-download--highlighted',
+            isHighlighted && 'ds_file-download--highlighted',
             className
         ].join(' ')}
             {...props}

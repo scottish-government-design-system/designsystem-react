@@ -1,20 +1,20 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import argTypes from '../../../.storybook/sgdsArgTypes';
 
 import PhaseBanner from './PhaseBanner';
 
 const meta = {
     title: 'Components/Phase banner',
     component: PhaseBanner,
-    tags: ['autodocs'],
     argTypes: {
-        children: {
-            table: {
-                type: {
-                    summary: 'string | element'
-                }
-            }
+        children: argTypes.children(),
+        phaseName: {
+            description: 'The text for the banner\'s tag component.',
+            type: 'string'
         }
+    },
+    args: {
+        phaseName: 'Beta'
     }
 } satisfies Meta<typeof PhaseBanner>;
 
@@ -27,20 +27,10 @@ export const Default: Story = {
     },
 };
 
-export const TextContent: Story = {
+export const CustomContent: Story = {
     args: {
         phaseName: 'Beta',
-        children: 'This is a new service. Your feedback will help us to improve it.'
-    },
-    render: (args: any) => (
-        <PhaseBanner {...args}></PhaseBanner>
-    )
-};
-
-export const HTMLContent: Story = {
-    args: {
-        phaseName: 'Beta',
-        children: <>This is a new service. Your <a href="#feedback">feedback</a> will help us to improve it.</>
+        children: <>This is a new service. Your <a href="#foo">feedback</a> will help us to improve it.</>
     },
     render: (args: any) => (
         <PhaseBanner {...args}></PhaseBanner>

@@ -29,7 +29,7 @@ test('notification banner renders correctly', () => {
  */
 test('notification banner with icon', () => {
     render(
-        <NotificationBanner icon>
+        <NotificationBanner hasIcon>
             {BANNER_TEXT}
         </NotificationBanner>
     );

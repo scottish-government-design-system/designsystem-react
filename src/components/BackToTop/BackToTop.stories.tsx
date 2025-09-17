@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import BackToTop from './BackToTop';
 
 const meta = {
     title: 'Components/Back to top',
     component: BackToTop,
-    tags: ['autodocs'],
     argTypes: {
         href: {
             control: { type: 'text' },

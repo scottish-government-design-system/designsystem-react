@@ -5,7 +5,7 @@ declare namespace SGDS.Component {
         }
 
         interface Item extends React.AllHTMLAttributes<HTMLLIElement> {
-            current?: boolean,
+            isCurrent?: boolean,
             href: string,
             linkComponent?: SGDS.LinkComponent,
             title: string,

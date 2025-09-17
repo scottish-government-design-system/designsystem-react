@@ -1,7 +1,7 @@
 declare namespace SGDS.Component {
     namespace Tabs {
         interface Item extends React.AllHTMLAttributes<HTMLElement> {
-            bordered?: boolean,
+            isBorderless?: boolean,
             id: string,
             tabLabel: string
         }
@@ -13,9 +13,9 @@ declare namespace SGDS.Component {
 
     interface Tabs extends React.AllHTMLAttributes<HTMLElement> {
         baseId: string,
-        bordered?: boolean,
+        isBorderless?: boolean,
         headingLevel?: SGDS.HeadingLevel,
-        manual?: boolean,
+        isManual?: boolean,
         title: string
     }
 }

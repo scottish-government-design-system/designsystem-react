@@ -12,6 +12,7 @@ test('individual radio renders correctly', () => {
     const label = screen.getByText('Pension Credit');
 
     expect(radioContainer).toHaveClass('ds_radio');
+    expect(radioContainer).not.toHaveClass('ds_radio--small');
     expect(radio.tagName).toEqual('INPUT');
     expect(radio).toHaveAttribute('type', 'radio');
     expect(radio.id).toEqual('pensioncredit');
@@ -74,7 +75,7 @@ test('radio with hint text', () => {
 
 test('small radio', () => {
     render(
-        <RadioButton small name="benefitType" label="Pension Credit" id="pensioncredit" />
+        <RadioButton isSmall name="benefitType" label="Pension Credit" id="pensioncredit" />
     );
 
     const radio = screen.getByRole('radio');

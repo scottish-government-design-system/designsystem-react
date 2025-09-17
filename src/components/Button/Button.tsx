@@ -7,11 +7,11 @@ const Button = ({
     children,
     className,
     icon,
-    iconLeft,
-    iconOnly = false,
+    hasLinkStyle,
     href,
-    small,
-    styleAsLink,
+    isIconLeft,
+    isIconOnly = false,
+    isSmall,
     type = 'button',
     width,
     ...props
@@ -26,19 +26,19 @@ const Button = ({
         <WrapperTag
             tagName={tagName}
             className={[
-                !styleAsLink ? 'ds_button' : 'ds_link',
+                !hasLinkStyle ? 'ds_button' : 'ds_link',
                 width && `ds_button--${width}`,
                 buttonStyle && `ds_button--${buttonStyle}`,
-                small && 'ds_button--small',
-                (icon && !iconOnly) ? 'ds_button--has-icon' : undefined,
-                iconLeft && 'ds_button--has-icon--left',
+                isSmall && 'ds_button--small',
+                (icon && !isIconOnly) ? 'ds_button--has-icon' : undefined,
+                isIconLeft && 'ds_button--has-icon--left',
                 className
             ].join(' ')}
             href={href}
             {...(tagName === 'button' ? { type: type } : {})}
             {...props}
         >
-            {iconOnly ? <ScreenReaderText>{children}</ScreenReaderText> : children}
+            {isIconOnly ? <ScreenReaderText>{children}</ScreenReaderText> : children}
 
             {icon && <Icon icon={icon}/>}
         </WrapperTag>

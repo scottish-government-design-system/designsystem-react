@@ -32,7 +32,7 @@ const BreadcrumbItem = ({
 const Breadcrumbs = ({
     children,
     ...props
-}: SGDS.Component.Breadcrumbs & { Item: SGDS.Component.Breadcrumbs.Item }) => {
+}: SGDS.Component.Breadcrumbs) => {
     return (
         <nav
             aria-label="Breadcrumb"

@@ -7,11 +7,11 @@ const RadioButton = ({
     checked,
     hintText,
     id,
+    isSmall,
     label,
     name,
     onBlur,
-    onChange,
-    small
+    onChange
 }: SGDS.Component.RadioButton) => {
     const hintTextId = `hint-text-${id}`;
 
@@ -27,14 +27,14 @@ const RadioButton = ({
         }
     }
 
-    small = small || useContext(CheckboxRadioContext).small;
+    isSmall = isSmall || useContext(CheckboxRadioContext).isSmall;
     name = name || useContext(CheckboxRadioContext).name;
 
     return (
         <div
             className={[
                 'ds_radio',
-                small && 'ds_radio--small'
+                isSmall && 'ds_radio--small'
             ].join(' ')}>
             <input
                 aria-describedby={hintText ? hintTextId : undefined}

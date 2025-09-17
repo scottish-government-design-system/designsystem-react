@@ -10,7 +10,7 @@ declare namespace SGDS.Component {
         label: string,
         maxDate?: string,
         minDate?: string,
-        multiple?: boolean,
+        isMultiple?: boolean,
         name?: string,
         onBlur?: React.EventHandler<any>,
         onChange?: React.EventHandler<any>,

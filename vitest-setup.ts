@@ -8,6 +8,7 @@ afterEach(() => {
 });
 
 // mock CSS.supports()
+window.global ||= window;
 Object.defineProperty(global.CSS, 'supports', {
     value: () => vi.fn()
 });

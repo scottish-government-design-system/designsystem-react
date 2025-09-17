@@ -1,8 +1,8 @@
 declare namespace SGDS.Component {
     namespace Accordion {
         interface Item extends React.AllHTMLAttributes<HTMLElement> {
-            id: string,
-            open?: boolean,
+            id?: string,
+            isOpen?: boolean,
             title: string
         }
     }

@@ -55,7 +55,7 @@ const Textarea = ({
         >
             <label className="ds_label" htmlFor={id}>{label}</label>
             {hintText && <HintText id={hintTextId} text={hintText} />}
-            {errorMessage && <ErrorMessage id={errorMessageId} text={errorMessage}/>}
+            {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
 
             <textarea
                 aria-describedby={describedbys.join(' ')}

@@ -2,14 +2,14 @@ import React from 'react';
 
 const ContentsNavItem = ({
     children,
-    current,
+    isCurrent,
     href,
     linkComponent
 }: SGDS.Component.ContentsNav.ContentsNavItem) => {
     const classNames = ['ds_contents-nav__link'];
     let ariaCurrent: React.AriaAttributes["aria-current"];
 
-    if (current) {
+    if (isCurrent) {
         classNames.push('ds_current');
         ariaCurrent = 'page';
     }

@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const CheckboxRadioContext = createContext({ small: true, name: '' });
+export const CheckboxRadioContext = createContext({ isSmall: false, name: '' });

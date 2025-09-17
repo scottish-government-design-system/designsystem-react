@@ -64,7 +64,7 @@ test('site navigation link with custom element', () => {
 
 test('highlights current item', () => {
     render(
-        <SiteNavigation.Item href={LINK_HREF} current>{LINK_TEXT}</SiteNavigation.Item>
+        <SiteNavigation.Item href={LINK_HREF} isCurrent>{LINK_TEXT}</SiteNavigation.Item>
     );
 
     const link = screen.getByRole('link');

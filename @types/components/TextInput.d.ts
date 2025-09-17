@@ -3,9 +3,9 @@ declare namespace SGDS.Component {
         buttonIcon?: IconName,
         buttonText?: string,
         className?: string,
-        currency?: boolean,
         currencySymbol?: string,
         hasButton?: boolean,
+        isCurrency?: boolean,
         type?: string,
         width?: InputWidth
     }

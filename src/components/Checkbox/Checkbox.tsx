@@ -7,15 +7,15 @@ const Checkbox = ({
     checked,
     hintText,
     id,
-    exclusive,
+    isSmall,
+    isExclusive,
     label,
     name,
     onBlur,
-    onChange,
-    small
+    onChange
 }: SGDS.Component.Checkbox) => {
     const hintTextId = `hint-text-${id}`;
-    const behaviour = exclusive && 'exclusive';
+    const behaviour = isExclusive && 'exclusive';
 
     function handleBlur(event: React.FocusEvent) {
         if (typeof onBlur === 'function') {
@@ -29,15 +29,15 @@ const Checkbox = ({
         }
     }
 
-    small = small || useContext(CheckboxRadioContext).small;
+    isSmall = isSmall || useContext(CheckboxRadioContext).isSmall;
 
     return (
         <>
-            {exclusive && <p className="ds_checkbox-separator">or</p>}
+            {isExclusive && <p className="ds_checkbox-separator">or</p>}
             <div
                 className={[
                     'ds_checkbox',
-                    small && 'ds_checkbox--small'
+                    isSmall && 'ds_checkbox--small'
                 ].join(' ')}>
 
                 <input

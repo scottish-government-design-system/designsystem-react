@@ -81,7 +81,7 @@ const SiteSearch = function ({
                         type="search"
                     />
 
-                    <Button type="submit" icon="Search" iconOnly>Search</Button>
+                    <Button type="submit" icon="Search" isIconOnly>Search</Button>
 
                     {hasAutocomplete && (
                         <div id="autocomplete-suggestions" className="ds_autocomplete__suggestions">

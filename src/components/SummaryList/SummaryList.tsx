@@ -73,14 +73,14 @@ const Value = ({
 const SummaryList = ({
     children,
     className,
-    noBorder,
+    isBorderless,
     ...props
 }: SGDS.Component.SummaryList) => {
     return (
         <ol
             className={[
                 'ds_summary-list',
-                noBorder && 'ds_summary-list--no-border',
+                isBorderless && 'ds_summary-list--no-border',
                 className
             ].join(' ')}
             {...props}
@@ -98,6 +98,6 @@ SummaryList.Value = Value;
 SummaryList.displayName = 'SummaryList';
 SummaryList.Action.displayName = 'SummaryList.Action';
 Item.displayName = 'SummaryList.Item';
-Value.displayName = 'SumaryList.Value';
+Value.displayName = 'SummaryList.Value';
 
 export default SummaryList;

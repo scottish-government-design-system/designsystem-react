@@ -1,9 +1,10 @@
 import { addons } from 'storybook/manager-api';
-import { themes } from 'storybook/theming';
 import capitalize from "lodash/capitalize";
 
+import sgdsTheme from './sgdsTheme';
+
 addons.setConfig({
-    theme: themes.light,
+    theme: sgdsTheme,
     sidebar: {
         renderLabel: ({ name, type }) => {
             return capitalize(name);

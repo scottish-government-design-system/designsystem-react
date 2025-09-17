@@ -10,7 +10,7 @@ test('side navigation renders correctly', () => {
                     <SideNavigation.List>
                         <SideNavigation.Item href="#green-apples" title="Green apples">
                             <SideNavigation.List>
-                                <SideNavigation.Item href="#bramley" title="Bramley" current/>
+                                <SideNavigation.Item href="#bramley" title="Bramley" isCurrent/>
                                 <SideNavigation.Item href="#granny-smith" title="Granny smith"/>
                             </SideNavigation.List>
                         </SideNavigation.Item>
@@ -60,7 +60,7 @@ test('side nav link renders correctly', () => {
 
 test('current side nav item without link renders correctly', () => {
     render(
-        <SideNavigation.Item href="#green-apples" title="Green apples" current />
+        <SideNavigation.Item href="#green-apples" title="Green apples" isCurrent />
     );
 
     const item = screen.getByRole('listitem');

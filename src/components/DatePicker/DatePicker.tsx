@@ -64,7 +64,7 @@ const DatePicker = ({
             {(multiple ? (
                 <fieldset className="ds_datepicker__input-wrapper">
                     <legend>{label}</legend>
-                    {errorMessage && <ErrorMessage text={errorMessage}/>}
+                    {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
                     <div>
                         <TextInput
                             className="js-datepicker-date"

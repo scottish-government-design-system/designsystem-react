@@ -24,12 +24,12 @@ test('metadata renders correctly', () => {
     expect(metadataItemKey).toHaveClass('ds_metadata__key');
     expect(metadataItemKey.textContent).toEqual(NAME);
     expect(metadataItemValue).toHaveClass('ds_metadata__value');
-    expect(metadataItemValue.textContent).toEqual(VALUE);
+    expect(metadataItemValue.textContent.trim()).toEqual(VALUE);
 });
 
 test('inline metadata', () => {
     render(
-        <Metadata inline>
+        <Metadata isInline>
             <Metadata.Item name={NAME}>
                 {VALUE}
             </Metadata.Item>

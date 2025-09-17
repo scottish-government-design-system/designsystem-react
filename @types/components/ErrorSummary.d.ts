@@ -2,7 +2,7 @@ declare namespace SGDS.Component {
     namespace ErrorSummary {
         interface Item extends React.AllHTMLAttributes<HTMLElement> {
             fragmentId: string,
-            linkComponent: SGDS.LinkComponent
+            linkComponent?: SGDS.LinkComponent
         }
     }
 

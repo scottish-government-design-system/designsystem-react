@@ -7,6 +7,35 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 
 ---
 
+## [0.9.0] - 2025-09-17
+## Added
+- Storybook now added for all components. `npm run storybook`
+- CategoryList component
+- CategoryItem component
+## Changed
+- 'text' prop removed from ErrorMessage. Use children instead.
+- Many boolean prop names updated for clarity/consistency
+  - AbstractNotificationBanner (used by NotificationBanner and CookieBanner): close -> isDismissable
+  - Accordion.Item: open -> isOpen
+  - Button: small -> isSmall
+  - Button: iconLeft -> isIconLeft
+  - Button: iconOnly -> isIconOnly
+  - Button: styleAsLink -> hasLinkStyle
+  - Checkbox: exclusive -> isExclusive
+  - CheckboxGroup: small -> isSmall
+  - ContentsNav: curent -> isCurrent
+  - DatePicker: multiple -> isMultiple
+  - FileDownload: highlighted -> isHighlighted
+  - Metadata: inline -> isInline
+  - Pagination.Item: current -> isCurrent
+  - RadioButton: inline -> isInline
+  - RadioGroup: small -> isSmall
+  - SideNavigation.Item: current -> isCurrent
+  - SiteNavigation.Item: current -> isCurrent
+  - SummaryList: noBorder -> isBorderless
+  - Tabs: bordered -> isBorderless (logic inverted), manual -> isManual
+  - TextInput: currency -> isCurrency
+
 ## [0.8.0] - 2025-08-18
 ## Added
 - ActionLink component, centralising behaviour used in actions in both SummaryCard and SummaryList

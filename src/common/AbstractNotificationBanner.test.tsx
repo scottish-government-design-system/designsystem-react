@@ -33,7 +33,7 @@ test('abstract notification banner renders correctly', () => {
 
 test('abstract notification banner with close button', () => {
     render(
-        <AbstractNotificationBanner close>
+        <AbstractNotificationBanner isDismissable>
             {NOTIFICATION_TEXT}
         </AbstractNotificationBanner>
     );

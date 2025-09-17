@@ -45,7 +45,7 @@ test('inset text renders correctly', () => {
 
 test('highlighted file download', () => {
     render(
-        <FileDownload highlighted fileUrl={FILE_URL} title={FILE_TITLE} data-testid="file-download" />
+        <FileDownload isHighlighted fileUrl={FILE_URL} title={FILE_TITLE} data-testid="file-download" />
     );
 
     const fileDownload = screen.getByTestId('file-download');

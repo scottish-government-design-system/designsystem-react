@@ -9,6 +9,6 @@ declare namespace SGDS.Component {
     }
 
     interface SummaryList extends React.OlHTMLAttributes<HTMLOListElement> {
-        noBorder?: boolean
+        isBorderless?: boolean
     }
 }

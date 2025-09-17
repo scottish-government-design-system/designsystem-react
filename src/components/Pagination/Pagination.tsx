@@ -4,8 +4,8 @@ export const Page = ({
     ariaLabel,
     children,
     className,
-    current = false,
     href,
+    isCurrent = false,
     linkComponent,
     onClick
 }: SGDS.Component.Pagination.Page) => {
@@ -19,7 +19,7 @@ export const Page = ({
         const classNames = [
             'ds_pagination__link',
             className,
-            current ? 'ds_current' : undefined
+            isCurrent ? 'ds_current' : undefined
         ].join(' ');
 
         const linkProps: SGDS.LinkComponentProps = {
@@ -28,7 +28,7 @@ export const Page = ({
             onClick: handleClick
         };
 
-        if (current) {
+        if (isCurrent) {
             linkProps['aria-current'] = 'page';
         }
 
@@ -144,7 +144,7 @@ const Pagination = ({
                     <Page
                         ariaLabel={`Page ${item}`}
                         href={pattern.replace('$1', String(item))}
-                        current={item === page}
+                        isCurrent={item === page}
                         key={`pagination${index}`}
                         linkComponent={linkComponent}
                         onClick={onClick}

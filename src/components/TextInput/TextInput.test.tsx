@@ -101,7 +101,7 @@ test('text input with currency', () => {
         <TextInput
             id={INPUT_ID}
             label={LABEL_TEXT}
-            currency
+            isCurrency
         />
     );
 
@@ -120,8 +120,8 @@ test('text input with custom currency symbol', () => {
         <TextInput
             id={INPUT_ID}
             label={LABEL_TEXT}
-            currency
             currencySymbol={CURRENCY_SYMBOL}
+            isCurrency
         />
     );
 

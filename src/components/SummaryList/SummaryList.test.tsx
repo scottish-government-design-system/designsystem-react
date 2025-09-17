@@ -33,7 +33,7 @@ test('summary list renders correctly', () => {
 
 test('summary list without border', () => {
     render(
-        <SummaryList noBorder/>
+        <SummaryList isBorderless/>
     );
 
     const summaryList = screen.getAllByRole('list')[0];

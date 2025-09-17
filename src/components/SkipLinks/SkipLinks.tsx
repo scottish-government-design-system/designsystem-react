@@ -34,7 +34,7 @@ const SkipLinks = ({
 };
 
 SkipLinks.displayName = 'SkipLinks';
-Link.displayName = 'SkipLink';
+Link.displayName = 'SkipLinks.Link';
 SkipLinks.Link = Link;
 
 export default SkipLinks;

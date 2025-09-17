@@ -1,11 +1,10 @@
-import React, { Children, useEffect, useRef } from 'react';
+import React, { Children, useEffect, useRef, useId } from 'react';
 import WrapperTag from '../../common/WrapperTag';
 // @ts-ignore
 import DSTabs from '@scottish-government/design-system/src/components/tabs/tabs';
-import slugify from '../../utils/slugify';
 
 const TabItem = ({
-    bordered,
+    isBorderless,
     children,
     className,
     id,
@@ -16,7 +15,7 @@ const TabItem = ({
         <div
             className={[
                 'ds_tabs__content',
-                bordered && 'ds_tabs__content--bordered',
+                !isBorderless && 'ds_tabs__content--bordered',
                 className
             ].join(' ')}
             id={id}
@@ -40,11 +39,11 @@ const TabListItem = ({
 
 const Tabs = ({
     baseId = 'tabs',
-    bordered = true,
     children,
     className,
     headingLevel = 'h2',
-    manual = false,
+    isBorderless,
+    isManual = false,
     title = 'Contents',
     ...props
 }: SGDS.Component.Tabs) => {
@@ -63,8 +62,8 @@ const Tabs = ({
 
         if (thisChild && thisChild.type === TabItem) {
             return React.cloneElement(thisChild, {
-                bordered: bordered,
-                id: thisChild.props.id || `${baseId}-${slugify(thisChild.props.tabLabel)}`,
+                isBorderless: !!isBorderless,
+                id: thisChild.props.id || `${baseId}-${useId()}`,
             });
         }
     });
@@ -79,7 +78,7 @@ const Tabs = ({
         <div
             className={[
                 'ds_tabs',
-                manual && 'ds_tabs--manual',
+                isManual && 'ds_tabs--manual',
                 className
             ].join(' ')}
             ref={ref}

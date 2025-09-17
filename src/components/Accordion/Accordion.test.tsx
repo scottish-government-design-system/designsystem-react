@@ -19,7 +19,7 @@ test('accordion renders correctly', () => {
                 <p>If you have a health condition that’s related to your service, you’re
                     entitled to priority treatment based on clinical need.</p>
             </Accordion.Item>
-            <Accordion.Item open id="accordion-2" title="Employability for veterans">
+            <Accordion.Item isOpen id="accordion-2" title="Employability for veterans">
                 <p>If you&apos;re looking for a job, there are several organisations that can help
                     you <a href="#accordion-link">find a job or develop new skills</a>.</p>
             </Accordion.Item>
@@ -99,22 +99,6 @@ test('accordion with custom heading level', () => {
     expect(firstAccordionTitle?.tagName).toEqual(HEADING_LEVEL.toUpperCase());
 });
 
-test('accordion item with nonsense heading level falls back to h3', () => {
-    render(
-        <Accordion id={ACCORDION_ID} data-testid={ACCORDION_ID} headingLevel="bananas">
-            <Accordion.Item id="accordion-1" title="Healthcare for veterans">
-                <p>Veterans are entitled to the same healthcare as any citizen. And there
-                    are health care options and support available specifically for veterans.</p>
-                <p>If you have a health condition that’s related to your service, you’re
-                    entitled to priority treatment based on clinical need.</p>
-            </Accordion.Item>
-        </Accordion>
-    );
-
-    const firstAccordionTitle = document.querySelector('.ds_accordion-item__title');
-    expect(firstAccordionTitle?.tagName).toEqual('H3');
-});
-
 test('passing additional props to accordion', () => {
     render(
         <Accordion id={ACCORDION_ID} data-testid={ACCORDION_ID} data-test="foo">
@@ -185,29 +169,20 @@ test('accordion items without ID are given unique IDs', () => {
                 <p>If you&apos;re looking for a job, there are several organisations that can help
                     you <a href="#accordion-link">find a job or develop new skills</a>.</p>
             </Accordion.Item>
-            <Accordion.Item data-testid="item3" title="Housing for veterans">
-                <p>If you need <a href="#accordion-link">help finding a place to live</a>{' '}
-                    there&apos;s support specifically for veterans.</p>
-            </Accordion.Item>
         </Accordion>
     );
 
     const accordionItem1 = screen.getByTestId('item1');
     const accordionItem2 = screen.getByTestId('item2');
-    const accordionItem3 = screen.getByTestId('item3');
 
-    let idModifier = Number(accordionItem1.id.replace('accordion-item-', ''));
-
-    expect(accordionItem1).toHaveAttribute('id', `accordion-item-${idModifier}`);
-    idModifier = idModifier + 1;
-    expect(accordionItem2).toHaveAttribute('id', `accordion-item-${idModifier}`);
-    idModifier = idModifier + 1;
-    expect(accordionItem3).toHaveAttribute('id', `accordion-item-${idModifier}`);
+    expect(accordionItem1).toHaveAttribute('id');
+    expect(accordionItem2).toHaveAttribute('id');
+    expect(accordionItem1.id).not.toEqual(accordionItem2.id);
 });
 
 test('open accordion item', () => {
     render(
-        <Accordion.Item open id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} title={TITLE_TEXT}>
+        <Accordion.Item isOpen id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} title={TITLE_TEXT}>
             <p>{CONTENT_TEXT}</p>
         </Accordion.Item>
     );

@@ -6,11 +6,11 @@ declare namespace SGDS.Common {
     }
 
     interface AbstractNotificationBanner extends React.AllHTMLAttributes<HTMLDivElement> {
-        close?: boolean,
         hasIcon?: boolean,
-        icon?: IconName,
         hasColourIcon?: boolean,
         hasInverseIcon?: boolean,
+        icon?: IconName,
+        isDismissable?: boolean,
         title: string,
         ref?: any
     }

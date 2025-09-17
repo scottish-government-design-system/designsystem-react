@@ -24,7 +24,7 @@ const Question = function ({
         >
             {legend && <legend>{legend}</legend>}
             {hintText && <HintText text={hintText} />}
-            {hasError && errorMessage && <ErrorMessage text={errorMessage} />}
+            {hasError && errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
             {children}
         </WrapperTag>
     );

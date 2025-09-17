@@ -4,7 +4,7 @@ import * as Icons from '../images/icons';
 const Icon = ({
     ariaLabel,
     className,
-    fill,
+    isFilled,
     icon,
     iconSize
 }: SGDS.Common.Icon) => {
@@ -17,7 +17,7 @@ const Icon = ({
             className={[
                     'ds_icon',
                     className,
-                    fill && 'ds_icon--fill',
+                    isFilled && 'ds_icon--fill',
                     iconSize && `ds_icon--${iconSize}`
             ].join(' ')}
         />

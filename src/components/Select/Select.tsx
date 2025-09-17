@@ -40,7 +40,7 @@ const Select = function ({
         <>
             <label className="ds_label" htmlFor={id}>{label}</label>
             {hintText && <HintText id={hintTextId} text={hintText} />}
-            {errorMessage && <ErrorMessage id={errorMessageId} text={errorMessage}/>}
+            {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
             <div
                 className={[
                     "ds_select-wrapper",

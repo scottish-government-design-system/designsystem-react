@@ -56,11 +56,6 @@ const Search = ({
 
 const SiteHeader = ({
     children,
-    logo = {},
-    navigationItems,
-    phaseBanner,
-    siteSearch,
-    siteTitle,
     ...props
 }: SGDS.Component.SiteHeader) => {
     const mobileMenuRef = useRef(null);
@@ -108,8 +103,8 @@ const SiteHeader = ({
                             <div className="ds_site-header__controls">
                                 <label aria-controls="mobile-navigation" className="ds_site-header__control  js-toggle-menu" htmlFor="menu">
                                     <span className="ds_site-header__control-text">Menu</span>
-                                    <Icon fill className="ds_site-header__control-icon" icon="Menu" aria-hidden="true" />
-                                    <Icon fill className="ds_site-header__control-icon  ds_site-header__control-icon--active-icon" icon="Close" aria-hidden="true" />
+                                    <Icon isFilled className="ds_site-header__control-icon" icon="Menu" aria-hidden="true" />
+                                    <Icon isFilled className="ds_site-header__control-icon  ds_site-header__control-icon--active-icon" icon="Close" aria-hidden="true" />
                                 </label>
                             </div>
 

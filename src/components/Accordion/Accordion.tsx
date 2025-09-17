@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useRef } from 'react';
+import React, { createContext, useContext, useEffect, useRef, useId } from 'react';
 import WrapperTag from '../../common/WrapperTag';
 // @ts-ignore
 import DSAccordion from '@scottish-government/design-system/src/components/accordion/accordion';
@@ -10,19 +10,14 @@ const AccordionItem = ({
     children,
     className,
     id: rawId,
-    open = false,
+    isOpen = false,
     title,
     ...props
 }: SGDS.Component.Accordion.Item) => {
     accordionItemCounter = accordionItemCounter + 1;
-    const processedId = rawId || `accordion-item-${accordionItemCounter}`;
-    const DEFAULT_HEADING_LEVEL = 'h3';
+    const processedId = rawId || `accordion-item-${useId()}`;
 
     let headingLevel = useContext(AccordionHeadingLevelContext);
-
-    if (!['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(headingLevel)) {
-        headingLevel = DEFAULT_HEADING_LEVEL;
-    }
 
     return (
         <div
@@ -39,7 +34,7 @@ const AccordionItem = ({
                     'ds_accordion-item__control',
                     'visually-hidden'
                 ].join(' ')}
-                defaultChecked={open}
+                defaultChecked={isOpen}
                 id={`${processedId}-control`}
                 type="checkbox"
             />

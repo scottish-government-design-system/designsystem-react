@@ -2,7 +2,7 @@ declare namespace SGDS.Component {
     namespace Pagination {
         interface Page extends React.AllHTMLAttributes<HTMLElement> {
             ariaLabel: React.AriaAttributes['aria-label'],
-            current?: boolean,
+            isCurrent?: boolean,
             href: string,
             linkComponent?: SGDS.LinkComponent,
             onClick?: React.EventHandler<any>

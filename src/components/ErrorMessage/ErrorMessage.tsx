@@ -2,7 +2,6 @@ const ErrorMessage = ({
     children,
     className,
     id,
-    text,
     ...props
 }: SGDS.Component.ErrorMessage) => {
     return (
@@ -14,7 +13,6 @@ const ErrorMessage = ({
             id={id}
             {...props}
         >
-            {text}
             {children}
         </p>
     );

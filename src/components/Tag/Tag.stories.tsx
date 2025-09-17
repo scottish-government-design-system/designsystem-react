@@ -5,14 +5,11 @@ import Tag from './Tag';
 const meta = {
     title: 'Components/Tag',
     component: Tag,
-    parameters: {
-        layout: 'centered',
-    },
-    tags: ['autodocs'],
     argTypes: {
         colour: {
-            options: ['', 'blue', 'green', 'grey', 'orange', 'pink', 'purple', 'red', 'teal', 'yellow'],
             control: { type: 'select' },
+            description: 'The tag colour to use',
+            options: ['', 'blue', 'green', 'grey', 'orange', 'pink', 'purple', 'red', 'teal', 'yellow'],
             type: 'string'
         },
     },
@@ -23,6 +20,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        title: 'Status',
+        children: 'Status',
     },
 };

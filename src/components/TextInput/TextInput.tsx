@@ -13,7 +13,7 @@ const TextInput = ({
     className,
     countThreshold,
     width,
-    currency,
+    isCurrency,
     currencySymbol,
     errorMessage,
     hasButton = false,
@@ -33,7 +33,7 @@ const TextInput = ({
     const errorMessageId = `error-message-${id}`;
     const hintTextId = `hint-text-${id}`;
     const ref = useRef(null);
-    const inputWrapperClasses = `${hasButton ? 'ds_input__wrapper  ds_input__wrapper--has-icon' : ''} ${currency ? 'ds_currency-wrapper' : ''}`;
+    const inputWrapperClasses = `${hasButton ? 'ds_input__wrapper  ds_input__wrapper--has-icon' : ''} ${isCurrency ? 'ds_currency-wrapper' : ''}`;
     const describedbys: string[] = [];
 
     if (hintText) { describedbys.push(hintTextId) };
@@ -64,9 +64,9 @@ const TextInput = ({
         >
             <label className="ds_label" htmlFor={id}>{label}</label>
             {hintText && <HintText id={hintTextId} text={hintText} />}
-            {errorMessage && <ErrorMessage id={errorMessageId} text={errorMessage}/>}
+            {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
             <ConditionalWrapper
-                condition={hasButton || typeof currency !== 'undefined' && currency}
+                condition={hasButton || typeof isCurrency !== 'undefined' && isCurrency}
                 wrapper={(children: React.JSX.Element) => <div className={inputWrapperClasses} data-symbol={currencySymbol}>{children}</div>}
             >
                 <input
@@ -88,7 +88,7 @@ const TextInput = ({
                     type={type}
                     {...props}
                 />
-                {hasButton && (buttonText || buttonIcon) && <Button iconOnly icon={buttonIcon}>{buttonText}</Button>}
+                {hasButton && (buttonText || buttonIcon) && <Button isIconOnly icon={buttonIcon}>{buttonText}</Button>}
             </ConditionalWrapper>
         </ConditionalWrapper>
     );

@@ -1,13 +1,13 @@
 const Item = ({
     children,
-    current = false,
+    isCurrent = false,
     href,
     linkComponent
 }: SGDS.Component.SiteNavigation.Item) => {
     const classNames = ['ds_site-navigation__link'];
     let ariaCurrent: React.AriaAttributes["aria-current"];
 
-    if (current) {
+    if (isCurrent) {
         classNames.push('ds_current');
         ariaCurrent = 'page';
     }

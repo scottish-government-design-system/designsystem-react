@@ -52,7 +52,7 @@ test('max-width button', () => {
 
 test('small button', () => {
     render(
-        <Button small>Button text</Button>
+        <Button isSmall>Button text</Button>
     );
 
     const button = screen.getByRole('button');
@@ -73,7 +73,7 @@ test('button with icon', () => {
 
 test('button with icon (left)', () => {
     render(
-        <Button icon="ChevronLeft" iconLeft>Button text</Button>
+        <Button icon="ChevronLeft" isIconLeft>Button text</Button>
     );
 
     const button = screen.getByRole('button');
@@ -83,7 +83,7 @@ test('button with icon (left)', () => {
 
 test('button only icon', () => {
     render(
-        <Button icon="Search" iconOnly>Button text</Button>
+        <Button icon="Search" isIconOnly>Button text</Button>
     );
 
     const button = screen.getByRole('button');
@@ -106,7 +106,7 @@ test('link styled as button', () => {
 
 test('button styled as link', () => {
     render(
-        <Button styleAsLink>Button text</Button>
+        <Button hasLinkStyle>Button text</Button>
     );
 
     const button = screen.getByRole('button');

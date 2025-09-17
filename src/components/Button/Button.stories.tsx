@@ -4,13 +4,23 @@ import Button from './Button';
 const meta = {
     title: 'Components/Button',
     component: Button,
-    parameters: { controls: { sort: 'alpha' } },
-    tags: ['autodocs'],
+    parameters: {
+        controls: { sort: 'alpha' }
+    },
     argTypes: {
         buttonStyle: {
             options: ['primary', 'secondary'],
             control: { type: 'radio' },
             type: 'string'
+        },
+        hasLinkStyle: {
+            description: 'Make the button look like a link',
+            control: 'boolean',
+            table: {
+                type: {
+                    summary: 'boolean'
+                }
+            }
         },
         href: {
             control: { type: 'text' },
@@ -27,7 +37,7 @@ const meta = {
             control: { type: 'select' },
             type: 'string'
         },
-        iconLeft: {
+        isIconLeft: {
             description: 'Show icon on left of button',
             control: 'boolean',
             table: {
@@ -36,7 +46,7 @@ const meta = {
                 }
             }
         },
-        iconOnly: {
+        isIconOnly: {
             description: 'Show only the icon',
             control: 'boolean',
             table: {
@@ -45,16 +55,7 @@ const meta = {
                 }
             }
         },
-        small: {
-            control: 'boolean',
-            table: {
-                type: {
-                    summary: 'boolean'
-                }
-            }
-        },
-        styleAsLink: {
-            description: 'Make the button look like a link',
+        isSmall: {
             control: 'boolean',
             table: {
                 type: {
@@ -92,7 +93,7 @@ export const Secondary: Story = {
 
 export const SmallButton: Story = {
     args: {
-        small: true
+        isSmall: true
     }
 }
 
@@ -121,8 +122,8 @@ export const WithIcon: Story = {
     parameters: {
         controls: {
             exclude: [
-                'iconOnly',
-                'styleAsLink'
+                'isIconOnly',
+                'hasLinkStyle'
             ]
         }
     }
@@ -131,13 +132,13 @@ export const WithIcon: Story = {
 export const IconOnLeft: Story = {
     args: {
         icon: 'Search',
-        iconLeft: true
+        isIconLeft: true
     },
     parameters: {
         controls: {
             exclude: [
-                'iconOnly',
-                'styleAsLink'
+                'isIconOnly',
+                'hasLinkStyle'
             ]
         }
     }
@@ -146,13 +147,13 @@ export const IconOnLeft: Story = {
 export const IconOnly: Story = {
     args: {
         icon: 'Search',
-        iconOnly: true
+        isIconOnly: true
     },
     parameters: {
         controls: {
             exclude: [
-                'iconLeft',
-                'styleAsLink',
+                'isIconLeft',
+                'hasLinkStyle',
                 'width'
             ]
         }
@@ -166,7 +167,7 @@ export const LinkStyledAsButton: Story = {
     parameters: {
         controls: {
             exclude: [
-                'styleAsLink',
+                'hasLinkStyle',
                 'type'
             ]
         }
@@ -175,16 +176,16 @@ export const LinkStyledAsButton: Story = {
 
 export const ButtonStyledAsLink: Story = {
     args: {
-        styleAsLink: true
+        hasLinkStyle: true
     },
     parameters: {
         controls: {
             exclude: [
                 'buttonStyle',
                 'icon',
-                'iconLeft',
-                'iconOnly',
-                'small',
+                'isIconLeft',
+                'isIconOnly',
+                'isSmall',
                 'type',
                 'width'
             ]

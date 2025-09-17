@@ -1,43 +1,43 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import argTypes from '../../../.storybook/sgdsArgTypes';
+
 import DatePicker from './DatePicker';
 
 const meta = {
     title: 'Components/Date picker',
     component: DatePicker,
-    tags: ['autodocs'],
     argTypes: {
         dateSelectCallback: {},
-        disabledDates: {control: { type: 'text' }},
-        error: {
-            control: 'boolean'
+        disabledDates: {
+            control: { type: 'text' },
+            description: 'Space-separated list of dates to disable in the date picker'
         },
-        errorMessage: {control: { type: 'text' }},
-        hintText: {control: { type: 'text' }},
-        id: {control: { type: 'text' }},
-        iconPath: {control: { type: 'text' }},
-        label: {
-            control: { type: 'text' }
-        },
+        hasError: argTypes.hasError(),
+        errorMessage: argTypes.errorMessage(),
+        hintText: argTypes.hintText(),
+        id: argTypes.id(),
+        label: argTypes.label(),
         maxDate: {
-            control: { type: 'text' }
+            control: { type: 'text' },
+            description: 'Latest selectable date in the date picker'
         },
         minDate: {
-            control: { type: 'text' }
+            control: { type: 'text' },
+            description: 'Earliest selectable date in the date picker'
         },
         multiple: {
-            control: 'boolean'
+            control: 'boolean',
+            description: 'Whether to display the day, month and year as separate fields'
         },
         name: {
             control: { type: 'text' }
         },
-        onBlur: {},
-        onChange: {},
+        onBlur: argTypes.onBlur(),
+        onChange: argTypes.onChange(),
         value: {
             control: { type: 'text' }
         },
-        width: {
-            control: { type: 'text' }
-        }
+        width: argTypes.inputWidth()
     },
     args: {
         label: 'Date of birth',
@@ -49,7 +49,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+};
 
+export const InitialValue: Story = {
+    args: {
+        value: '01/12/2020'
+    }
 };
 
 export const HintText: Story = {
@@ -60,7 +65,7 @@ export const HintText: Story = {
 
 export const Error: Story = {
     args: {
-        error: true,
+        hasError: true,
         errorMessage: 'Please enter a valid date.'
     }
 };
@@ -71,6 +76,13 @@ export const Multiple: Story = {
     }
 };
 
+export const MultipleInitialValue: Story = {
+    args: {
+        multiple: true,
+        value: '01/12/2020'
+    }
+};
+
 export const DateRestrictions: Story = {
     args: {
         disabledDates: '12/07/2025 13/07/2025 19/07/2025 20/07/2025',
@@ -78,3 +90,24 @@ export const DateRestrictions: Story = {
         minDate: '07/07/2025'
     }
 };
+
+export const Blur: Story = {
+    args: {
+        onBlur: () => {console.log('date picker blur')}
+    },
+    play: async ({ canvas, userEvent }) => {
+        await userEvent.click(canvas.getByRole('textbox'));
+        await userEvent.tab();
+    }
+}
+
+export const Change: Story = {
+    args: {
+        onChange: () => {console.log('date picker change')}
+    },
+    play: async ({ canvas, userEvent }) => {
+        await userEvent.click(canvas.getByRole('textbox'));
+        await userEvent.type(canvas.getByRole('textbox'),'01/12/2020');
+        await userEvent.tab();
+    }
+}

@@ -6,10 +6,10 @@ import DSNotificationBanner from '@scottish-government/design-system/src/compone
 const NotificationBanner = ({
     children,
     className,
-    close,
     hasColourIcon,
+    hasIcon,
     hasInverseIcon,
-    icon,
+    isDismissable,
     title,
     ...props
 }: SGDS.Common.AbstractNotificationBanner) => {
@@ -27,8 +27,8 @@ const NotificationBanner = ({
                 'ds_reversed',
                 className
             ].join(' ')}
-            close={close}
-            icon={icon ? "PriorityHigh" : undefined}
+            isDismissable={isDismissable}
+            icon={hasIcon ? "PriorityHigh" : undefined}
             hasColourIcon={hasColourIcon}
             hasInverseIcon={hasInverseIcon}
             ref={ref}

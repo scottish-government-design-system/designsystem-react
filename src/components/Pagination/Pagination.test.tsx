@@ -54,7 +54,7 @@ test('current pagination page', () => {
         <Page
             ariaLabel={PAGE_ARIA_LABEL}
             href={PAGE_HREF}
-            current
+            isCurrent
         >{PAGE_LABEL}</Page>
     );
 

@@ -18,7 +18,7 @@ const SideNavigationList = function ({
 const SideNavigationItem = function ({
     children,
     href,
-    current = false,
+    isCurrent = false,
     linkComponent,
     title
 }: SGDS.Component.SideNavigation.Item) {
@@ -31,7 +31,7 @@ const SideNavigationItem = function ({
                 children && 'ds_side-navigation__item--has-children'
             ].join(' ')}
         >
-            {current ?
+            {isCurrent ?
                 <span className={LINK_CLASS + ' ds_current'}>{title}</span> :
                 linkComponent ? linkComponent({ className: LINK_CLASS, href, children: title }) :
                 <a href={href} className={LINK_CLASS}>{title}</a>

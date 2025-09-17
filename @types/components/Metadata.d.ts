@@ -6,6 +6,6 @@ declare namespace SGDS.Component {
     }
 
     interface Metadata extends React.AllHTMLAttributes<HTMLDListElement> {
-        inline?: boolean
+        isInline?: boolean
     }
 }

@@ -4,9 +4,9 @@ import { CheckboxRadioContext } from '../../utils/context';
 const RadioGroup = ({
     children,
     className,
-    inline,
+    isInline,
+    isSmall,
     name,
-    small = false,
     ...props
 }: SGDS.Component.RadioButton.Group) => {
     return (
@@ -14,12 +14,12 @@ const RadioGroup = ({
             className={[
                 'ds_radios',
                 'ds_field-group',
-                inline && 'ds_field-group--inline',
+                isInline && 'ds_field-group--inline',
                 className
             ].join(' ')}
             {...props}
         >
-            <CheckboxRadioContext value={{ small, name }}>
+            <CheckboxRadioContext value={{ isSmall: !!isSmall, name }}>
                 {children}
             </CheckboxRadioContext>
         </div>

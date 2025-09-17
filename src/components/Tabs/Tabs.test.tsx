@@ -1,7 +1,6 @@
 import { test, expect } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import Tabs from './Tabs';
-import slugify from '../../utils/slugify';
 
 test('tab container renders correctly', () => {
     render(
@@ -62,13 +61,12 @@ test('tab container renders correctly', () => {
     //expect(tabPanelOne.tabIndex).toEqual(0);
 
     // tab panels have ID
-    expect(tabPanelOne).toHaveAttribute('id');
-    expect(tabPanelTwo).toHaveAttribute('id');
+    expect(tabPanelOne.id).not.toEqual(tabPanelTwo.id);
 });
 
 test('non-bordered tabs', () => {
     render(
-        <Tabs data-testid="tabcontainer" bordered={false}>
+        <Tabs data-testid="tabcontainer" isBorderless>
             <Tabs.Item tabLabel="Tab 1" data-testid="tabpanel1">
                 <div data-testid="tabpanel1content">Content one</div>
             </Tabs.Item>
@@ -146,8 +144,8 @@ test('custom baseID', () => {
     // default title slugified to part of the ID
     expect(tabHeading).toHaveAttribute('id', `${BASE_ID}-heading`);
     // generated IDs using the slug of the tab title
-    expect(tabPanelOne).toHaveAttribute('id', `${BASE_ID}-tab-1`);
-    expect(tabPanelTwo).toHaveAttribute('id', `${BASE_ID}-tab-2`);
+    expect(tabPanelOne.id.indexOf(BASE_ID)).toBeGreaterThan(-1);
+    expect(tabPanelTwo.id.indexOf(BASE_ID)).toBeGreaterThan(-1);
 });
 
 test('tab with and without specific ID attribute', () => {
@@ -169,13 +167,13 @@ test('tab with and without specific ID attribute', () => {
     const tabPanelOne = screen.getByTestId('tabpanel1');
     const tabPanelTwo = screen.getByTestId('tabpanel2');
 
-    expect(tabPanelOne).toHaveAttribute('id', `${BASE_ID}-${slugify(TAB_LABEL)}`);
+    expect(tabPanelOne).toHaveAttribute('id');
     expect(tabPanelTwo).toHaveAttribute('id', TAB_ID);
 });
 
 test('with manual activation', () => {
     render(
-        <Tabs data-testid="tabcontainer" manual>
+        <Tabs data-testid="tabcontainer" isManual>
             <Tabs.Item title="Tab 1" data-testid="tabpanel1">
                 <div data-testid="tabpanel1content">Content one</div>
             </Tabs.Item>

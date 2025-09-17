@@ -34,7 +34,7 @@ test('checked checkbox', () => {
 
 test('exclusive checkbox', () => {
     render(
-        <Checkbox exclusive label="Pension Credit" id="pensioncredit" />
+        <Checkbox isExclusive label="Pension Credit" id="pensioncredit" />
     );
 
     const checkbox = screen.getByRole('checkbox');
@@ -88,7 +88,7 @@ test('checkbox with hint text', () => {
 
 test('small checkbox', () => {
     render(
-        <Checkbox small label="Pension Credit" id="pensioncredit" />
+        <Checkbox isSmall label="Pension Credit" id="pensioncredit" />
     );
 
     const checkbox = screen.getByRole('checkbox');

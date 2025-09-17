@@ -7,7 +7,7 @@ import DSCheckboxes from '@scottish-government/design-system/src/forms/checkbox/
 export const CheckboxGroup = ({
     children,
     className,
-    small = false,
+    isSmall,
     ...props
 }: SGDS.Component.Checkbox.Group) => {
     const ref = useRef(null);
@@ -29,7 +29,7 @@ export const CheckboxGroup = ({
             ref={ref}
             {...props}
         >
-            <CheckboxRadioContext value={{small, name: ''}}>
+            <CheckboxRadioContext value={{isSmall: !!isSmall, name: ''}}>
                 {children}
             </CheckboxRadioContext>
         </div>
