@@ -9,7 +9,7 @@ const ScreenReaderText_1 = __importDefault(require("./ScreenReaderText"));
 const Buttons = ({ children }) => {
     return (<>{children}</>);
 };
-const AbstractNotificationBanner = ({ children, className, close, hasColourIcon, hasInverseIcon, icon, title = 'Information', ...props }) => {
+const AbstractNotificationBanner = ({ children, className, hasColourIcon, hasInverseIcon, icon, isDismissable, title = 'Information', ...props }) => {
     let content = [];
     let buttons;
     react_1.Children.forEach(children, (child) => {
@@ -28,7 +28,7 @@ const AbstractNotificationBanner = ({ children, className, close, hasColourIcon,
             <div className="ds_wrapper">
                 <div className={[
             'ds_notification__content',
-            close && 'ds_notification__content--has-close'
+            isDismissable && 'ds_notification__content--has-close'
         ].join(' ')}>
                     <h2 className="visually-hidden">{title}</h2>
 
@@ -45,10 +45,10 @@ const AbstractNotificationBanner = ({ children, className, close, hasColourIcon,
                         {content}
                     </div>
 
-                    {close &&
+                    {isDismissable &&
             <button type="button" className="ds_notification__close js-close-notification">
                             <ScreenReaderText_1.default>Close this notification</ScreenReaderText_1.default>
-                            <Icon_1.default fill icon="Close" aria-hidden="true"/>
+                            <Icon_1.default isFilled icon="Close" aria-hidden="true"/>
                         </button>}
 
                     {buttons &&

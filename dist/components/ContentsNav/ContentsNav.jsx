@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
-const ContentsNavItem = ({ children, current, href, linkComponent }) => {
+const ContentsNavItem = ({ children, isCurrent, href, linkComponent }) => {
     const classNames = ['ds_contents-nav__link'];
     let ariaCurrent;
-    if (current) {
+    if (isCurrent) {
         classNames.push('ds_current');
         ariaCurrent = 'page';
     }

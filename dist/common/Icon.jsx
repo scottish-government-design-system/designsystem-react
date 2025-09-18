@@ -38,12 +38,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const Icons = __importStar(require("../images/icons"));
-const Icon = ({ ariaLabel, className, fill, icon, iconSize }) => {
+const Icon = ({ ariaLabel, className, isFilled, icon, iconSize }) => {
     const IconComponent = Icons[icon];
     return (<IconComponent aria-hidden={ariaLabel ? undefined : true} aria-label={ariaLabel} className={[
             'ds_icon',
             className,
-            fill && 'ds_icon--fill',
+            isFilled && 'ds_icon--fill',
             iconSize && `ds_icon--${iconSize}`
         ].join(' ')}/>);
 };

@@ -35,7 +35,7 @@ const DatePicker = ({ className, dateSelectCallback, disabledDates, errorMessage
         ].join(' ')} data-disableddates={disabledDates} data-maxdate={maxDate} data-mindate={minDate} data-module="ds-datepicker" ref={ref} {...props}>
             {(multiple ? (<fieldset className="ds_datepicker__input-wrapper">
                     <legend>{label}</legend>
-                    {errorMessage && <ErrorMessage_1.default text={errorMessage}/>}
+                    {errorMessage && <ErrorMessage_1.default>{errorMessage}</ErrorMessage_1.default>}
                     <div>
                         <TextInput_1.default className="js-datepicker-date" hasError={!!hasError} id={id + "-day"} hintText={hintText} label="Day" name={name + "-day"} onBlur={handleBlur} onChange={handleChange} value={value?.split('/')[0]} width="fixed-2"/>
                     </div>

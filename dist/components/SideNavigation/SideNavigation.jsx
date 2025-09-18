@@ -11,13 +11,13 @@ const SideNavigationList = function ({ children, isRoot }) {
             {children}
         </ul>);
 };
-const SideNavigationItem = function ({ children, href, current = false, linkComponent, title }) {
+const SideNavigationItem = function ({ children, href, isCurrent = false, linkComponent, title }) {
     const LINK_CLASS = 'ds_side-navigation__link';
     return (<li className={[
             'ds_side-navigation__item',
             children && 'ds_side-navigation__item--has-children'
         ].join(' ')}>
-            {current ?
+            {isCurrent ?
             <span className={LINK_CLASS + ' ds_current'}>{title}</span> :
             linkComponent ? linkComponent({ className: LINK_CLASS, href, children: title }) :
                 <a href={href} className={LINK_CLASS}>{title}</a>}

@@ -14,7 +14,7 @@ const Question = function ({ children, className, errorMessage, hasError, hintTe
         ].join(' ')} {...props}>
             {legend && <legend>{legend}</legend>}
             {hintText && <HintText_1.default text={hintText}/>}
-            {hasError && errorMessage && <ErrorMessage_1.default text={errorMessage}/>}
+            {hasError && errorMessage && <ErrorMessage_1.default>{errorMessage}</ErrorMessage_1.default>}
             {children}
         </WrapperTag_1.default>);
 };

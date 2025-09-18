@@ -5,16 +5,16 @@ const MetadataItem = ({ children, className, name, ...props }) => {
             'ds_metadata__item',
             className
         ].join(' ')} {...props}>
-            <dt className="ds_metadata__key">{name}</dt>{' '}
+            <dt className="ds_metadata__key">{name}</dt>
             <dd className="ds_metadata__value">
-                {children}
+                {children}{' '}
             </dd>
         </div>);
 };
-const Metadata = ({ children, className, inline, ...props }) => {
+const Metadata = ({ children, className, isInline, ...props }) => {
     return (<dl className={[
             'ds_metadata',
-            inline && 'ds_metadata--inline',
+            isInline && 'ds_metadata--inline',
             className
         ].join(' ')} {...props}>
             {children}

@@ -74,10 +74,10 @@ const Item = ({ children, title }) => {
 const Value = ({ children }) => {
     return (<q className="ds_summary-list__answer">{children}</q>);
 };
-const SummaryList = ({ children, className, noBorder, ...props }) => {
+const SummaryList = ({ children, className, isBorderless, ...props }) => {
     return (<ol className={[
             'ds_summary-list',
-            noBorder && 'ds_summary-list--no-border',
+            isBorderless && 'ds_summary-list--no-border',
             className
         ].join(' ')} {...props}>
            {children}
@@ -89,5 +89,5 @@ SummaryList.Value = Value;
 SummaryList.displayName = 'SummaryList';
 SummaryList.Action.displayName = 'SummaryList.Action';
 Item.displayName = 'SummaryList.Item';
-Value.displayName = 'SumaryList.Value';
+Value.displayName = 'SummaryList.Value';
 exports.default = SummaryList;

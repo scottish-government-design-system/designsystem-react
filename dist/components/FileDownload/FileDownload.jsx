@@ -5,12 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const FileIcon_1 = __importDefault(require("../../common/FileIcon"));
-const FileDownload = ({ className, cover, highlighted, icon = 'Generic', fileSize, fileType, fileUrl, title, ...props }) => {
+const FileDownload = ({ className, cover, icon = 'Generic', isHighlighted, fileSize, fileType, fileUrl, title, ...props }) => {
     const hasMetadata = !!fileType || !!fileSize;
     const metaContainerId = `file-download-${(0, react_1.useId)()}`;
     return (<div className={[
             'ds_file-download',
-            highlighted && 'ds_file-download--highlighted',
+            isHighlighted && 'ds_file-download--highlighted',
             className
         ].join(' ')} {...props}>
             <div className="ds_file-download__thumbnail">

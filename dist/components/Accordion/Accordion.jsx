@@ -42,14 +42,10 @@ const WrapperTag_1 = __importDefault(require("../../common/WrapperTag"));
 const accordion_1 = __importDefault(require("@scottish-government/design-system/src/components/accordion/accordion"));
 let accordionItemCounter = 0;
 const AccordionHeadingLevelContext = (0, react_1.createContext)('h3');
-const AccordionItem = ({ children, className, id: rawId, open = false, title, ...props }) => {
+const AccordionItem = ({ children, className, id: rawId, isOpen = false, title, ...props }) => {
     accordionItemCounter = accordionItemCounter + 1;
-    const processedId = rawId || `accordion-item-${accordionItemCounter}`;
-    const DEFAULT_HEADING_LEVEL = 'h3';
+    const processedId = rawId || `accordion-item-${(0, react_1.useId)()}`;
     let headingLevel = (0, react_1.useContext)(AccordionHeadingLevelContext);
-    if (!['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(headingLevel)) {
-        headingLevel = DEFAULT_HEADING_LEVEL;
-    }
     return (<div className={[
             'ds_accordion-item',
             className
@@ -57,7 +53,7 @@ const AccordionItem = ({ children, className, id: rawId, open = false, title, ..
             <input aria-labelledby={`panel-${processedId}-heading`} className={[
             'ds_accordion-item__control',
             'visually-hidden'
-        ].join(' ')} defaultChecked={open} id={`${processedId}-control`} type="checkbox"/>
+        ].join(' ')} defaultChecked={isOpen} id={`${processedId}-control`} type="checkbox"/>
             <div className="ds_accordion-item__header">
                 <WrapperTag_1.default id={`panel-${processedId}-heading`} className="ds_accordion-item__title" tagName={headingLevel}>
                     {title}

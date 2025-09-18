@@ -40,7 +40,7 @@ const Textarea = ({ className, countThreshold, errorMessage, hasError, hintText,
     return (<ConditionalWrapper_1.default condition={typeof maxlength !== 'undefined' && maxlength > 0} wrapper={(children) => <div ref={ref} data-threshold={countThreshold} data-module="ds-character-count">{children}</div>}>
             <label className="ds_label" htmlFor={id}>{label}</label>
             {hintText && <HintText_1.default id={hintTextId} text={hintText}/>}
-            {errorMessage && <ErrorMessage_1.default id={errorMessageId} text={errorMessage}/>}
+            {errorMessage && <ErrorMessage_1.default id={errorMessageId}>{errorMessage}</ErrorMessage_1.default>}
 
             <textarea aria-describedby={describedbys.join(' ')} aria-invalid={hasError} className={[
             'ds_input',

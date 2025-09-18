@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Item = ({ children, current = false, href, linkComponent }) => {
+const Item = ({ children, isCurrent = false, href, linkComponent }) => {
     const classNames = ['ds_site-navigation__link'];
     let ariaCurrent;
-    if (current) {
+    if (isCurrent) {
         classNames.push('ds_current');
         ariaCurrent = 'page';
     }

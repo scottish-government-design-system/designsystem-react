@@ -16,6 +16,6 @@ const SkipLinks = ({ children, mainContentId = 'main-content', mainLinkText = 'S
         </div>);
 };
 SkipLinks.displayName = 'SkipLinks';
-Link.displayName = 'SkipLink';
+Link.displayName = 'SkipLinks.Link';
 SkipLinks.Link = Link;
 exports.default = SkipLinks;

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const HintText_1 = __importDefault(require("../../common/HintText"));
 const context_1 = require("../../utils/context");
-const RadioButton = ({ checked, hintText, id, label, name, onBlur, onChange, small }) => {
+const RadioButton = ({ checked, hintText, id, isSmall, label, name, onBlur, onChange }) => {
     const hintTextId = `hint-text-${id}`;
     function handleBlur(event) {
         if (typeof onBlur === 'function') {
@@ -18,11 +18,11 @@ const RadioButton = ({ checked, hintText, id, label, name, onBlur, onChange, sma
             onChange(event);
         }
     }
-    small = small || (0, react_1.useContext)(context_1.CheckboxRadioContext).small;
+    isSmall = isSmall || (0, react_1.useContext)(context_1.CheckboxRadioContext).isSmall;
     name = name || (0, react_1.useContext)(context_1.CheckboxRadioContext).name;
     return (<div className={[
             'ds_radio',
-            small && 'ds_radio--small'
+            isSmall && 'ds_radio--small'
         ].join(' ')}>
             <input aria-describedby={hintText ? hintTextId : undefined} className="ds_radio__input" defaultChecked={!!checked} id={id} name={name} onBlur={handleBlur} onChange={handleChange} type="radio"/>
             <label className="ds_radio__label" htmlFor={id}>{label}</label>

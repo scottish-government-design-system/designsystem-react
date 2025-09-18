@@ -70,7 +70,7 @@ const Phase = ({ children }) => {
 const Search = ({ children }) => {
     return children;
 };
-const SiteHeader = ({ children, logo = {}, navigationItems, phaseBanner, siteSearch, siteTitle, ...props }) => {
+const SiteHeader = ({ children, ...props }) => {
     const mobileMenuRef = (0, react_1.useRef)(null);
     let branding;
     let navigation;
@@ -113,8 +113,8 @@ const SiteHeader = ({ children, logo = {}, navigationItems, phaseBanner, siteSea
                             <div className="ds_site-header__controls">
                                 <label aria-controls="mobile-navigation" className="ds_site-header__control  js-toggle-menu" htmlFor="menu">
                                     <span className="ds_site-header__control-text">Menu</span>
-                                    <Icon_1.default fill className="ds_site-header__control-icon" icon="Menu" aria-hidden="true"/>
-                                    <Icon_1.default fill className="ds_site-header__control-icon  ds_site-header__control-icon--active-icon" icon="Close" aria-hidden="true"/>
+                                    <Icon_1.default isFilled className="ds_site-header__control-icon" icon="Menu" aria-hidden="true"/>
+                                    <Icon_1.default isFilled className="ds_site-header__control-icon  ds_site-header__control-icon--active-icon" icon="Close" aria-hidden="true"/>
                                 </label>
                             </div>
 

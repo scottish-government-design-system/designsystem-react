@@ -41,7 +41,7 @@ const react_1 = __importStar(require("react"));
 const context_1 = require("../../utils/context");
 // @ts-ignore
 const checkboxes_1 = __importDefault(require("@scottish-government/design-system/src/forms/checkbox/checkboxes"));
-const CheckboxGroup = ({ children, className, small = false, ...props }) => {
+const CheckboxGroup = ({ children, className, isSmall, ...props }) => {
     const ref = (0, react_1.useRef)(null);
     (0, react_1.useEffect)(() => {
         if (ref.current) {
@@ -53,7 +53,7 @@ const CheckboxGroup = ({ children, className, small = false, ...props }) => {
             'ds_field-group',
             className
         ].join(' ')} data-module="ds-checkboxes" ref={ref} {...props}>
-            <context_1.CheckboxRadioContext value={{ small, name: '' }}>
+            <context_1.CheckboxRadioContext value={{ isSmall: !!isSmall, name: '' }}>
                 {children}
             </context_1.CheckboxRadioContext>
         </div>);

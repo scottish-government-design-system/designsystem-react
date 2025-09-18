@@ -40,11 +40,10 @@ const react_1 = __importStar(require("react"));
 const WrapperTag_1 = __importDefault(require("../../common/WrapperTag"));
 // @ts-ignore
 const tabs_1 = __importDefault(require("@scottish-government/design-system/src/components/tabs/tabs"));
-const slugify_1 = __importDefault(require("../../utils/slugify"));
-const TabItem = ({ bordered, children, className, id, tabLabel, ...props }) => {
+const TabItem = ({ isBorderless, children, className, id, tabLabel, ...props }) => {
     return (<div className={[
             'ds_tabs__content',
-            bordered && 'ds_tabs__content--bordered',
+            !isBorderless && 'ds_tabs__content--bordered',
             className
         ].join(' ')} id={id} {...props}>
             {children}
@@ -55,7 +54,7 @@ const TabListItem = ({ children, href }) => {
             <a className="ds_tabs__tab-link" href={href}>{children}</a>
         </li>);
 };
-const Tabs = ({ baseId = 'tabs', bordered = true, children, className, headingLevel = 'h2', manual = false, title = 'Contents', ...props }) => {
+const Tabs = ({ baseId = 'tabs', children, className, headingLevel = 'h2', isBorderless, isManual = false, title = 'Contents', ...props }) => {
     const ref = (0, react_1.useRef)(null);
     const headingId = `${baseId}-heading`;
     (0, react_1.useEffect)(() => {
@@ -67,8 +66,8 @@ const Tabs = ({ baseId = 'tabs', bordered = true, children, className, headingLe
         const thisChild = child;
         if (thisChild && thisChild.type === TabItem) {
             return react_1.default.cloneElement(thisChild, {
-                bordered: bordered,
-                id: thisChild.props.id || `${baseId}-${(0, slugify_1.default)(thisChild.props.tabLabel)}`,
+                isBorderless: !!isBorderless,
+                id: thisChild.props.id || `${baseId}-${(0, react_1.useId)()}`,
             });
         }
     });
@@ -79,7 +78,7 @@ const Tabs = ({ baseId = 'tabs', bordered = true, children, className, headingLe
     });
     return (<div className={[
             'ds_tabs',
-            manual && 'ds_tabs--manual',
+            isManual && 'ds_tabs--manual',
             className
         ].join(' ')} ref={ref} {...props}>
             <WrapperTag_1.default id={headingId} className="ds_tabs__title" tagName={headingLevel}>

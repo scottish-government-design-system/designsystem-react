@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Ellipsis = exports.Page = void 0;
 const Icon_1 = __importDefault(require("../../common/Icon"));
-const Page = ({ ariaLabel, children, className, current = false, href, linkComponent, onClick }) => {
+const Page = ({ ariaLabel, children, className, href, isCurrent = false, linkComponent, onClick }) => {
     function handleClick(event) {
         if (typeof onClick === 'function') {
             onClick(event);
@@ -15,14 +15,14 @@ const Page = ({ ariaLabel, children, className, current = false, href, linkCompo
         const classNames = [
             'ds_pagination__link',
             className,
-            current ? 'ds_current' : undefined
+            isCurrent ? 'ds_current' : undefined
         ].join(' ');
         const linkProps = {
             'aria-label': ariaLabel,
             href: href,
             onClick: handleClick
         };
-        if (current) {
+        if (isCurrent) {
             linkProps['aria-current'] = 'page';
         }
         if (linkComponent) {
@@ -94,7 +94,7 @@ const Pagination = ({ ariaLabel = 'Pages', className, onClick, padding = 1, page
                         <exports.Ellipsis />
                     </>)}
 
-                {pages && pages.map((item, index) => (<exports.Page ariaLabel={`Page ${item}`} href={pattern.replace('$1', String(item))} current={item === page} key={`pagination${index}`} linkComponent={linkComponent} onClick={onClick} pattern={pattern}>
+                {pages && pages.map((item, index) => (<exports.Page ariaLabel={`Page ${item}`} href={pattern.replace('$1', String(item))} isCurrent={item === page} key={`pagination${index}`} linkComponent={linkComponent} onClick={onClick} pattern={pattern}>
                         <span className="ds_pagination__link-label">{item.toString()}</span>
                     </exports.Page>))}
 
