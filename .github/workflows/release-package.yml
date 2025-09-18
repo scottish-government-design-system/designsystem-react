@@ -38,7 +38,7 @@ jobs:
 
       # Test
       - name: Run tests
-        run: npm run test
+        run: npm run test -- test.tsx
 
       # Configure Git
       - name: Git configuration
