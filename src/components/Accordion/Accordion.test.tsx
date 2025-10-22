@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { test, expect, vi } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import Accordion from './Accordion';
 
@@ -13,17 +13,17 @@ test('accordion renders correctly', () => {
 
     render(
         <Accordion id={ACCORDION_ID} data-testid={ACCORDION_ID}>
-            <Accordion.Item id="accordion-1" title="Healthcare for veterans">
+            <Accordion.Item id="accordion-1" heading="Healthcare for veterans">
                 <p>Veterans are entitled to the same healthcare as any citizen. And there
                     are health care options and support available specifically for veterans.</p>
                 <p>If you have a health condition that’s related to your service, you’re
                     entitled to priority treatment based on clinical need.</p>
             </Accordion.Item>
-            <Accordion.Item isOpen id="accordion-2" title="Employability for veterans">
+            <Accordion.Item isOpen id="accordion-2" heading="Employability for veterans">
                 <p>If you&apos;re looking for a job, there are several organisations that can help
                     you <a href="#accordion-link">find a job or develop new skills</a>.</p>
             </Accordion.Item>
-            <Accordion.Item id="accordion-3" title="Housing for veterans">
+            <Accordion.Item id="accordion-3" heading="Housing for veterans">
                 <p>If you need <a href="#accordion-link">help finding a place to live</a>{' '}
                     there&apos;s support specifically for veterans.</p>
             </Accordion.Item>
@@ -48,17 +48,17 @@ test('accordion renders correctly', () => {
 test('accordion without open all', () => {
     render(
         <Accordion id={ACCORDION_ID} data-testid={ACCORDION_ID} hideOpenAll>
-            <Accordion.Item id="accordion-1" title="Healthcare for veterans">
+            <Accordion.Item id="accordion-1" heading="Healthcare for veterans">
                 <p>Veterans are entitled to the same healthcare as any citizen. And there
                     are health care options and support available specifically for veterans.</p>
                 <p>If you have a health condition that’s related to your service, you’re
                     entitled to priority treatment based on clinical need.</p>
             </Accordion.Item>
-            <Accordion.Item id="accordion-2" title="Employability for veterans">
+            <Accordion.Item id="accordion-2" heading="Employability for veterans">
                 <p>If you&apos;re looking for a job, there are several organisations that can help
                     you <a href="#accordion-link">find a job or develop new skills</a>.</p>
             </Accordion.Item>
-            <Accordion.Item id="accordion-3" title="Housing for veterans">
+            <Accordion.Item id="accordion-3" heading="Housing for veterans">
                 <p>If you need <a href="#accordion-link">help finding a place to live</a>{' '}
                     there&apos;s support specifically for veterans.</p>
             </Accordion.Item>
@@ -86,7 +86,7 @@ test('accordion with custom heading level', () => {
 
     render(
         <Accordion id={ACCORDION_ID} data-testid={ACCORDION_ID} headingLevel={HEADING_LEVEL}>
-            <Accordion.Item id="accordion-1" title="Healthcare for veterans">
+            <Accordion.Item id="accordion-1" heading="Healthcare for veterans">
                 <p>Veterans are entitled to the same healthcare as any citizen. And there
                     are health care options and support available specifically for veterans.</p>
                 <p>If you have a health condition that’s related to your service, you’re
@@ -121,7 +121,7 @@ test('passing additional CSS classes', () => {
 
 test('accordion item renders correctly', () => {
     render(
-        <Accordion.Item id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} title={TITLE_TEXT}>
+        <Accordion.Item id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} heading={TITLE_TEXT}>
             <p>{CONTENT_TEXT}</p>
         </Accordion.Item>
     );
@@ -159,13 +159,13 @@ test('accordion item renders correctly', () => {
 test('accordion items without ID are given unique IDs', () => {
     render(
         <Accordion id={ACCORDION_ID} data-testid={ACCORDION_ID} hideOpenAll>
-            <Accordion.Item data-testid="item1" title="Healthcare for veterans">
+            <Accordion.Item data-testid="item1" heading="Healthcare for veterans">
                 <p>Veterans are entitled to the same healthcare as any citizen. And there
                     are health care options and support available specifically for veterans.</p>
                 <p>If you have a health condition that’s related to your service, you’re
                     entitled to priority treatment based on clinical need.</p>
             </Accordion.Item>
-            <Accordion.Item data-testid="item2" title="Employability for veterans">
+            <Accordion.Item data-testid="item2" heading="Employability for veterans">
                 <p>If you&apos;re looking for a job, there are several organisations that can help
                     you <a href="#accordion-link">find a job or develop new skills</a>.</p>
             </Accordion.Item>
@@ -182,7 +182,7 @@ test('accordion items without ID are given unique IDs', () => {
 
 test('open accordion item', () => {
     render(
-        <Accordion.Item isOpen id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} title={TITLE_TEXT}>
+        <Accordion.Item isOpen id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} heading={TITLE_TEXT}>
             <p>{CONTENT_TEXT}</p>
         </Accordion.Item>
     );
@@ -193,9 +193,43 @@ test('open accordion item', () => {
     expect(input).toHaveAttribute('checked');
 });
 
+test('small accordion item', () => {
+    render(
+        <Accordion isSmall data-testid={ACCORDION_ID}>
+            <Accordion.Item id={ACCORDION_ITEM_ID} heading={TITLE_TEXT}>
+                <p>{CONTENT_TEXT}</p>
+            </Accordion.Item>
+        </Accordion>
+    );
+
+    const accordionItem = screen.getByTestId(ACCORDION_ID);
+
+    expect(accordionItem).toHaveClass('ds_accordion--small');
+});
+
+test('deprecated title prop still works with warning', () => {
+    const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    render(
+        <Accordion.Item id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} title={TITLE_TEXT}>
+            <p>{CONTENT_TEXT}</p>
+        </Accordion.Item>
+    );
+
+    const header = document.querySelector('.ds_accordion-item__header');
+    const title = header?.querySelector('.ds_accordion-item__title');
+
+    expect(title?.textContent).toEqual(TITLE_TEXT);
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+        'Warning: Using the `title` prop for heading text on an Accordion.Item is deprecated and will be removed in a future release. Please use the `heading` prop instead.'
+    );
+
+    consoleWarnSpy.mockRestore();
+});
+
 test('passing additional props to accordion item', () => {
     render(
-        <Accordion.Item id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} title="Healthcare for veterans" data-test="foo">
+        <Accordion.Item id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} heading="Healthcare for veterans" data-test="foo">
             <p>Veterans are entitled to the same healthcare as any citizen. And there
                 are health care options and support available specifically for veterans.</p>
             <p>If you have a health condition that’s related to your service, you’re
@@ -209,7 +243,7 @@ test('passing additional props to accordion item', () => {
 
 test('passing additional CSS classes', () => {
     render(
-        <Accordion.Item id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} title="Healthcare for veterans" className="foo">
+        <Accordion.Item id={ACCORDION_ITEM_ID} data-testid={ACCORDION_ITEM_ID} heading="Healthcare for veterans" className="foo">
             <p>Veterans are entitled to the same healthcare as any citizen. And there
                 are health care options and support available specifically for veterans.</p>
             <p>If you have a health condition that’s related to your service, you’re

@@ -6,10 +6,17 @@ import Accordion from './Accordion';
 const meta = {
     title: 'Components/Accordion/Accordion.Item',
     component: Accordion.Item,
-    decorators: [(Story) => <div className="ds_accordion  js-initialised"><Story /></div>],
+    decorators: [(Story) => <div className="ds_accordion"><Story /></div>],
     argTypes: {
+        heading: {
+            description: 'Heading of the accordion item',
+            type: {
+                name: 'string',
+                required: true
+            }
+        },
         headingLevel: argTypes.headingLevel({
-            description: 'Heading level for the component\'s title. It is best to set this on the parent Accordion.'
+            description: 'Heading level for the component\'s heading. It is best to set this on the parent Accordion.'
         }),
         id: {
             description: 'ID to use for the accordion item if you want to override the automatically generated default',
@@ -19,19 +26,12 @@ const meta = {
             description: 'Makes the accordion item display in an open state on page load',
             control: 'boolean',
         },
-        title: {
-            description: 'Title of the accordion item',
-            type: {
-                name: 'string',
-                required: true
-            }
-        },
         children: {
             control: false
         }
     },
     args: {
-        title: 'Healthcare for veterans',
+        heading: 'Healthcare for veterans',
         children: <>
             <p>
                 Veterans are entitled to the same healthcare as any citizen. And there are health care options and support available specifically for veterans.

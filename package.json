@@ -13,7 +13,7 @@
     "coverage": "vitest test.tsx run --coverage",
     "svgr": "npx @svgr/cli node_modules/@scottish-government/design-system/src/images/icons/svg --config-file .svgrrc",
     "svgr_documents": "npx @svgr/cli node_modules/@scottish-government/design-system/src/images/documents/svg --config-file .svgrrc_documents",
-    "test": "vitest",
+    "test": "vitest test.tsx",
     "tsc": "node ./node_modules/typescript/bin/tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

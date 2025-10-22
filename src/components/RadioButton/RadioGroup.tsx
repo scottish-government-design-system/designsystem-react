@@ -6,7 +6,7 @@ const RadioGroup = ({
     className,
     isInline,
     isSmall,
-    name,
+    name = '',
     ...props
 }: SGDS.Component.RadioButton.Group) => {
     return (
@@ -19,7 +19,7 @@ const RadioGroup = ({
             ].join(' ')}
             {...props}
         >
-            <CheckboxRadioContext value={{ isSmall: !!isSmall, name }}>
+            <CheckboxRadioContext value={{ isSmall: !!isSmall, name}}>
                 {children}
             </CheckboxRadioContext>
         </div>

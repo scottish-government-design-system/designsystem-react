@@ -11,6 +11,7 @@ const AccordionItem = ({
     className,
     id: rawId,
     isOpen = false,
+    heading,
     title,
     ...props
 }: SGDS.Component.Accordion.Item) => {
@@ -18,6 +19,14 @@ const AccordionItem = ({
     const processedId = rawId || `accordion-item-${useId()}`;
 
     let headingLevel = useContext(AccordionHeadingLevelContext);
+
+    if (title) {
+        console.warn(
+            'Warning: Using the `title` prop for heading text on an Accordion.Item is deprecated and will be removed in a future release. Please use the `heading` prop instead.'
+        );
+
+        heading = heading || title;
+    }
 
     return (
         <div
@@ -44,7 +53,7 @@ const AccordionItem = ({
                     className="ds_accordion-item__title"
                     tagName={headingLevel}
                 >
-                    {title}
+                    {heading}
                 </WrapperTag>
                 <span className="ds_accordion-item__indicator" />
                 <label
@@ -66,6 +75,7 @@ const Accordion = ({
     className,
     headingLevel = 'h3',
     hideOpenAll,
+    isSmall,
     ...props
 }: SGDS.Component.Accordion) => {
     const ref = useRef(null);
@@ -84,6 +94,7 @@ const Accordion = ({
         <div
             className={[
                 'ds_accordion',
+                isSmall ? 'ds_accordion--small' : '',
                 className
             ].join(' ')}
             ref={ref}

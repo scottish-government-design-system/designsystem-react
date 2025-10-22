@@ -8,7 +8,7 @@ const meta = {
     component: Accordion,
     argTypes: {
         headingLevel: argTypes.headingLevel({
-            description: 'Heading level to use for the accordion items\' titles'
+            description: 'Heading level to use for the accordion items\' headings'
         }),
         hideOpenAll: {
             control: 'boolean',
@@ -21,7 +21,7 @@ const meta = {
     },
     args: {
         children: <>
-            <Accordion.Item id='accordion-1' title='Healthcare for veterans'>
+            <Accordion.Item id='accordion-1' heading='Healthcare for veterans'>
                 <p>
                     Veterans are entitled to the same healthcare as any citizen. And there are health care options and support available specifically for veterans.
                 </p>
@@ -29,12 +29,12 @@ const meta = {
                     If you have a health condition that's related to your service, you're entitled to priority treatment based on clinical need.
                 </p>
             </Accordion.Item>
-            <Accordion.Item id='accordion-2' title='Employability for veterans'>
+            <Accordion.Item id='accordion-2' heading='Employability for veterans'>
                 <p>
                     If you're looking for a job, there are several organisations that can help you <a href="#accordion-link">find a job or develop new skills</a>.
                 </p>
             </Accordion.Item>
-            <Accordion.Item id='accordion-3' title='Housing for veterans'>
+            <Accordion.Item id='accordion-3' heading='Housing for veterans'>
                 <p>
                     If you need <a href="#accordion-link"> help finding a place to live</a> there's support specifically for veterans.
                 </p>
