@@ -6,6 +6,13 @@ import SummaryCard from './SummaryCard';
 const meta = {
     title: 'Components/SummaryCard/SummaryCard.Action',
     component: SummaryCard.Action,
+    decorators: [
+        Story => (
+            <div className="ds_summary-card__header">
+                <Story />
+            </div>
+        )
+    ],
     argTypes: {
         href: argTypes.href(),
         onClick: argTypes.onClick(),

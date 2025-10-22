@@ -6,6 +6,7 @@ import Accordion from './Accordion';
 const meta = {
     title: 'Components/Accordion/Accordion.Item',
     component: Accordion.Item,
+    decorators: [(Story) => <div className="ds_accordion  js-initialised"><Story /></div>],
     argTypes: {
         headingLevel: argTypes.headingLevel({
             description: 'Heading level for the component\'s title. It is best to set this on the parent Accordion.'

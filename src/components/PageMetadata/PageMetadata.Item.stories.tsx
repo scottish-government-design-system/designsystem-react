@@ -6,6 +6,15 @@ import Metadata from './PageMetadata';
 const meta = {
     title: 'Components/PageMetadata/PageMetadata.Item',
     component: Metadata.Item,
+    decorators: [
+        Story => (
+            <Metadata>
+                <dl className="ds_page-metadata__list">
+                    <Story />
+                </dl>
+            </Metadata>
+        )
+    ],
     argTypes: {
         children: argTypes.children(),
         name: {

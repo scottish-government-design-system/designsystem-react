@@ -6,6 +6,13 @@ import TaskList from './TaskList';
 const meta = {
     title: 'Components/TaskList/TaskList.Item',
     component: TaskList.Item,
+    decorators: [
+        Story => (
+            <ul>
+                <Story />
+            </ul>
+        )
+    ],
     argTypes: {
         href: argTypes.href(),
         id: {

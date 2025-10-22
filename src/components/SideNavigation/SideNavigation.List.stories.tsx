@@ -6,6 +6,13 @@ import SideNavigation from './SideNavigation';
 const meta = {
     title: 'Components/SideNavigation/SideNavigation.List',
     component: SideNavigation.List,
+    decorators: [
+        Story => (
+            <nav className="ds_side-navigation">
+                <Story />
+            </nav>
+        )
+    ],
     argTypes: {
         isRoot: {
             description: 'Indicates that this is the root list in a nested structure. Required for mobile navigation.',

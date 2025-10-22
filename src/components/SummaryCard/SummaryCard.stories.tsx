@@ -9,6 +9,13 @@ const meta = {
     component: SummaryCard,
     argTypes: {
         headingLevel: argTypes.headingLevel(),
+        title: {
+            description: 'The title of the summary card',
+            type: {
+                name: 'string',
+                required: true
+            }
+        },
         children: argTypes.children()
     },
     args: {

@@ -8,8 +8,11 @@ const meta = {
     component: SummaryList.Value,
     argTypes: {
         name: {
-            description: 'Title of the summary list item',
-            type: 'string'
+            description: 'Name of the summary value',
+            type: {
+                name: 'string',
+                required: true
+            }
         },
         children: argTypes.children()
     },

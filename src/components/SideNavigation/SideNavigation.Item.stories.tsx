@@ -6,6 +6,15 @@ import SideNavigation from './SideNavigation';
 const meta = {
     title: 'Components/SideNavigation/SideNavigation.Item',
     component: SideNavigation.Item,
+    decorators: [
+        Story => (
+            <nav className="ds_side-navigation">
+                <ul className="ds_side-navigation__list">
+                    <Story />
+                </ul>
+            </nav>
+        )
+    ],
     argTypes: {
         href: argTypes.href(),
         isCurrent: argTypes.isCurrent(),

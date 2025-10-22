@@ -9,7 +9,10 @@ const meta = {
     argTypes: {
         tabLabel: {
             description: '',
-            type: 'string'
+            type: {
+                name: 'string',
+                required: true
+            }
         },
         children: argTypes.children()
     },

@@ -6,10 +6,20 @@ import SkipLinks from './SkipLinks';
 const meta = {
     title: 'Components/SkipLinks/SkipLinks.Link',
     component: SkipLinks.Link,
+    decorators: [
+        Story => (
+            <ul className="ds_skip-links">
+                <Story />
+            </ul>
+        )
+    ],
     argTypes: {
         fragmentId: {
             description: 'ID of the destination element',
-            type: 'string'
+            type: {
+                name: 'string',
+                required: true
+            }
         },
         children: argTypes.children()
     },

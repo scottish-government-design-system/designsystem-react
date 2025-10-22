@@ -6,6 +6,13 @@ import SiteFooter from './SiteFooter';
 const meta = {
     title: 'Components/SiteFooter/SiteFooter.License',
     component: SiteFooter.License,
+    decorators: [
+        Story => (
+            <nav className="ds_site-footer" style={{borderTop: 0}}>
+                <Story />
+            </nav>
+        )
+    ],
     argTypes: {
         children: argTypes.children()
     },

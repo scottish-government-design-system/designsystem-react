@@ -6,10 +6,25 @@ import SummaryList from './SummaryList';
 const meta = {
     title: 'Components/SummaryList/SummaryList.Item',
     component: SummaryList.Item,
+    decorators: [
+        Story => (
+            <ul>
+                <Story />
+            </ul>
+        )
+    ],
     argTypes: {
+        Title: {
+            description: 'Title of the summary list item.',
+            type: {
+                name: 'string',
+                required: true
+            }
+        },
         children: argTypes.children()
     },
     args: {
+        title: 'Contact details',
         children: [
             <SummaryList.Value name="Email">
                 email@gov.scot

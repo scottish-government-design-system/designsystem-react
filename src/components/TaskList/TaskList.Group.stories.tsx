@@ -6,6 +6,15 @@ import TaskList from './TaskList';
 const meta = {
     title: 'Components/TaskList/TaskList.Group',
     component: TaskList.Group,
+    decorators: [
+        Story => (
+            <div className="ds_task-list">
+                <ul>
+                    <Story />
+                </ul>
+            </div>
+        )
+    ],
     argTypes: {
         headingId: {
             description: 'ID of the task list\'s heading element',

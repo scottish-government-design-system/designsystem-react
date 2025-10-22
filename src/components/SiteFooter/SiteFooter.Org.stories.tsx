@@ -6,6 +6,13 @@ import SiteFooter from './SiteFooter';
 const meta = {
     title: 'Components/SiteFooter/SiteFooter.Org',
     component: SiteFooter.Org,
+    decorators: [
+        Story => (
+            <div className="ds_site-footer__content" style={{borderTop: 0}}>
+                <Story />
+            </div>
+        )
+    ],
     argTypes: {
         href: argTypes.href(),
         title: {

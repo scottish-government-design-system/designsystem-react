@@ -6,6 +6,13 @@ import ErrorSummary from './ErrorSummary';
 const meta = {
     title: 'Components/ErrorSummary/ErrorSummary.Item',
     component: ErrorSummary.Item,
+    decorators: [
+        Story => (
+            <ul className="ds_error-summary__list">
+                <Story />
+            </ul>
+        )
+    ],
     argTypes: {
         fragmentId: {
             description: 'ID of the question or field to link to',

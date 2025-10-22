@@ -6,8 +6,15 @@ import Breadcrumbs from './Breadcrumbs';
 const meta = {
     title: 'Components/Breadcrumbs/Breadcrumb.Item',
     component: Breadcrumbs.Item,
+    decorators: [
+        Story => (
+            <Breadcrumbs>
+                <Story />
+            </Breadcrumbs>
+        )
+    ],
     argTypes: {
-        href: argTypes.href(),
+        href: argTypes.href({type: {name: 'string', required: true}}),
         isHidden: {
             description: 'Applies a visually-hidden CSS class',
             control: 'boolean'

@@ -6,7 +6,15 @@ import ContentsNav from './ContentsNav';
 const meta = {
     title: 'Components/ContentsNav/ContentsNav.Item',
     component: ContentsNav.Item,
+    decorators: [
+        Story => (
+            <ul className="ds_contents-nav__list">
+                <Story />
+            </ul>
+        )
+    ],
     argTypes: {
+        href: argTypes.href({type: {name: 'string', required: true}}),
         isCurrent: argTypes.isCurrent(),
         linkComponent: argTypes.linkComponent(),
         children: argTypes.children()

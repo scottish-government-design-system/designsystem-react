@@ -7,7 +7,7 @@ const meta = {
     title: 'Components/SequentialNavigation/SequentialNavigation.Previous',
     component: SequentialNavigation.Previous,
     argTypes: {
-        href: argTypes.href(),
+        href: argTypes.href({type: {name: 'string', required: true}}),
         linkComponent: argTypes.linkComponent(),
         textLabel: {
             description: 'String to use for the label that precedes the link text',
