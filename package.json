@@ -1,7 +1,7 @@
 {
   "name": "@scottish-government/designsystem-react",
   "description": "A React/JSX implementation of the Scottish Government Design System",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "license": "MIT",
   "author": {
     "name": "Scottish Government Digital Design System team",
