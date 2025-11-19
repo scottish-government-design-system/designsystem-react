@@ -7,7 +7,7 @@ const react_1 = require("react");
 // @ts-ignore
 const character_count_1 = __importDefault(require("@scottish-government/design-system/src/forms/character-count/character-count"));
 const ConditionalWrapper_1 = __importDefault(require("../../common/ConditionalWrapper"));
-const ErrorMessage_1 = __importDefault(require("../ErrorMessage/ErrorMessage"));
+const ErrorMessage_1 = __importDefault(require("../ErrorMessage"));
 const HintText_1 = __importDefault(require("../../common/HintText"));
 const Textarea = ({ className, countThreshold, errorMessage, hasError, hintText, id, label, maxlength, name, onBlur, onChange, placeholder, rows = 4, value, ...props }) => {
     const errorMessageId = `error-message-${id}`;

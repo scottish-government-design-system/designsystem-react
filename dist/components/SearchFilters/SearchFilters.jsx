@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FilterPanel = void 0;
-const Accordion_1 = __importDefault(require("../Accordion/Accordion"));
-const Button_1 = __importDefault(require("../Button/Button"));
-const SkipLinks_1 = __importDefault(require("../SkipLinks/SkipLinks"));
+const Accordion_1 = __importDefault(require("../Accordion"));
+const Button_1 = __importDefault(require("../Button"));
+const SkipLinks_1 = __importDefault(require("../SkipLinks"));
 const ConditionalWrapper_1 = __importDefault(require("../../common/ConditionalWrapper"));
-const CheckboxGroup_1 = __importDefault(require("../Checkbox/CheckboxGroup"));
+const Checkbox_1 = require("../Checkbox");
 const FilterPanel = ({ activeFilterCount = 0, children, isScrollable = false, legend, heading = 'Filter', ...props }) => {
     const headingWithCount = <>
         {heading}
@@ -26,9 +26,9 @@ const FilterPanel = ({ activeFilterCount = 0, children, isScrollable = false, le
 };
 exports.FilterPanel = FilterPanel;
 const FilterCheckboxGroup = ({ children, ...props }) => {
-    return (<CheckboxGroup_1.default className="ds_search-filters__checkboxes" isSmall {...props}>
+    return (<Checkbox_1.CheckboxGroup className="ds_search-filters__checkboxes" isSmall {...props}>
             {children}
-        </CheckboxGroup_1.default>);
+        </Checkbox_1.CheckboxGroup>);
 };
 const Filters = ({ children, searchResultsContainerId = 'search-results', ...props }) => {
     return (<div className="ds_search-filters" {...props}>

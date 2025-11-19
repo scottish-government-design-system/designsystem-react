@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ErrorMessage_1 = __importDefault(require("../ErrorMessage/ErrorMessage"));
+const ErrorMessage_1 = __importDefault(require("../ErrorMessage"));
 const HintText_1 = __importDefault(require("../../common/HintText"));
 const Select = function ({ children, className, defaultValue, errorMessage, hasError, hintText, id, label, name, onBlur, onChange, placeholder, width, ...props }) {
     const errorMessageId = `error-message-${id}`;

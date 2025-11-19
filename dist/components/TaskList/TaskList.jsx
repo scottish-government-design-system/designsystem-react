@@ -7,7 +7,7 @@ const react_1 = require("react");
 const ConditionalWrapper_1 = __importDefault(require("../../common/ConditionalWrapper"));
 const HintText_1 = __importDefault(require("../../common/HintText"));
 const ScreenReaderText_1 = __importDefault(require("../../common/ScreenReaderText"));
-const Tag_1 = __importDefault(require("../Tag/Tag"));
+const Tag_1 = __importDefault(require("../Tag"));
 const TaskItem = ({ children, className, href, id, isComplete = false, linkComponent, statusText, tagColour = 'grey', title, ...props }) => {
     if (isComplete) {
         tagColour = 'green';

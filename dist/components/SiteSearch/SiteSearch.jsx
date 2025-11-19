@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 // @ts-ignore
 const autocomplete_1 = __importDefault(require("@scottish-government/design-system/src/components/autocomplete/autocomplete"));
-const Button_1 = __importDefault(require("../Button/Button"));
+const Button_1 = __importDefault(require("../Button"));
 const SiteSearch = function ({ action = '/search', autocompleteEndpoint, autocompleteSuggestionMappingFunction, className, id = 'site-search', method = 'GET', minLength = 3, name = 'q', placeholder = 'Search', ...props }) {
     const ref = (0, react_1.useRef)(null);
     const hasAutocomplete = !!autocompleteEndpoint;

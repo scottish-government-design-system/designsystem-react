@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const ConditionalWrapper_1 = __importDefault(require("../../common/ConditionalWrapper"));
-const AspectBox_1 = __importDefault(require("../AspectBox/AspectBox"));
-const PageMetadata_1 = __importDefault(require("../PageMetadata/PageMetadata"));
+const AspectBox_1 = __importDefault(require("../AspectBox"));
+const PageMetadata_1 = __importDefault(require("../PageMetadata"));
 const SearchResultLinkHrefContext = (0, react_1.createContext)('');
 const SearchResultContent = ({ children }) => {
     const otherChildren = [];

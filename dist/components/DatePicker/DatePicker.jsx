@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 // @ts-ignore
 const date_picker_1 = __importDefault(require("@scottish-government/design-system/src/components/date-picker/date-picker"));
-const ErrorMessage_1 = __importDefault(require("../ErrorMessage/ErrorMessage"));
-const TextInput_1 = __importDefault(require("../TextInput/TextInput"));
+const ErrorMessage_1 = __importDefault(require("../ErrorMessage"));
+const TextInput_1 = __importDefault(require("../TextInput"));
 const DatePicker = ({ className, dateSelectCallback, disabledDates, errorMessage, hasError, hintText, id, iconPath = './', label, maxDate, minDate, multiple, name, onBlur, onChange, value, width = 'fixed-10', ...props }) => {
     const ref = (0, react_1.useRef)(null);
     (0, react_1.useEffect)(() => {

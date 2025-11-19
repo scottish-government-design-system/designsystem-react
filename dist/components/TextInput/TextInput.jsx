@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 // @ts-ignore
 const character_count_1 = __importDefault(require("@scottish-government/design-system/src/forms/character-count/character-count"));
-const Button_1 = __importDefault(require("../Button/Button"));
+const Button_1 = __importDefault(require("../Button"));
 const ConditionalWrapper_1 = __importDefault(require("../../common/ConditionalWrapper"));
-const ErrorMessage_1 = __importDefault(require("../ErrorMessage/ErrorMessage"));
+const ErrorMessage_1 = __importDefault(require("../ErrorMessage"));
 const HintText_1 = __importDefault(require("../../common/HintText"));
 const TextInput = ({ buttonIcon, buttonText, children, className, countThreshold, width, isCurrency, currencySymbol, errorMessage, hasButton = false, hasError, hintText, id, label, maxlength, name, onBlur, onChange, placeholder, type = 'text', value, ...props }) => {
     const errorMessageId = `error-message-${id}`;

@@ -1,4 +1,3 @@
-'use client';
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
@@ -39,7 +38,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const Icon_1 = __importDefault(require("../../common/Icon"));
-const SiteNavigation_1 = __importDefault(require("../SiteNavigation/SiteNavigation"));
+const SiteNavigation_1 = __importDefault(require("../SiteNavigation"));
 // @ts-ignore
 const site_navigation_1 = __importDefault(require("@scottish-government/design-system/src/components/site-navigation/site-navigation"));
 const Brand = ({ children, homeUrl = '/', linkComponent, siteTitle }) => {

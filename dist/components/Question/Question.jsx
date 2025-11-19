@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const ErrorMessage_1 = __importDefault(require("../ErrorMessage/ErrorMessage"));
+const ErrorMessage_1 = __importDefault(require("../ErrorMessage"));
 const HintText_1 = __importDefault(require("../../common/HintText"));
 const WrapperTag_1 = __importDefault(require("../../common/WrapperTag"));
 const Question = function ({ children, className, errorMessage, hasError, hintText, legend, tagName = 'div', ...props }) {
