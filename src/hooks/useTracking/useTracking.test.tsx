@@ -6,7 +6,9 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import useTracking from './useTracking';
 
-const Link = ({ children }) => <a href="#">{children}</a>;
+const Link = ({ children }: {
+    children: React.ReactNode;
+}) => <a href="#">{children}</a>;
 
 const Links = () => {
     useTracking();
@@ -45,9 +47,7 @@ test('text tracking on component render', async () => {
 
     const button = screen.getByRole('button');
     const firstLink = screen.getByText('First link');
-
-    // todo: this will fail until the tracking script in DS core is updated to use textContent instead of innerText
-    // expect(firstLink).toHaveAttribute('data-section', SECTION_ONE_TEXT);
+    expect(firstLink).toHaveAttribute('data-section', SECTION_ONE_TEXT);
 
     fireEvent(
         button,
@@ -58,7 +58,5 @@ test('text tracking on component render', async () => {
     ));
 
     const secondLink = await screen.findByText('Second link')
-
-    // todo: this will fail until the tracking script in DS core is updated to use textContent instead of innerText
-    // expect(secondLink).toHaveAttribute('data-section', SECTION_TWO_TEXT);
+    expect(secondLink).toHaveAttribute('data-section', SECTION_TWO_TEXT);
 });

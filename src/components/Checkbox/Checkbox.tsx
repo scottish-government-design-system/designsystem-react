@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { CheckboxRadioContext } from '../../utils/context';
 
 import HintText from '../../common/HintText';
+import { CheckboxProps } from './types';
 
 const Checkbox = ({
     checked,
@@ -13,17 +14,17 @@ const Checkbox = ({
     name,
     onBlur,
     onChange
-}: SGDS.Component.Checkbox) => {
+}: CheckboxProps) => {
     const hintTextId = `hint-text-${id}`;
     const behaviour = isExclusive && 'exclusive';
 
-    function handleBlur(event: React.FocusEvent) {
+    function handleBlur(event: React.FocusEvent<HTMLInputElement>) {
         if (typeof onBlur === 'function') {
             onBlur(event);
         }
     }
 
-    function handleChange(event: React.ChangeEvent) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         if (typeof onChange === 'function') {
             onChange(event);
         }
@@ -54,7 +55,7 @@ const Checkbox = ({
                     className="ds_checkbox__label"
                     htmlFor={id}
                 >{label}</label>
-                {hintText && <HintText id={hintTextId} text={hintText} />}
+                {hintText && <HintText id={hintTextId}>{hintText}</HintText>}
             </div>
         </>
     );

@@ -1,5 +1,7 @@
 import React, { Children } from 'react';
 import WrapperTag from "../../common/WrapperTag";
+import { CategoryListProps } from './types';
+import { CategoryItemProps } from '../CategoryItem/types';
 
 const CategoryList = ({
     children,
@@ -7,9 +9,9 @@ const CategoryList = ({
     isGrid,
     isOrdered,
     ...props
-}: SGDS.Component.CategoryList) => {
+}: CategoryListProps) => {
     function processChild(child: React.ReactNode) {
-        const thisChild = child as React.ReactElement<SGDS.Component.CategoryItem>
+        const thisChild = child as React.ReactElement<CategoryItemProps>
         return React.cloneElement(thisChild, {tagName: 'li'})
     }
 

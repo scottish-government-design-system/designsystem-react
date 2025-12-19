@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckboxRadioContext } from '../../utils/context';
+import { RadioGroupProps } from './types';
 
 const RadioGroup = ({
     children,
@@ -8,7 +9,7 @@ const RadioGroup = ({
     isSmall,
     name = '',
     ...props
-}: SGDS.Component.RadioButton.Group) => {
+}: RadioGroupProps) => {
     return (
         <div
             className={[

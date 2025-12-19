@@ -2,18 +2,20 @@ import React, { Children, useId } from 'react';
 
 import ActionLink from '../../common/ActionLink';
 import ConditionalWrapper from '../../common/ConditionalWrapper';
+import { SummaryListItemProps, SummaryListProps } from './types';
+import { ActionLinkProps } from '@/src/common/ActionLink/types';
 
 const Item = ({
     children,
     title
-}: SGDS.Component.SummaryList.Item) => {
-    let values: any[] = [];
-    let actions: any[] = [];
+}: SummaryListItemProps) => {
+    const values: React.ReactElement[] = [];
+    const actions: React.ReactElement[] = [];
 
     const describedById = useId();
 
     Children.forEach(children, (child: React.ReactNode) => {
-        const thisChild = child as React.ReactElement<SGDS.Common.ActionLink>;
+        const thisChild = child as React.ReactElement<ActionLinkProps>;
         if (thisChild && thisChild.type === Value) {
             values.push(thisChild);
         } else if (thisChild && thisChild.type === ActionLink) {
@@ -64,7 +66,7 @@ const Item = ({
 
 const Value = ({
     children
-}: SGDS.Component.SummaryList.Answer) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <q className="ds_summary-list__answer">{children}</q>
     );
@@ -75,7 +77,7 @@ const SummaryList = ({
     className,
     isBorderless,
     ...props
-}: SGDS.Component.SummaryList) => {
+}: SummaryListProps) => {
     return (
         <ol
             className={[

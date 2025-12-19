@@ -9,8 +9,9 @@ test('hint test renders correctly', () => {
     render(
         <HintText data-testid="hint-text"
             id={HINT_TEXT_ID}
-            text={HINT_TEXT_CONTENT}
-        />
+        >
+            {HINT_TEXT_CONTENT}
+        </HintText>
     );
 
     const hintText = screen.getByTestId('hint-text');
@@ -18,19 +19,6 @@ test('hint test renders correctly', () => {
     expect(hintText).toHaveAttribute('id', HINT_TEXT_ID);
     expect(hintText.tagName).toEqual('P');
     expect(hintText.textContent).toEqual(HINT_TEXT_CONTENT);
-});
-
-test('hint test with children instead of text', () => {
-    render(
-        <HintText data-testid="hint-text"
-            id={HINT_TEXT_ID}
-        >
-            <span>{HINT_TEXT_CONTENT}</span>
-        </HintText>
-    );
-
-    const hintText = screen.getByTestId('hint-text');
-    expect(hintText.innerHTML).toEqual(`<span>${HINT_TEXT_CONTENT}</span>`);
 });
 
 test('passing additional props', () => {

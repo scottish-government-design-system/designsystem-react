@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSCharacterCount from '@scottish-government/design-system/src/forms/character-count/character-count';
 import Button from '../Button';
 import ConditionalWrapper from '../../common/ConditionalWrapper';
 import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText';
+import { TextInputProps } from './types';
 
 const TextInput = ({
     buttonIcon,
     buttonText,
-    children,
     className,
     countThreshold,
     width,
@@ -29,7 +29,7 @@ const TextInput = ({
     type = 'text',
     value,
     ...props
-}: SGDS.Component.TextInput) => {
+}: TextInputProps) => {
     const errorMessageId = `error-message-${id}`;
     const hintTextId = `hint-text-${id}`;
     const ref = useRef(null);
@@ -45,13 +45,13 @@ const TextInput = ({
         }
     }, [ref]);
 
-    function handleBlur(event: React.FocusEvent) {
+    function handleBlur(event: React.FocusEvent<HTMLInputElement>) {
         if (typeof onBlur === 'function') {
             onBlur(event);
         }
     }
 
-    function handleChange(event: React.ChangeEvent) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         if (typeof onChange === 'function') {
             onChange(event);
         }
@@ -63,7 +63,7 @@ const TextInput = ({
             wrapper={(children: React.JSX.Element) => <div ref={ref} data-threshold={countThreshold} data-module="ds-character-count">{children}</div>}
         >
             <label className="ds_label" htmlFor={id}>{label}</label>
-            {hintText && <HintText id={hintTextId} text={hintText} />}
+            {hintText && <HintText id={hintTextId}>{hintText}</HintText>}
             {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
             <ConditionalWrapper
                 condition={hasButton || typeof isCurrency !== 'undefined' && isCurrency}

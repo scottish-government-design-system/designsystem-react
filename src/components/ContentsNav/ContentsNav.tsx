@@ -1,11 +1,12 @@
 import React from 'react';
+import { ContentsNavItemProps, ContentsNavProps } from './types';
 
 const ContentsNavItem = ({
     children,
     isCurrent,
     href,
     linkComponent
-}: SGDS.Component.ContentsNav.ContentsNavItem) => {
+}: ContentsNavItemProps) => {
     const classNames = ['ds_contents-nav__link'];
     let ariaCurrent: React.AriaAttributes["aria-current"];
 
@@ -39,7 +40,7 @@ const ContentsNav = ({
     className,
     title = 'Contents',
     ...props
-}: SGDS.Component.ContentsNav) => {
+}: ContentsNavProps) => {
     return (
         <nav
             aria-label={ariaLabel}

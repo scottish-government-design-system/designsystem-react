@@ -1,11 +1,12 @@
 import Tag from "../Tag/Tag";
+import { PhaseBannerProps } from "./types";
 
 const PhaseBanner = ({
     children,
     className,
     phaseName,
     ...props
-}: SGDS.Component.PhaseBanner) => {
+}: PhaseBannerProps) => {
     return (
         <div
             className={[

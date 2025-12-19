@@ -34,7 +34,7 @@ const meta = {
             <SummaryList.Item title="Address">
                 <SummaryList.Value>
                     Scottish Government<br />
-                    St Andrew's House<br />
+                    St Andrew&apos;s House<br />
                     Regent Road<br />
                     Edinburgh<br />
                     EH1 3DG

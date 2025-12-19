@@ -1,11 +1,12 @@
 import React from 'react';
 import * as FileIcons from '../../images/documents';
+import { FileIconProps } from './types';
 
 const FileIcon = ({
     ariaLabel = '',
     className,
     icon
-}: SGDS.Common.FileIcon) => {
+}: FileIconProps) => {
     const FileIconComponent = FileIcons[icon];
 
     return (

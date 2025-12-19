@@ -1,9 +1,11 @@
+import { TagProps } from "./types";
+
 const Tag = ({
     children,
     className,
     colour,
     ...props
-}: SGDS.Component.Tag) => {
+}: TagProps) => {
     return (
         <span
             className={[

@@ -3,6 +3,7 @@ import ConditionalWrapper from '../../common/ConditionalWrapper';
 import HintText from '../../common/HintText';
 import ScreenReaderText from '../../common/ScreenReaderText';
 import Tag from '../Tag';
+import { TaskListGroupProps, TaskListItemProps, TaskListProps } from './types';
 
 const TaskItem = ({
     children,
@@ -15,7 +16,7 @@ const TaskItem = ({
     tagColour = 'grey',
     title,
     ...props
-}: SGDS.Component.TaskList.Item) => {
+}: TaskListItemProps) => {
     if (isComplete) {
         tagColour = 'green';
         statusText = statusText || 'Completed'
@@ -24,11 +25,13 @@ const TaskItem = ({
     const LINK_CLASS = 'ds_task-list__task-link';
 
     function getLinkElement(children: React.ReactNode) {
+        let linkElement;
         if (linkComponent) {
-            return linkComponent({ className: LINK_CLASS, href, children });
-        } else if (href) {
-            return <a href={href} className={LINK_CLASS}>{children}</a>;
+            linkElement = linkComponent({ className: LINK_CLASS, href, children });
+        } else {
+            linkElement = <a href={href} className={LINK_CLASS}>{children}</a>;
         }
+        return linkElement as React.JSX.Element;
     }
 
     return (
@@ -77,7 +80,7 @@ const TaskGroup = ({
     intro,
     title,
     ...props
-}: SGDS.Component.TaskList.Group) => {
+}: TaskListGroupProps) => {
     return (
         <li
             className={[
@@ -101,12 +104,12 @@ const TaskList = ({
     headingId = 'task-list',
     title,
     ...props
-}: SGDS.Component.TaskList) => {
+}: TaskListProps) => {
     let taskCount = 0;
-    let incompleteTaskIds: string[] = [];
+    const incompleteTaskIds: string[] = [];
     let completedTasksCount = 0;
 
-    function processChild(item: any) {
+    function processChild(item: React.JSX.Element) {
         if (item.type.displayName === 'TaskList.Item') {
             taskCount = taskCount + 1;
 
@@ -131,7 +134,7 @@ const TaskList = ({
     }
 
     Children.forEach(children, child => {
-        processChild(child);
+        processChild(child as React.JSX.Element);
     });
 
     return (

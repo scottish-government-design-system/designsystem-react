@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Icons from '../../images/icons';
+import { IconProps } from './types';
 
 const Icon = ({
     ariaLabel,
@@ -7,7 +8,7 @@ const Icon = ({
     isFilled,
     icon,
     iconSize
-}: SGDS.Common.Icon) => {
+}: IconProps) => {
     const IconComponent = Icons[icon];
 
     return (

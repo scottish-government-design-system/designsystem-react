@@ -1,9 +1,11 @@
+import { ButtonGroupProps } from "./types";
+
 const ButtonGroup = ({
     children,
     className,
     isInline,
     ...props
-}: SGDS.Component.ButtonGroup) => {
+}: ButtonGroupProps) => {
     return (
         <div className={[
             "ds_button-group",

@@ -1,12 +1,13 @@
 import { Children } from 'react';
 import Icon from '../Icon';
 import ScreenReaderText from '../ScreenReaderText';
+import { AbstractNotificationBannerProps, AbstractNotificationBannerButtonsProps } from './types';
 
 const Buttons = ({
     children
-}: SGDS.Common.AbstractNotificationBanner.Buttons) => {
+}: AbstractNotificationBannerButtonsProps) => {
     return (<div className="ds_button-group">{children}</div>);
-}
+};
 
 const AbstractNotificationBanner = ({
     children,
@@ -17,8 +18,8 @@ const AbstractNotificationBanner = ({
     isDismissable,
     title = 'Information',
     ...props
-}: SGDS.Common.AbstractNotificationBanner) => {
-    let content: any[] = [];
+}: AbstractNotificationBannerProps) => {
+    const content: React.ReactElement[] = [];
     let buttons;
 
     Children.forEach(children, (child) => {

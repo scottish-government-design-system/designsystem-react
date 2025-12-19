@@ -14,7 +14,8 @@ const meta = {
     },
     args: {
         id: 'sort-by',
-        label: 'Sort by'
+        label: 'Sort by',
+        children: <></>
     }
 } satisfies Meta<typeof SearchSort>;
 

@@ -1,6 +1,7 @@
 import React, { Children } from 'react';
 import Icon from "../../common/Icon";
 import { Cancel } from '../../../src/images/icons';
+import { SearchFacetsGroupProps, SearchFacetsItemProps, SearchFacetsProps } from './types';
 
 const FacetsItem = ({
     accessibleName,
@@ -8,7 +9,7 @@ const FacetsItem = ({
     onClick,
     title,
     ...props
-}: SGDS.Component.SearchFacets.Item) => {
+}: SearchFacetsItemProps) => {
     accessibleName = accessibleName ? accessibleName : title;
 
     return (
@@ -31,7 +32,7 @@ const FacetsGroup = ({
     joinContent = 'or',
     title,
     ...props
-}: SGDS.Component.SearchFacets.Group) => {
+}: SearchFacetsGroupProps) => {
     return (
         <div className="ds_facet-group" {...props}>
             <dt className="ds_facet__group-title">
@@ -39,7 +40,7 @@ const FacetsGroup = ({
             </dt>
             {
                 Children.map(children, (child, index) => {
-                    const thisChild = child as React.ReactElement<SGDS.Component.SearchFacets.Item>
+                    const thisChild = child as React.ReactElement<SearchFacetsItemProps>
                     return React.cloneElement(thisChild, { joinContent: index > 0 ? joinContent : undefined, key: 'facet' + index });
                 })
             }
@@ -51,10 +52,10 @@ const Facets = ({
     children,
     className,
     ...props
-}: SGDS.Component.SearchFacets) => {
+}: SearchFacetsProps) => {
     let facetCount = 0;
 
-    function processChild(item: any) {
+    function processChild(item: React.JSX.Element) {
         if (item.type.displayName === 'Facets.Item') {
             facetCount = facetCount + 1;
 
@@ -66,7 +67,7 @@ const Facets = ({
     }
 
     Children.forEach(children, child => {
-        processChild(child);
+        processChild(child as React.JSX.Element);
     });
 
     return (

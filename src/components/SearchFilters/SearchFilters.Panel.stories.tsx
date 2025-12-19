@@ -39,11 +39,21 @@ const meta = {
                 name: 'number'
             }
         }
+    },
+    args: {
+        heading: 'Filter',
+        legend: 'Select which publication types you would like to see'
     }
 } satisfies Meta<typeof Filters.Panel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+type ContentTypeType = {
+    label: string;
+    value: string;
+    checked?: boolean;
+};
 
 const CONTENT_TYPES = [
     {
@@ -134,7 +144,7 @@ CONTENT_TYPES_WITH_SELECTED[4].checked = true;
 CONTENT_TYPES_WITH_SELECTED[7].checked = true;
 
 export const Default: Story = {
-    render: (args: any) => (
+    render: () => (
         <Filters.Panel
             heading="Filter by date"
             legend="Filter by date"
@@ -155,12 +165,12 @@ export const Default: Story = {
 };
 
 export const Scrollable: Story = {
-    render: (args: any) => (
+    render: ({ ...args }) => (
         <Filters.Panel
+            {...args}
             heading="Content type"
             isScrollable
             legend="Select which publication types you would like to see"
-            {...args}
         >
             <Filters.CheckboxGroup>
                 {CONTENT_TYPES.map((type) => (
@@ -177,16 +187,17 @@ export const Scrollable: Story = {
 };
 
 export const WithActiveFilterCount: Story = {
-    render: (args: any) => (
+    args: {},
+    render: ({ ...args }) => (
         <Filters.Panel
-            activeFilterCount={CONTENT_TYPES_WITH_SELECTED.filter((item: any) => item.checked).length}
+            {...args}
+            activeFilterCount={CONTENT_TYPES_WITH_SELECTED.filter((item: ContentTypeType) => item.checked).length}
             heading="Content type"
             isScrollable
             legend="Select which publication types you would like to see"
-            {...args}
         >
             <Filters.CheckboxGroup>
-                {CONTENT_TYPES_WITH_SELECTED.map((type: any) => (
+                {CONTENT_TYPES_WITH_SELECTED.map((type: ContentTypeType) => (
                     <Checkbox
                         checked={type.checked || false}
                         key={type.value}

@@ -1,13 +1,14 @@
 import { useEffect, useRef } from 'react';
 import Icon from '../../common/Icon';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSBackToTop from '@scottish-government/design-system/src/components/back-to-top/back-to-top';
+import { BackToTopProps } from './types';
 
 const BackToTop = ({
     className,
     href = '#page-top',
     ...props
-}: SGDS.Component.BackToTop) => {
+}: BackToTopProps) => {
     const ref = useRef(null);
 
     useEffect(() => {

@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import AbstractNotificationBanner from '../../common/AbstractNotificationBanner';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSNotificationBanner from '@scottish-government/design-system/src/components/notification-banner/notification-banner';
+import { AbstractNotificationBannerProps } from '../../common/AbstractNotificationBanner/types';
 
 const NotificationBanner = ({
     children,
@@ -10,9 +11,9 @@ const NotificationBanner = ({
     hasIcon,
     hasInverseIcon,
     isDismissable,
-    title,
+    title = 'Information',
     ...props
-}: SGDS.Common.AbstractNotificationBanner) => {
+}: AbstractNotificationBannerProps) => {
     const ref = useRef(null);
 
     useEffect(() => {
@@ -32,7 +33,7 @@ const NotificationBanner = ({
             hasColourIcon={hasColourIcon}
             hasInverseIcon={hasInverseIcon}
             ref={ref}
-            title="Information"
+            title={title}
             {...props}
         >
             {children}

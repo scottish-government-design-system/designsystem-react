@@ -1,5 +1,6 @@
 import ConditionalWrapper from "../../common/ConditionalWrapper";
 import WrapperTag from "../../common/WrapperTag";
+import { CategoryItemProps } from "./types";
 
 const CategoryItem = ({
     children,
@@ -10,15 +11,17 @@ const CategoryItem = ({
     tagName = 'div',
     title,
     ...props
-}: SGDS.Component.CategoryItem) => {
+}: CategoryItemProps) => {
     const LINK_CLASS = 'ds_category-item__link';
 
     function getLinkElement(children: React.ReactNode) {
+        let linkElement;
         if (linkComponent) {
-            return linkComponent({ className: LINK_CLASS, href, children });
-        } else if (href) {
-            return <a href={href} className={LINK_CLASS}>{children}</a>;
+            linkElement = linkComponent({ className: LINK_CLASS, href, children });
+        } else {
+            linkElement = <a href={href} className={LINK_CLASS}>{children}</a>;
         }
+        return linkElement as React.JSX.Element;
     }
 
     return (

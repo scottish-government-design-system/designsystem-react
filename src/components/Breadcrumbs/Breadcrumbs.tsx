@@ -1,10 +1,12 @@
+import { BreadcrumbItemProps } from "./types";
+
 const BreadcrumbItem = ({
     children,
     isHidden,
     href,
     linkComponent,
     ...props
-}: SGDS.Component.Breadcrumbs.Item) => {
+}: BreadcrumbItemProps) => {
     const BREADCRUMB_LINK_CLASSNAME = 'ds_breadcrumbs__link';
 
     function processChildren(children: React.ReactNode) {
@@ -32,7 +34,7 @@ const BreadcrumbItem = ({
 const Breadcrumbs = ({
     children,
     ...props
-}: SGDS.Component.Breadcrumbs) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <nav
             aria-label="Breadcrumb"

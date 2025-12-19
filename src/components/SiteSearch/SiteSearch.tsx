@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSAutocomplete from '@scottish-government/design-system/src/components/autocomplete/autocomplete';
 import Button from '../Button';
+import { SiteSearchProps, SuggestionMappingFunctionProps } from './types';
 
 const SiteSearch = function ({
     action = '/search',
@@ -14,14 +15,14 @@ const SiteSearch = function ({
     name = 'q',
     placeholder = 'Search',
     ...props
-}: SGDS.Component.SiteSearch) {
+}: SiteSearchProps) {
     const ref = useRef(null);
     const hasAutocomplete = !!autocompleteEndpoint;
-    let autocompleteId = hasAutocomplete ? id + '-autocomplete' : '';
+    const autocompleteId = hasAutocomplete ? id + '-autocomplete' : '';
 
     type AutoCompleteOptions = {
         minLength?: number,
-        suggestionMappingFunction?: Function,
+        suggestionMappingFunction?: SuggestionMappingFunctionProps,
         throttleDelay?: number
     }
 
@@ -48,7 +49,7 @@ const SiteSearch = function ({
     return (
         <div
             className={[
-                'ds_site-search', ,
+                'ds_site-search',
                 className,
                 hasAutocomplete ? 'ds_autocomplete' : undefined
             ].join(' ')}

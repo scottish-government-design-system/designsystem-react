@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
 import ErrorMessage from '../ErrorMessage';
 import TextInput from '../TextInput';
+import { DatePickerProps } from './types';
 
 const DatePicker = ({
     className,
@@ -23,7 +24,7 @@ const DatePicker = ({
     value,
     width = 'fixed-10',
     ...props
-}: SGDS.Component.DatePicker) => {
+}: DatePickerProps) => {
     const ref = useRef(null);
 
     useEffect(() => {

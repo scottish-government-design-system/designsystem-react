@@ -1,4 +1,6 @@
 import Icon from "../../common/Icon";
+import { PaginationPageProps, PaginationProps } from "./types";
+import { LinkComponentProps } from "../../shared-types";
 
 export const Page = ({
     ariaLabel,
@@ -8,7 +10,7 @@ export const Page = ({
     isCurrent = false,
     linkComponent,
     onClick
-}: SGDS.Component.Pagination.Page) => {
+}: PaginationPageProps) => {
     function handleClick(event: React.MouseEvent) {
         if (typeof onClick === 'function') {
             onClick(event);
@@ -22,7 +24,7 @@ export const Page = ({
             isCurrent ? 'ds_current' : undefined
         ].join(' ');
 
-        const linkProps: SGDS.LinkComponentProps = {
+        const linkProps: LinkComponentProps = {
             'aria-label': ariaLabel,
             href: href,
             onClick: handleClick
@@ -68,7 +70,7 @@ const Pagination = ({
     totalPages,
     linkComponent,
     ...props
-}: SGDS.Component.Pagination) => {
+}: PaginationProps) => {
     padding = Number(padding);
     page = Number(page);
 

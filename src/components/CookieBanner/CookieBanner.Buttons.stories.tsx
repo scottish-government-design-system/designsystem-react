@@ -12,9 +12,9 @@ const meta = {
     },
     args: {
         children: [
-            <Button className="js-accept-all-cookies" small buttonStyle="secondary">Accept all cookies</Button>,
-            <Button className="js-accept-essential-cookies" small buttonStyle="secondary">Use essential cookies only</Button>,
-            <a href="/cookies/">Set cookie preferences</a>
+            <Button className="js-accept-all-cookies" isSmall buttonStyle="secondary" key="1">Accept all cookies</Button>,
+            <Button className="js-accept-essential-cookies" isSmall buttonStyle="secondary" key="2">Use essential cookies only</Button>,
+            <a href="/cookies/" key="3">Set cookie preferences</a>
         ]
     }
 } satisfies Meta<typeof CookieBanner.Buttons>;

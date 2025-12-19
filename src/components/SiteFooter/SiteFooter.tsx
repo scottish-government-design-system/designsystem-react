@@ -1,10 +1,11 @@
 import React, { Children } from 'react';
 import ConditionalWrapper from '../../common/ConditionalWrapper';
+import { SiteFooterLicenseProps, SiteFooterLinkProps, SiteFooterOrgProps, SiteFooterProps } from './types';
 
 const License = ({
     children,
     ...props
-}: SGDS.Component.SiteFooter.License) => {
+}: SiteFooterLicenseProps) => {
     return (
         <div className="ds_site-footer__copyright" {...props}>
             {children}
@@ -15,7 +16,7 @@ const License = ({
 const Links = ({
     children,
     ...props
-}: SGDS.Component.SiteFooter.Links) => {
+}: React.AllHTMLAttributes<HTMLUListElement>) => {
     return (
         <ul className="ds_site-footer__site-items" {...props}>
             {children}
@@ -28,7 +29,7 @@ const Link = ({
     href,
     linkComponent,
     ...props
-}: SGDS.Component.SiteFooter.Link) => {
+}: SiteFooterLinkProps) => {
     function processChildren(children: React.ReactNode) {
         if (linkComponent) {
             return linkComponent({ href, children });
@@ -49,9 +50,9 @@ const Org = ({
     title,
     children,
     ...props
-}: SGDS.Component.SiteFooter.Org) => {
+}: SiteFooterOrgProps) => {
     children = Children.map(children, child => {
-        let thisChild = child as React.ReactElement<HTMLElement>;
+        const thisChild = child as React.ReactElement<HTMLElement>;
         if (thisChild && ['img', 'svg', 'picture'].includes(thisChild.type as string)) {
             return React.cloneElement(thisChild, { className: 'ds_site-footer__org-logo' });
         } else {
@@ -75,7 +76,7 @@ const SiteFooter = ({
     children,
     className,
     ...props
-}: SGDS.Component.SiteFooter) => {
+}: SiteFooterProps) => {
     return (
         <footer
             className={[

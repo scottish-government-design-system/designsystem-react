@@ -1,15 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { CheckboxRadioContext } from '../../utils/context';
-
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSCheckboxes from '@scottish-government/design-system/src/forms/checkbox/checkboxes'
+import { CheckboxGroupProps } from './types';
 
 export const CheckboxGroup = ({
     children,
     className,
     isSmall,
     ...props
-}: SGDS.Component.Checkbox.Group) => {
+}: CheckboxGroupProps) => {
     const ref = useRef(null);
 
     useEffect(() => {

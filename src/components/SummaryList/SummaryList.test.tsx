@@ -1,16 +1,11 @@
 import { test, expect, vi } from 'vitest';
-import { within, render, screen, fireEvent } from '@testing-library/react';
+import { within, render, screen } from '@testing-library/react';
 import SummaryList from './SummaryList';
 
 const ONCLICK_FUNCTION = vi.fn();
 const TITLE = 'Name';
 const VALUE_1 = 'Jane Smith';
 const VALUE_2 = 'Tony Brown';
-
-const ACTION_HREF = "#foo"
-const ACTION_ONCLICK = ONCLICK_FUNCTION;
-const ACTION_TEXT = 'Name';
-const DESCRIBEDBY_ID = 'q1-name';
 
 test('summary list renders correctly', () => {
     render(

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import argTypes from '../../../.storybook/sgdsArgTypes';
 
 import Facets from './SearchFacets';
-import { join } from 'path';
 
 const meta = {
     title: 'Components/Search results/Facets/Group',
@@ -37,7 +36,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: (args: any) => (
+    render: ({ ... args }) => (
         <Facets.Group {...args}>
             <Facets.Item title="Advice and guidance" />
             <Facets.Item title="Factsheet"/>
@@ -47,7 +46,7 @@ export const Default: Story = {
 };
 
 export const CustomJoinContent: Story = {
-    render: (args: any) => (
+    render: () => (
         <Facets.Group joinContent="and" title="Updated between">
             <Facets.Item accessibleName="Updated after 01/10/2025" title="01/10/2025" />
             <Facets.Item accessibleName="Updated before 31/10/2025" title="31/10/2025"/>

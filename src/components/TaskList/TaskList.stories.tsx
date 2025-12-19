@@ -11,7 +11,6 @@ const meta = {
             description: 'ID of the task list\'s heading element',
             type: 'string'
         },
-        linkComponent: argTypes.linkComponent(),
         title: {
             description: 'The title of the task list',
             type: {

@@ -1,9 +1,11 @@
+import { ErrorMessageProps } from "./types";
+
 const ErrorMessage = ({
     children,
     className,
     id,
     ...props
-}: SGDS.Component.ErrorMessage) => {
+}: ErrorMessageProps) => {
     return (
         <p
             className={[

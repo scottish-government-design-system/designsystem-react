@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useRef, useId } from 'react';
 import WrapperTag from '../../common/WrapperTag';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSAccordion from '@scottish-government/design-system/src/components/accordion/accordion';
+import { AccordionItemProps, AccordionProps } from './types';
 
 let accordionItemCounter = 0;
 const AccordionHeadingLevelContext = createContext('h3');
@@ -14,11 +15,11 @@ const AccordionItem = ({
     heading,
     title,
     ...props
-}: SGDS.Component.Accordion.Item) => {
+}: AccordionItemProps) => {
     accordionItemCounter = accordionItemCounter + 1;
     const processedId = rawId || `accordion-item-${useId()}`;
 
-    let headingLevel = useContext(AccordionHeadingLevelContext);
+    const headingLevel = useContext(AccordionHeadingLevelContext);
 
     if (title) {
         console.warn(
@@ -77,7 +78,7 @@ const Accordion = ({
     hideOpenAll,
     isSmall,
     ...props
-}: SGDS.Component.Accordion) => {
+}: AccordionProps) => {
     const ref = useRef(null);
 
     useEffect(() => {

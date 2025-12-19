@@ -1,5 +1,6 @@
 import Icon from '../../common/Icon';
 import WrapperTag from '../../common/WrapperTag';
+import { ConfirmationMessageProps } from './types';
 
 const ConfirmationMessage = ({
     ariaLive = 'polite',
@@ -8,7 +9,7 @@ const ConfirmationMessage = ({
     headingLevel = 'h3',
     title,
     ...props
-}: SGDS.Component.ConfirmationMessage) => {
+}: ConfirmationMessageProps) => {
     return (
         <div
             aria-live={ariaLive}

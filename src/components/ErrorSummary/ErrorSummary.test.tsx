@@ -74,7 +74,7 @@ test('error summary item with no link', () => {
 test('error summary item with custom element', () => {
     render(
         <ErrorSummary.Item fragmentId={ERROR_FRAGMENT_ID} linkComponent={
-            ({ className, ...props }) => (
+            ({ ...props }) => (
                 <strong role="link" {...props}/>
             )}>
             {ERROR_TEXT}

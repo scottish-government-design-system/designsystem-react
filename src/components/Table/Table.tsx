@@ -1,13 +1,14 @@
 import { useEffect, useRef } from 'react';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSTable from '@scottish-government/design-system/src/components/table/table';
+import { TableProps } from './types';
 
 const Table = ({
     children,
     className,
     smallscreen,
     ...props
-}: SGDS.Component.Table) => {
+}: TableProps) => {
     const ref = useRef(null);
 
     useEffect(() => {

@@ -1,10 +1,12 @@
+import { ActionLinkProps } from './types';
+
 const ActionLink = ({
     children,
     describedby,
     href,
     linkComponent,
     onclick
-}: SGDS.Common.ActionLink) => {
+}: ActionLinkProps) => {
     const CLASSNAME = 'ds_link';
 
     function processChildren(children: React.ReactNode) {

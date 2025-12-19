@@ -3,6 +3,7 @@ import Button from "../Button";
 import SkipLinks from "../SkipLinks";
 import ConditionalWrapper from "../../common/ConditionalWrapper";
 import { CheckboxGroup } from "../Checkbox";
+import { SearchFiltersPanelProps, SearchFiltersCheckboxGroupProps, SearchFiltersProps } from "./types";
 
 export const FilterPanel = ({
     activeFilterCount = 0,
@@ -11,7 +12,7 @@ export const FilterPanel = ({
     legend,
     heading = 'Filter',
     ...props
-}: SGDS.Component.SearchFilters.Panel) => {
+}: SearchFiltersPanelProps) => {
     const headingWithCount = <>
         {heading}
         {activeFilterCount > 0 && <div className="ds_search-filters__filter-count">({activeFilterCount} selected)</div>}
@@ -36,7 +37,7 @@ export const FilterPanel = ({
 const FilterCheckboxGroup = ({
     children,
     ...props
-}: any) => {
+}: SearchFiltersCheckboxGroupProps) => {
     return (
         <CheckboxGroup
             className="ds_search-filters__checkboxes"
@@ -52,7 +53,7 @@ const Filters = ({
     children,
     searchResultsContainerId = 'search-results',
     ...props
-}: SGDS.Component.SearchFilters) => {
+}: SearchFiltersProps) => {
     return (
         <div className="ds_search-filters" {...props}>
             <div className="ds_details  ds_no-margin" data-module="ds-details">

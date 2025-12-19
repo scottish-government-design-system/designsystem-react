@@ -1,10 +1,12 @@
+import { SequentialNavigationLinkProps, SequentialNavigationProps } from "./types";
+
 const SeqNavLink = ({
     children,
     href,
     isPrev,
     linkComponent,
     textLabel
-}: SGDS.Component.SequentialNavigation.Link) => {
+}:SequentialNavigationLinkProps) => {
     const LINK_CLASSES = [
         'ds_sequential-nav__button',
         isPrev ? 'ds_sequential-nav__button--left' : 'ds_sequential-nav__button--right'
@@ -39,7 +41,7 @@ const NextLink = ({
     href,
     linkComponent,
     textLabel = 'Next'
-}: SGDS.Component.SequentialNavigation.Link) => {
+}: SequentialNavigationLinkProps) => {
     return <SeqNavLink href={href} linkComponent={linkComponent} textLabel={textLabel}>{children}</SeqNavLink>
 };
 
@@ -48,7 +50,7 @@ const PreviousLink = ({
     href,
     linkComponent,
     textLabel = 'Previous'
-}: SGDS.Component.SequentialNavigation.Link) => {
+}: SequentialNavigationLinkProps) => {
     return <SeqNavLink href={href} linkComponent={linkComponent} textLabel={textLabel} isPrev>{children}</SeqNavLink>
 };
 
@@ -57,7 +59,7 @@ const SequentialNavigation = ({
     children,
     className,
     ...props
-}: SGDS.Component.SequentialNavigation) => {
+}: SequentialNavigationProps) => {
     return (
         <nav
             className={[

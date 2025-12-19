@@ -1,7 +1,7 @@
 const ScreenReaderText = ({
     children,
     ...props
-}: SGDS.Common.ScreenReaderText) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <span
             className="visually-hidden"

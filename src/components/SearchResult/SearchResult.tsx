@@ -2,18 +2,19 @@ import { Children, createContext, useContext } from 'react';
 import ConditionalWrapper from '../../common/ConditionalWrapper';
 import AspectBox from '../AspectBox';
 import Metadata from '../PageMetadata';
+import { SearchResultContextProps, SearchResultProps } from './types';
 
 const SearchResultLinkHrefContext = createContext('');
 
 const SearchResultContent = ({
     children
-}: SGDS.Component.SearchResult.Content) => {
-    const otherChildren: any[] = [];
+}: React.AllHTMLAttributes<HTMLElement>) => {
+    const otherChildren: React.ReactNode[] = [];
     let imageChild: React.ReactNode = null;
 
     // assign to slots
     Children.forEach(children, (child: React.ReactNode) => {
-        const thisChild = child as React.ReactElement<any>;
+        const thisChild = child as React.JSX.Element;
         if (thisChild && thisChild.type === SearchResultMedia) {
             imageChild = thisChild;
         } else {
@@ -37,7 +38,7 @@ const SearchResultContent = ({
 const SearchResultContext = ({
     children,
     title = 'Part of'
-}: SGDS.Component.SearchResult.Context) => {
+}: SearchResultContextProps) => {
     return (
         <dl className="ds_search-result__context">
             <dt className="ds_search-result__context-key">{title}:</dt>
@@ -48,7 +49,7 @@ const SearchResultContext = ({
 
 const SearchResultContextItem = ({
     children
-}: SGDS.Component.SearchResult.ContextItem) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <dd className="ds_search-result__context-value">
             {children}
@@ -58,7 +59,7 @@ const SearchResultContextItem = ({
 
 const SearchResultMedia = ({
     children
-}: SGDS.Component.SearchResult.Media) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <div className="ds_search-result__media-wrapper">
             <a className="ds_search-result__media-link" href={useContext(SearchResultLinkHrefContext)} tabIndex={-1} aria-hidden="true">
@@ -72,7 +73,7 @@ const SearchResultMedia = ({
 
 const SearchResultMeta = ({
     children
-}: SGDS.Component.SearchResult.Meta) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <Metadata className="ds_search-result__metadata" isInline>
             {children}
@@ -88,7 +89,7 @@ const SearchResult = ({
     promotedTitle = 'Recommended',
     title,
     ...props
-}: SGDS.Component.SearchResult) => {
+}: SearchResultProps) => {
     const LINK_CLASS = 'ds_search-result__link';
 
     return (

@@ -104,7 +104,7 @@ const CONTENT_TYPES = [
 ];
 
 export const Default: Story = {
-    render: (args: any) => (
+    render: ({ ...args }) => (
         <Filters {...args}>
             <Filters.Panel legend="Select which publication types you would like to see" heading="Content type">
                 <Filters.CheckboxGroup>

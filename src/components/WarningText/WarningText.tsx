@@ -2,7 +2,7 @@ const WarningText = ({
     children,
     className,
     ...props
-}: SGDS.Component.WarningText) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <div
             className={[

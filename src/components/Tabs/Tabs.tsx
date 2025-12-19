@@ -1,7 +1,8 @@
 import React, { Children, useEffect, useRef, useId } from 'react';
 import WrapperTag from '../../common/WrapperTag';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSTabs from '@scottish-government/design-system/src/components/tabs/tabs';
+import { TabListItemProps, TabsItemProps, TabsProps } from './types';
 
 const TabItem = ({
     isBorderless,
@@ -10,7 +11,7 @@ const TabItem = ({
     id,
     tabLabel,
     ...props
-}: SGDS.Component.Tabs.Item) => {
+}: TabsItemProps) => {
     return (
         <div
             className={[
@@ -18,6 +19,7 @@ const TabItem = ({
                 !isBorderless && 'ds_tabs__content--bordered',
                 className
             ].join(' ')}
+            data-label={tabLabel}
             id={id}
             {...props}
         >
@@ -29,7 +31,7 @@ const TabItem = ({
 const TabListItem = ({
     children,
     href
-}: SGDS.Component.Tabs.TabListItem) => {
+}: TabListItemProps) => {
     return (
         <li className="ds_tabs__tab">
             <a className="ds_tabs__tab-link" href={href}>{children}</a>
@@ -46,7 +48,7 @@ const Tabs = ({
     isManual = false,
     title = 'Contents',
     ...props
-}: SGDS.Component.Tabs) => {
+}: TabsProps) => {
     const ref = useRef(null);
 
     const headingId = `${baseId}-heading`;
@@ -58,7 +60,7 @@ const Tabs = ({
     }, [ref]);
 
     const processedItems = Children.map(children, child => {
-        const thisChild = child as React.ReactElement<SGDS.Component.Tabs.Item>;
+        const thisChild = child as React.ReactElement<TabsItemProps>;
 
         if (thisChild && thisChild.type === TabItem) {
             return React.cloneElement(thisChild, {

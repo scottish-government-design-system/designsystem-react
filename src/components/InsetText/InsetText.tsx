@@ -2,7 +2,7 @@ const InsetText = ({
     children,
     className,
     ...props
-}: SGDS.Component.InsetText) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <div
             className={[

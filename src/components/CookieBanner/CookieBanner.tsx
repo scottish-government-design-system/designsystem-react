@@ -1,14 +1,23 @@
 
+import { useEffect, useRef } from 'react';
 import AbstractNotificationBanner from '../../common/AbstractNotificationBanner';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSCookieBanner from '@scottish-government/design-system/src/components/cookie-notification/cookie-notification.js';
+import { AbstractNotificationBannerProps } from '../../common/AbstractNotificationBanner/types';
 
 const CookieBanner = ({
     children,
     className,
-    title,
+    title = 'Information',
     ...props
-}: SGDS.Common.AbstractNotificationBanner) => {
+}: AbstractNotificationBannerProps) => {
+    const ref = useRef(null);
+
+    useEffect(() => {
+        if (ref.current) {
+            new DSCookieBanner(ref.current).init();
+        }
+    }, [ref]);
 
     return (
         <>
@@ -20,6 +29,7 @@ const CookieBanner = ({
                     className
                 ].join(' ')}
                 data-module="ds-cookie-notification"
+                ref={ref}
                 title={title}
                 {...props}
             >

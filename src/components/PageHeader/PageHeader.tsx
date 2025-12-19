@@ -1,3 +1,5 @@
+import { PageHeaderProps } from "./types";
+
 const PageHeader = ({
     children,
     className,
@@ -5,7 +7,7 @@ const PageHeader = ({
     title,
     titleId,
     ...props
-}: SGDS.Component.PageHeader) => {
+}: PageHeaderProps) => {
     return (
         <header
             className={[

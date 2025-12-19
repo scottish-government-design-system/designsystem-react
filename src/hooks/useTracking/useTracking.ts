@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-//@ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSTracking from '@scottish-government/design-system/src/base/tools/tracking/tracking';
 
 export default function () {

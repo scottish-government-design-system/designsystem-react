@@ -1,16 +1,17 @@
 import React, { Children, useEffect, useRef } from 'react';
 import Icon from '../../common/Icon';
 import SiteNavigation from '../SiteNavigation';
-
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSMobileMenu from '@scottish-government/design-system/src/components/site-navigation/site-navigation';
+import { SiteHeaderBrandProps, SiteHeaderProps } from './types';
+import { SiteNavigationProps } from '../SiteNavigation/types';
 
 const Brand = ({
     children,
     homeUrl = '/',
     linkComponent,
     siteTitle
-}: SGDS.Component.SiteHeader.Brand) => {
+}: SiteHeaderBrandProps) => {
     function processChildren(children: React.ReactNode) {
         const image = React.cloneElement(children as React.ReactElement<HTMLImageElement>, { className: 'ds_site-branding__logo-image' });
 
@@ -36,26 +37,26 @@ const Brand = ({
 
 const Navigation = ({
     children
-}: any) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return children;
 }
 
 const Phase = ({
     children
-}: any) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return children;
 }
 
 const Search = ({
     children
-}: any) => {
+}: React.AllHTMLAttributes<HTMLElement>) => {
     return children;
 }
 
 const SiteHeader = ({
     children,
     ...props
-}: SGDS.Component.SiteHeader) => {
+}: SiteHeaderProps) => {
     const mobileMenuRef = useRef(null);
 
     let branding: React.ReactNode;
@@ -66,14 +67,14 @@ const SiteHeader = ({
 
     // assign to slots
     Children.forEach(children, (child: React.ReactNode) => {
-        const thisChild = child as React.ReactElement<any>;
+        const thisChild = child as React.JSX.Element;
         if (thisChild && thisChild.type === Brand) {
             branding = thisChild;
         } else if (thisChild && thisChild.type === Navigation) {
             navigation = thisChild;
 
             if (thisChild.props.children.type === SiteNavigation) {
-                mobileNavigation = React.cloneElement(thisChild.props.children as React.ReactElement<SGDS.Component.SiteNavigation>, { className: 'ds_site-navigation--mobile', id: 'mobile-navigation', ref: mobileMenuRef});
+                mobileNavigation = React.cloneElement(thisChild.props.children as React.ReactElement<SiteNavigationProps>, { className: 'ds_site-navigation--mobile', id: 'mobile-navigation', ref: mobileMenuRef});
             }
         } else if (thisChild && thisChild.type === Phase) {
             phase = thisChild;

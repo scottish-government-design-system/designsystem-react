@@ -10,7 +10,7 @@ const meta = {
         children: argTypes.children(),
         isInline: {
             control: 'boolean',
-            description: 'Makes the page metadata use the truncated ‘inline’ display'
+            description: 'Makes the page metadata use the truncated \'inline\' display'
         },
     },
     args: {

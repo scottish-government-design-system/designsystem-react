@@ -8,16 +8,16 @@ const meta = {
     component: SkipLinks,
     argTypes: {
         mainContentId: {
-            description: 'The id attribute of the ‘main content’ element to link to',
+            description: 'The id attribute of the \'main content\' element to link to',
             type: 'string'
         },
         mainLinkText: {
-            description: 'The text to use for the ‘main content’ link',
+            description: 'The text to use for the \'main content\' link',
             type: 'string'
         },
         isStatic: {
             control: 'boolean',
-            description: 'Use the ‘static’ display variant'
+            description: 'Use the \'static\' display variant'
         },
         children: argTypes.children()
     },

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import argTypes from '../../../.storybook/sgdsArgTypes';
 
 import Accordion from './Accordion';
 
@@ -15,9 +14,6 @@ const meta = {
                 required: true
             }
         },
-        headingLevel: argTypes.headingLevel({
-            description: 'Heading level for the component\'s heading. It is best to set this on the parent Accordion.'
-        }),
         id: {
             description: 'ID to use for the accordion item if you want to override the automatically generated default',
             type: 'string'
@@ -37,7 +33,7 @@ const meta = {
                 Veterans are entitled to the same healthcare as any citizen. And there are health care options and support available specifically for veterans.
             </p>
             <p>
-                If you have a health condition that's related to your service, you're entitled to priority treatment based on clinical need.
+                If you have a health condition that&apos;s related to your service, you&apos;re entitled to priority treatment based on clinical need.
             </p>
         </>
     }

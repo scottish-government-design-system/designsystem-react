@@ -2,6 +2,7 @@ import { useContext } from 'react';
 
 import HintText from '../../common/HintText';
 import { CheckboxRadioContext } from '../../utils/context';
+import { RadioButtonProps } from './types';
 
 const RadioButton = ({
     checked,
@@ -12,16 +13,16 @@ const RadioButton = ({
     name,
     onBlur,
     onChange
-}: SGDS.Component.RadioButton) => {
+}: RadioButtonProps) => {
     const hintTextId = `hint-text-${id}`;
 
-    function handleBlur(event: React.FocusEvent) {
+    function handleBlur(event: React.FocusEvent<HTMLInputElement>) {
         if (typeof onBlur === 'function') {
             onBlur(event);
         }
     }
 
-    function handleChange(event: React.ChangeEvent) {
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         if (typeof onChange === 'function') {
             onChange(event);
         }
@@ -49,7 +50,7 @@ const RadioButton = ({
                 className="ds_radio__label"
                 htmlFor={id}
             >{label}</label>
-            {hintText && <HintText id={hintTextId} text={hintText} />}
+            {hintText && <HintText id={hintTextId}>{hintText}</HintText>}
         </div>
     );
 };

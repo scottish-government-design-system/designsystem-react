@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: (args: any) => (
+    render: ({ ...args }) => (
         <Facets {...args}>
             <Facets.Group title="Content type">
                 <Facets.Item title="Advice and guidance" />

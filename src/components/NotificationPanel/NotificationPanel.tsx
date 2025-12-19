@@ -1,4 +1,5 @@
 import WrapperTag from '../../common/WrapperTag';
+import { NotificationPanelProps } from './types';
 
 const NotificationPanel = function ({
     ariaLive,
@@ -7,7 +8,7 @@ const NotificationPanel = function ({
     headingLevel = 'h1',
     title,
     ...props
-}: SGDS.Component.NotificationPanel) {
+}: NotificationPanelProps) {
     return (
         <div
             aria-live={ariaLive}

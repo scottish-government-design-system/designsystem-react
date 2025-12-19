@@ -16,17 +16,6 @@ const ACTIONS = [
     }
 ];
 
-const ITEMS = [
-    {
-        title: 'Phone number',
-        value: '0123 456 7890'
-    },
-    {
-        title: 'Address',
-        value: `Victoria Quay\nEdinburgh\nEH6 6QQ`
-    }
-];
-
 const TITLE_TEXT = 'Joe Bloggs';
 
 test('summary card renders correctly', () => {

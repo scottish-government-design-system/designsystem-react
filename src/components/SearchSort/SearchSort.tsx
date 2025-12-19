@@ -1,6 +1,7 @@
 import { AllHTMLAttributes } from "react";
 import Button from "../Button";
 import Select from "../Select";
+import { SearchSortProps } from "./types";
 
 const Option = ({
     children,
@@ -20,7 +21,7 @@ const SearchSort = ({
     label = 'Sort by',
     onApply,
     ...props
-}: SGDS.Component.SearchSort) => {
+}: SearchSortProps) => {
     return (
         <div
             className={[

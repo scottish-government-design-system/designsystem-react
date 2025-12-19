@@ -17,15 +17,15 @@ const meta = {
         children: argTypes.children()
     },
     args: {
-        baseId: 'my-tabs',
         children: [
-            <h3>Search for training courses and funding</h3>,
-            <p>A wide range of training courses for your employees are available.</p>,
-            <p>Opportunities include distance learning, short courses and vocational training.</p>,
-            <p><a href="#">Visit My World of Work to search for training courses</a>.</p>,
-            <p>You can also <a href="#">search for training courses, and funding towards training</a>.</p>
+            <h3 key="1">Search for training courses and funding</h3>,
+            <p key="2">A wide range of training courses for your employees are available.</p>,
+            <p key="3">Opportunities include distance learning, short courses and vocational training.</p>,
+            <p key="4"><a href="#">Visit My World of Work to search for training courses</a>.</p>,
+            <p key="5">You can also <a href="#">search for training courses, and funding towards training</a>.</p>
         ],
-        tabLabel: 'Courses and funding'
+        tabLabel: 'Courses and funding',
+        id: 'my-tab'
     }
 } satisfies Meta<typeof Tabs.Item>;
 

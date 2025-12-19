@@ -9,7 +9,7 @@ const meta = {
     argTypes: {
         children: argTypes.children(),
         summary: {
-            description: 'Text to use for the details component\'s ‘summary’ element',
+            description: 'Text to use for the details component\'s \'summary\' element',
             type: {
                 name: 'string',
                 required: true

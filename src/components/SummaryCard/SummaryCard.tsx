@@ -3,6 +3,8 @@ import React, { Children, useId } from 'react';
 import ActionLink from '../../common/ActionLink';
 import ConditionalWrapper from '../../common/ConditionalWrapper';
 import WrapperTag from "../../common/WrapperTag";
+import { SummaryCardProps } from './types';
+import { ActionLinkProps } from '../../common/ActionLink/types';
 
 const SummaryCard = ({
     children,
@@ -10,14 +12,14 @@ const SummaryCard = ({
     headingLevel = 'h3',
     title,
     ...props
-}: SGDS.Component.SummaryCard) => {
-    let actions: any[] = [];
-    let remainingChildren: any[] = [];
+}: SummaryCardProps) => {
+    const actions: React.ReactElement[] = [];
+    const remainingChildren: React.ReactElement[] = [];
 
     const describedById = useId();
 
     Children.forEach(children, (child: React.ReactNode) => {
-        const thisChild = child as React.ReactElement<SGDS.Common.ActionLink>;
+        const thisChild = child as React.ReactElement<ActionLinkProps>;
         if (thisChild && thisChild.type === ActionLink) {
             actions.push(React.cloneElement(thisChild, { describedby: describedById }));
         } else {

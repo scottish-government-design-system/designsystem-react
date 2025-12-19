@@ -16,7 +16,7 @@ const meta = {
     },
     args: {
         children: <>
-            <ContentsNav.Item current>
+            <ContentsNav.Item isCurrent>
                 Apply for Blue Badge
             </ContentsNav.Item>
             <ContentsNav.Item href="#2">
@@ -39,4 +39,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+    args: {
+        ariaLabel: 'Contents navigation',
+        title: 'Contents'
+    }
 };

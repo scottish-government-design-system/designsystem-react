@@ -1,4 +1,5 @@
-/// <reference types="vitest/config" />
+import "vitest/config";
+
 import { defineConfig } from 'vitest/config';
 import react from "@vitejs/plugin-react-swc";
 import { playwright } from '@vitest/browser-playwright';

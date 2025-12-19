@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import argTypes from '../../../.storybook/sgdsArgTypes';
-
-// @ts-ignore
+// @ts-expect-error no types
 import coo from '../../../static/images/highland-cow.jpg';
 import AspectBox from './AspectBox';
 

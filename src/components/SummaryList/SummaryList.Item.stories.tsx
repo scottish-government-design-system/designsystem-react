@@ -14,7 +14,7 @@ const meta = {
         )
     ],
     argTypes: {
-        Title: {
+        title: {
             description: 'Title of the summary list item.',
             type: {
                 name: 'string',
@@ -26,16 +26,16 @@ const meta = {
     args: {
         title: 'Contact details',
         children: [
-            <SummaryList.Value name="Email">
+            <SummaryList.Value name="Email" key="1">
                 email@gov.scot
             </SummaryList.Value>,
-            <SummaryList.Value name="Telephone">
+            <SummaryList.Value name="Telephone" key="2">
                 0123 456 7890
             </SummaryList.Value>,
-            <SummaryList.Action href="foo">
+            <SummaryList.Action href="foo" key="3">
                 Change
             </SummaryList.Action>,
-            <SummaryList.Action onclick={function w(){}}>
+            <SummaryList.Action onclick={function w(){}} key="4">
                 Delete
             </SummaryList.Action>
         ]

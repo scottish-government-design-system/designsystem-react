@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import dsSkipLinks from '@scottish-government/design-system/src/components/skip-links/skip-links';
+import { SkipLinksLinkProps, SkipLinksProps } from './types';
 
 const Link = ({
     children,
     fragmentId
-}: SGDS.Component.SkipLinks.Link) => {
+}: SkipLinksLinkProps) => {
     return (
         <li
             className="ds_skip-links__item"
@@ -22,7 +22,7 @@ const SkipLinks = ({
     mainLinkText = 'Skip to main content',
     isStatic,
     ...props
-}: SGDS.Component.SkipLinks) => {
+}: SkipLinksProps) => {
 
     useEffect(() => {
         dsSkipLinks.init();

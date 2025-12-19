@@ -35,14 +35,14 @@ const meta = {
     args: {
         baseId: 'my-tabs',
         children: [
-            <Tabs.Item key="foo" tabLabel="Courses and funding">
+            <Tabs.Item id="foo" key="foo" tabLabel="Courses and funding">
                 <h3>Search for training courses and funding</h3>
                 <p>A wide range of training courses for your employees are available.</p>
                 <p>Opportunities include distance learning, short courses and vocational training.</p>
                 <p><a href="#">Visit My World of Work to search for training courses</a>.</p>
                 <p>You can also <a href="#">search for training courses, and funding towards training</a>.</p>
             </Tabs.Item>,
-            <Tabs.Item key="bar" tabLabel="Choosing apprenticeships">
+            <Tabs.Item id="bar" key="bar" tabLabel="Choosing apprenticeships">
                 <h3>Choosing an apprenticeship for your business</h3>
                 <p>Apprenticeships can help you address skills gaps in your business. The government provides help with the cost of training an apprentice.</p>
                 <p>There are 3 different types of apprenticeship:</p>
@@ -53,7 +53,7 @@ const meta = {
                 </ul>
                 <p>You can find more information on the <a href="#">apprenticeships.scot</a> website.</p>
             </Tabs.Item>,
-            <Tabs.Item key="baz" tabLabel="Extra skills support">
+            <Tabs.Item id="baz" key="baz" tabLabel="Extra skills support">
                 <h3>Extra skills support</h3>
                 <p>The <a href="#">Skills for Growth</a> service can offer skills advice to businesses with fewer than 250 employees.</p>
                 <p>Businesses of any size can get skills advice by completing a <a href="#">skills support request form</a>.</p>

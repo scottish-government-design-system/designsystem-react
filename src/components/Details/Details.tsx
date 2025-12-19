@@ -1,9 +1,11 @@
+import { DetailsProps } from "./types";
+
 const Details = ({
     children,
     className,
     summary,
     ...props
-}: SGDS.Component.Details) => {
+}: DetailsProps) => {
     return (
         <details
             className={[

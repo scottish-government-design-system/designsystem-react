@@ -12,18 +12,18 @@ const meta = {
             description: 'The checkbox is checked on load'
         },
         hintText: argTypes.hintText,
-        exclusive: {
+        isExclusive: {
             control: 'boolean',
             description: 'Whether the checkbox is exclusive (e.g. a \'none\' option)'
         },
         id: argTypes.id(),
+        isSmall: argTypes.isSmall(),
         label: argTypes.label(),
         name: {
             type: 'string'
         },
         onBlur: argTypes.onBlur(),
-        onChange: argTypes.onChange(),
-        small: argTypes.isSmall()
+        onChange: argTypes.onChange()
     },
     args: {
         label: 'Benefits and grants',

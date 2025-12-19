@@ -31,8 +31,5 @@ export const CustomContent: Story = {
     args: {
         phaseName: 'Beta',
         children: <>This is a new service. Your <a href="#foo">feedback</a> will help us to improve it.</>
-    },
-    render: (args: any) => (
-        <PhaseBanner {...args}></PhaseBanner>
-    )
+    }
 };

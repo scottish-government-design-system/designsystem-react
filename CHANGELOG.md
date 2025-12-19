@@ -6,6 +6,32 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 `Removed` and `Security`.
 
 ---
+## [0.13.0] - 2025-12-19
+
+### Added
+- eslint added to build task
+### Changed
+- Types moved from .d.ts files in @types folder to types.ts files in each component's folder
+- HintText no longer allows content to be added with a 'text' prop -- use children instead
+- NotificationBanner title (visually hidden) is customisable via a 'title' prop
+### Fixed
+- Checkbox stories updated to use 'isSmall' and 'isExclusive' (see v0.10.0).
+- CookieBanner now fires the SG Design System cookie notification JS
+### Removed
+- 'SGDS' namespace no longer used for types etc
+### Security
+- Storybook version updated to address vulnerabilities
+
+## [0.12.1] - 2025-11-19
+
+### Added
+- 'Barrel' index files
+- 'main' and typings added to package.json
+### Changed
+- Move hooks and common components and to subfolders to match structure of the main components
+### Security
+- Update dependencies
+
 ## [0.12.0] - 2025-11-12
 
 ### Added

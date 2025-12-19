@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import argTypes from '../../../.storybook/sgdsArgTypes';
-
 import SearchResult from './SearchResult';
-
-//@ts-ignore
+// @ts-expect-error no types
 import coo from '../../../static/images/highland-cow.jpg';
 
 const meta = {
@@ -13,7 +11,8 @@ const meta = {
         children: argTypes.children()
     },
     args: {
-        title: 'Application incomplete'
+        title: 'Greenhouse gas statistics 1990-2022',
+        href: '#foo'
     }
 } satisfies Meta<typeof SearchResult>;
 
@@ -22,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     render: (args) => (
-        <SearchResult href="#foo" title="Greenhouse gas statistics 1990-2022" {...args}>
+        <SearchResult {...args}>
             <SearchResult.Content>
                 Official statistics showing emissions of greenhouse gases in Scotland over the period 1990 to 2022.
             </SearchResult.Content>
@@ -32,7 +31,7 @@ export const Default: Story = {
 
 export const Metadata: Story = {
     render: (args) => (
-        <SearchResult href="#foo" title="Greenhouse gas statistics 1990-2022" {...args}>
+        <SearchResult {...args}>
             <SearchResult.Content>
                 Official statistics showing emissions of greenhouse gases in Scotland over the period 1990 to 2022.
             </SearchResult.Content>
@@ -50,7 +49,7 @@ export const Metadata: Story = {
 
 export const Context: Story = {
     render: (args) => (
-        <SearchResult href="#foo" title="Greenhouse gas statistics 1990-2022" {...args}>
+        <SearchResult {...args}>
             <SearchResult.Content>
                 Official statistics showing emissions of greenhouse gases in Scotland over the period 1990 to 2022.
             </SearchResult.Content>
@@ -64,7 +63,7 @@ export const Context: Story = {
 
 export const Media: Story = {
     render: (args) => (
-        <SearchResult href="#foo" title="Application incomplete" {...args}>
+        <SearchResult {...args}>
             <SearchResult.Content>
                 <SearchResult.Media>
                     <img src={coo} alt="" />
@@ -77,7 +76,7 @@ export const Media: Story = {
 
 export const Promoted: Story = {
     render: (args) => (
-        <SearchResult isPromoted href="#foo" title="Greenhouse gas statistics 1990-2022" {...args}>
+        <SearchResult isPromoted {...args}>
             <SearchResult.Content>
                 Official statistics showing emissions of greenhouse gases in Scotland over the period 1990 to 2022.
             </SearchResult.Content>
@@ -87,7 +86,7 @@ export const Promoted: Story = {
 
 export const KitchenSink: Story = {
     render: (args) => (
-        <SearchResult isPromoted href="#foo" title="Application incomplete" {...args}>
+        <SearchResult isPromoted {...args}>
             <SearchResult.Content>
                 <SearchResult.Media>
                     <img src={coo} alt="" />

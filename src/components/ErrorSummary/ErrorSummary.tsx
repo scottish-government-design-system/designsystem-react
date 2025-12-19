@@ -1,10 +1,11 @@
 import { useId } from 'react';
+import { ErrorSummaryItemProps, ErrorSummaryProps } from './types';
 
 const ErrorSummaryItem = ({
     children,
     fragmentId,
     linkComponent
-}: SGDS.Component.ErrorSummary.Item) => {
+}: ErrorSummaryItemProps) => {
     const HREF = '#' + fragmentId;
 
     function processChildren(children: React.ReactNode) {
@@ -29,7 +30,7 @@ const ErrorSummary = ({
     className,
     title = 'There is a problem',
     ...props
-}: SGDS.Component.ErrorSummary) => {
+}: ErrorSummaryProps) => {
     const summaryTitleId = useId();
 
     return (

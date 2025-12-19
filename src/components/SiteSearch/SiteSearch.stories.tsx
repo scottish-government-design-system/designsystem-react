@@ -11,8 +11,10 @@ type AutocompleteResponseObject = {
     category: string
 }
 
-const suggestionMappingFunction = function (request: XMLHttpRequest) {
-    const responseObj = JSON.parse(request.response).map((item: string) => ({
+type SuggestionObject = { response: string };
+
+const suggestionMappingFunction = function (suggestionObj: SuggestionObject) {
+    const responseObj = JSON.parse(suggestionObj.response).map((item: string) => ({
         key: '',
         displayText: item,
         weight: '',

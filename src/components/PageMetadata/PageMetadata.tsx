@@ -1,9 +1,11 @@
-const MetadataItem= ({
+import { MetdataItemProps, MetadataProps } from "./types";
+
+const MetadataItem = ({
     children,
     className,
     name,
     ...props
-}: SGDS.Component.Metadata.Item) => {
+}: MetdataItemProps) => {
     return (
         <div className={[
             'ds_metadata__item',
@@ -24,7 +26,7 @@ const Metadata = ({
     className,
     isInline,
     ...props
-}: SGDS.Component.Metadata) => {
+}: MetadataProps) => {
     return (
         <dl
             className={[

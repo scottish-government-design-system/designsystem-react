@@ -1,9 +1,11 @@
+import { SiteNavigationItemProps, SiteNavigationProps } from "./types";
+
 const Item = ({
     children,
     isCurrent = false,
     href,
     linkComponent
-}: SGDS.Component.SiteNavigation.Item) => {
+}: SiteNavigationItemProps) => {
     const classNames = ['ds_site-navigation__link'];
     let ariaCurrent: React.AriaAttributes["aria-current"];
 
@@ -33,7 +35,7 @@ const SiteNavigation = ({
     children,
     className,
     ...props
-}: SGDS.Component.SiteNavigation) => {
+}: SiteNavigationProps) => {
     return (
         <nav
             className={[

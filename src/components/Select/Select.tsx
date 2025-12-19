@@ -1,5 +1,6 @@
 import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText';
+import { SelectProps } from './types';
 
 const Select = function ({
     children,
@@ -16,7 +17,7 @@ const Select = function ({
     placeholder,
     width,
     ...props
-}: SGDS.Component.Select) {
+}: SelectProps) {
     const errorMessageId = `error-message-${id}`;
     const hintTextId = `hint-text-${id}`;
     const describedbys: string[] = [];
@@ -24,13 +25,13 @@ const Select = function ({
     if (hintText) { describedbys.push(hintTextId) };
     if (errorMessage) { describedbys.push(errorMessageId) };
 
-    function handleBlur(event: React.FocusEvent) {
+    function handleBlur(event: React.FocusEvent<HTMLSelectElement>) {
         if (typeof onBlur === 'function') {
             onBlur(event);
         }
     }
 
-    function handleChange(event: React.ChangeEvent) {
+    function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
         if (typeof onChange === 'function') {
             onChange(event);
         }
@@ -39,7 +40,7 @@ const Select = function ({
     return (
         <>
             <label className="ds_label" htmlFor={id}>{label}</label>
-            {hintText && <HintText id={hintTextId} text={hintText} />}
+            {hintText && <HintText id={hintTextId}>{hintText}</HintText>}
             {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
             <div
                 className={[

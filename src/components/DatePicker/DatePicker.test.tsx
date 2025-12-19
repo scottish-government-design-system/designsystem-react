@@ -24,8 +24,6 @@ test('date picker renders correctly', () => {
     expect(label.tagName).toEqual('LABEL');
     expect(textInput).toHaveClass('ds_input', 'ds_input--fixed-10');
     expect(textInput.id).toEqual(DATE_PICKER_ID);
-
-    // todo: check for DS script being fired
 });
 
 test('date picker with disabled dates', () => {
@@ -71,9 +69,6 @@ test('date picker with custom icon path', () => {
             iconPath={ICON_PATH}
         />
     );
-    const datePicker = screen.getAllByRole('generic')[1];
-    const label = within(datePicker).getByText(LABEL_TEXT);
-    const textInput = within(datePicker).getByRole('textbox');
 
     // todo
 });

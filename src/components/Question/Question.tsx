@@ -1,6 +1,7 @@
 import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText'
 import WrapperTag from '../../common/WrapperTag';
+import { QuestionProps } from './types';
 
 const Question = function ({
     children,
@@ -11,7 +12,7 @@ const Question = function ({
     legend,
     tagName = 'div',
     ...props
-}: SGDS.Component.Question) {
+}: QuestionProps) {
     return (
         <WrapperTag
             tagName={tagName}
@@ -23,7 +24,7 @@ const Question = function ({
             {...props}
         >
             {legend && <legend>{legend}</legend>}
-            {hintText && <HintText text={hintText} />}
+            {hintText && <HintText>{hintText}</HintText>}
             {hasError && errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
             {children}
         </WrapperTag>

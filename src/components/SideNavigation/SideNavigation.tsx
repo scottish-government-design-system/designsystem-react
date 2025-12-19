@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSSideNavigation from '@scottish-government/design-system/src/components/side-navigation/side-navigation';
+import { SideNavigationItemProps, SideNavigationListProps, SideNavigationProps } from './types';
 
 const SideNavigationList = function ({
     children,
     isRoot
-}: SGDS.Component.SideNavigation.List) {
+}: SideNavigationListProps) {
     return (
         <ul className="ds_side-navigation__list"
             id={isRoot ? 'side-navigation-root' : undefined }
@@ -21,7 +22,7 @@ const SideNavigationItem = function ({
     isCurrent = false,
     linkComponent,
     title
-}: SGDS.Component.SideNavigation.Item) {
+}: SideNavigationItemProps) {
     const LINK_CLASS = 'ds_side-navigation__link';
 
     return (
@@ -47,7 +48,7 @@ const SideNavigation = function ({
     children,
     className,
     ...props
-}: SGDS.Component.SideNavigation) {
+}: SideNavigationProps) {
     const ref = useRef(null);
 
     useEffect(() => {

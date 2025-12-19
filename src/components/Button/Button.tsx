@@ -1,6 +1,7 @@
 import Icon from '../../common/Icon';
 import ScreenReaderText from '../../common/ScreenReaderText';
 import WrapperTag from '../../common/WrapperTag';
+import { ButtonProps } from './types';
 
 const Button = ({
     buttonStyle,
@@ -15,7 +16,7 @@ const Button = ({
     type = 'button',
     width,
     ...props
-}: SGDS.Component.Button) => {
+}: ButtonProps) => {
     // determine which HTML tag to use
     let tagName = 'button';
     if (href) {

@@ -1,13 +1,14 @@
 import React, { Children, useEffect, useRef } from 'react';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSAspectBox from '@scottish-government/design-system/src/components/aspect-box/aspect-box-fallback';
+import { AspectBoxProps } from './types';
 
 const AspectBox = ({
     children,
     className,
     ratio,
     ...props
-}: SGDS.Component.AspectBox) => {
+}: AspectBoxProps) => {
     const ref = useRef(null);
 
     useEffect(() => {
@@ -16,7 +17,7 @@ const AspectBox = ({
         }
     }, [ref]);
 
-    function processChild(child: any) {
+    function processChild(child: React.JSX.Element) {
         if (['img', 'svg', 'picture'].includes(child.type)) {
             return React.cloneElement(child, { className: 'ds_aspect-box__inner' });
         }
@@ -49,7 +50,7 @@ const AspectBox = ({
             ref={ref}
             {...props}
         >
-            {Children.map(children, child => processChild(child))}
+            {Children.map(children, child => processChild(child as React.JSX.Element))}
         </div>
     );
 };

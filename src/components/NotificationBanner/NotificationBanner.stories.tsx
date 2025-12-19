@@ -13,7 +13,7 @@ const meta = {
             description: 'Makes the icon display in the alternative colour scheme'
         },
         hasIcon: {
-            description: 'Shows the ‘high priority’ icon on the notification banner',
+            description: 'Shows the \'high priority\' icon on the notification banner',
             control: 'boolean'
         },
         hasInverseIcon: {
@@ -22,7 +22,7 @@ const meta = {
          },
         isDismissable: {
             control: 'boolean',
-            description: 'Shows a ‘close’ button on the notification banner'
+            description: 'Shows a \'close\' button on the notification banner'
          },
         title: {
             description: 'A hidden title for the notification banner, useful for screen reader users',

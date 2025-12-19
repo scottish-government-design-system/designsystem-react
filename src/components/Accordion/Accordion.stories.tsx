@@ -12,7 +12,7 @@ const meta = {
         }),
         hideOpenAll: {
             control: 'boolean',
-            description: 'Do not show the ‘open all’ button',
+            description: 'Do not show the \'open all\' button',
             type: 'boolean'
         },
         children: {
@@ -26,17 +26,17 @@ const meta = {
                     Veterans are entitled to the same healthcare as any citizen. And there are health care options and support available specifically for veterans.
                 </p>
                 <p>
-                    If you have a health condition that's related to your service, you're entitled to priority treatment based on clinical need.
+                    If you have a health condition that&apos;s related to your service, you&apos;re entitled to priority treatment based on clinical need.
                 </p>
             </Accordion.Item>
             <Accordion.Item id='accordion-2' heading='Employability for veterans'>
                 <p>
-                    If you're looking for a job, there are several organisations that can help you <a href="#accordion-link">find a job or develop new skills</a>.
+                    If you&apos;re looking for a job, there are several organisations that can help you <a href="#accordion-link">find a job or develop new skills</a>.
                 </p>
             </Accordion.Item>
             <Accordion.Item id='accordion-3' heading='Housing for veterans'>
                 <p>
-                    If you need <a href="#accordion-link"> help finding a place to live</a> there's support specifically for veterans.
+                    If you need <a href="#accordion-link"> help finding a place to live</a> there&apos;s support specifically for veterans.
                 </p>
             </Accordion.Item>
         </>
@@ -53,7 +53,7 @@ export const Default: Story = {
 export const HideOpenAll: Story = {
     args: {
         hideOpenAll: true
-    },
+    }
 }
 
 export const InvalidNoChildren: Story = {

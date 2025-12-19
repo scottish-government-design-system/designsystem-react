@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 import DSHideThisPage from '@scottish-government/design-system/src/components/hide-this-page/hide-this-page';
+import { HideThisPageProps } from './types';
 
 const HideThisPage = ({
     className,
     escapeUrl = 'https://www.bbc.co.uk/weather',
     ...props
-}: SGDS.Component.HideThisPage) => {
+}: HideThisPageProps) => {
     const ref = useRef(null);
 
     useEffect(() => {
