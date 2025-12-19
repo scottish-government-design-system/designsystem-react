@@ -1,9 +1,10 @@
 import React from 'react';
+import { ContentsNavItemProps, ContentsNavProps } from './types';
 declare const ContentsNav: {
-    ({ ariaLabel, children, className, title, ...props }: SGDS.Component.ContentsNav): React.JSX.Element;
+    ({ ariaLabel, children, className, title, ...props }: ContentsNavProps): React.JSX.Element;
     displayName: string;
     Item: {
-        ({ children, isCurrent, href, linkComponent }: SGDS.Component.ContentsNav.ContentsNavItem): React.JSX.Element;
+        ({ children, isCurrent, href, linkComponent }: ContentsNavItemProps): React.JSX.Element;
         displayName: string;
     };
 };

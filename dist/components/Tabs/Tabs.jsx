@@ -38,14 +38,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const WrapperTag_1 = __importDefault(require("../../common/WrapperTag"));
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const tabs_1 = __importDefault(require("@scottish-government/design-system/src/components/tabs/tabs"));
 const TabItem = ({ isBorderless, children, className, id, tabLabel, ...props }) => {
     return (<div className={[
             'ds_tabs__content',
             !isBorderless && 'ds_tabs__content--bordered',
             className
-        ].join(' ')} id={id} {...props}>
+        ].join(' ')} data-label={tabLabel} id={id} {...props}>
             {children}
         </div>);
 };

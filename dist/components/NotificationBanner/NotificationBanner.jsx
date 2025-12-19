@@ -5,9 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const AbstractNotificationBanner_1 = __importDefault(require("../../common/AbstractNotificationBanner"));
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const notification_banner_1 = __importDefault(require("@scottish-government/design-system/src/components/notification-banner/notification-banner"));
-const NotificationBanner = ({ children, className, hasColourIcon, hasIcon, hasInverseIcon, isDismissable, title, ...props }) => {
+const NotificationBanner = ({ children, className, hasColourIcon, hasIcon, hasInverseIcon, isDismissable, title = 'Information', ...props }) => {
     const ref = (0, react_1.useRef)(null);
     (0, react_1.useEffect)(() => {
         if (ref.current) {
@@ -17,7 +17,7 @@ const NotificationBanner = ({ children, className, hasColourIcon, hasIcon, hasIn
     return (<AbstractNotificationBanner_1.default className={[
             'ds_reversed',
             className
-        ].join(' ')} isDismissable={isDismissable} icon={hasIcon ? "PriorityHigh" : undefined} hasColourIcon={hasColourIcon} hasInverseIcon={hasInverseIcon} ref={ref} title="Information" {...props}>
+        ].join(' ')} isDismissable={isDismissable} icon={hasIcon ? "PriorityHigh" : undefined} hasColourIcon={hasColourIcon} hasInverseIcon={hasInverseIcon} ref={ref} title={title} {...props}>
             {children}
         </AbstractNotificationBanner_1.default>);
 };

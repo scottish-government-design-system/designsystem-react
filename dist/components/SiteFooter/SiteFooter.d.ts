@@ -1,20 +1,21 @@
 import React from 'react';
+import { SiteFooterLicenseProps, SiteFooterLinkProps, SiteFooterOrgProps, SiteFooterProps } from './types';
 declare const SiteFooter: {
-    ({ children, className, ...props }: SGDS.Component.SiteFooter): React.JSX.Element;
+    ({ children, className, ...props }: SiteFooterProps): React.JSX.Element;
     Links: {
-        ({ children, ...props }: SGDS.Component.SiteFooter.Links): React.JSX.Element;
+        ({ children, ...props }: React.AllHTMLAttributes<HTMLUListElement>): React.JSX.Element;
         displayName: string;
     };
     Link: {
-        ({ children, href, linkComponent, ...props }: SGDS.Component.SiteFooter.Link): React.JSX.Element;
+        ({ children, href, linkComponent, ...props }: SiteFooterLinkProps): React.JSX.Element;
         displayName: string;
     };
     License: {
-        ({ children, ...props }: SGDS.Component.SiteFooter.License): React.JSX.Element;
+        ({ children, ...props }: SiteFooterLicenseProps): React.JSX.Element;
         displayName: string;
     };
     Org: {
-        ({ href, title, children, ...props }: SGDS.Component.SiteFooter.Org): React.JSX.Element;
+        ({ href, title, children, ...props }: SiteFooterOrgProps): React.JSX.Element;
         displayName: string;
     };
     displayName: string;

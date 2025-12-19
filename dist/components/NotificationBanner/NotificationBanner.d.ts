@@ -1,8 +1,9 @@
+import { AbstractNotificationBannerProps } from '../../common/AbstractNotificationBanner/types';
 declare const NotificationBanner: {
-    ({ children, className, hasColourIcon, hasIcon, hasInverseIcon, isDismissable, title, ...props }: SGDS.Common.AbstractNotificationBanner): import("react").JSX.Element;
+    ({ children, className, hasColourIcon, hasIcon, hasInverseIcon, isDismissable, title, ...props }: AbstractNotificationBannerProps): import("react").JSX.Element;
     displayName: string;
     Buttons: {
-        ({ children }: SGDS.Common.AbstractNotificationBanner.Buttons): import("react").JSX.Element;
+        ({ children }: import("../../common/AbstractNotificationBanner/types").AbstractNotificationBannerButtonsProps): import("react").JSX.Element;
         displayName: string;
     };
 };

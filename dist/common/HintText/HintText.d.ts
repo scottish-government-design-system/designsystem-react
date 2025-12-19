@@ -1,5 +1,6 @@
+import { HintTextProps } from "./types";
 declare const HintText: {
-    ({ children, id, text, ...props }: SGDS.Common.HintText): import("react").JSX.Element;
+    ({ children, id, ...props }: HintTextProps): import("react").JSX.Element;
     displayName: string;
 };
 export default HintText;

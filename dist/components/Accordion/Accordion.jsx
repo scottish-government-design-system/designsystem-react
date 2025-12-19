@@ -38,14 +38,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const WrapperTag_1 = __importDefault(require("../../common/WrapperTag"));
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const accordion_1 = __importDefault(require("@scottish-government/design-system/src/components/accordion/accordion"));
 let accordionItemCounter = 0;
 const AccordionHeadingLevelContext = (0, react_1.createContext)('h3');
 const AccordionItem = ({ children, className, id: rawId, isOpen = false, heading, title, ...props }) => {
     accordionItemCounter = accordionItemCounter + 1;
     const processedId = rawId || `accordion-item-${(0, react_1.useId)()}`;
-    let headingLevel = (0, react_1.useContext)(AccordionHeadingLevelContext);
+    const headingLevel = (0, react_1.useContext)(AccordionHeadingLevelContext);
     if (title) {
         console.warn('Warning: Using the `title` prop for heading text on an Accordion.Item is deprecated and will be removed in a future release. Please use the `heading` prop instead.');
         heading = heading || title;

@@ -1,20 +1,21 @@
 import React from 'react';
+import { SiteHeaderBrandProps, SiteHeaderProps } from './types';
 declare const SiteHeader: {
-    ({ children, ...props }: SGDS.Component.SiteHeader): React.JSX.Element;
+    ({ children, ...props }: SiteHeaderProps): React.JSX.Element;
     Brand: {
-        ({ children, homeUrl, linkComponent, siteTitle }: SGDS.Component.SiteHeader.Brand): React.JSX.Element;
+        ({ children, homeUrl, linkComponent, siteTitle }: SiteHeaderBrandProps): React.JSX.Element;
         displayName: string;
     };
     Navigation: {
-        ({ children }: any): any;
+        ({ children }: React.AllHTMLAttributes<HTMLElement>): React.ReactNode;
         displayName: string;
     };
     Phase: {
-        ({ children }: any): any;
+        ({ children }: React.AllHTMLAttributes<HTMLElement>): React.ReactNode;
         displayName: string;
     };
     Search: {
-        ({ children }: any): any;
+        ({ children }: React.AllHTMLAttributes<HTMLElement>): React.ReactNode;
         displayName: string;
     };
     displayName: string;

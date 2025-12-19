@@ -37,7 +37,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const hide_this_page_1 = __importDefault(require("@scottish-government/design-system/src/components/hide-this-page/hide-this-page"));
 const HideThisPage = ({ className, escapeUrl = 'https://www.bbc.co.uk/weather', ...props }) => {
     const ref = (0, react_1.useRef)(null);

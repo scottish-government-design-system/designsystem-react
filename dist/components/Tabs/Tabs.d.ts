@@ -1,9 +1,10 @@
 import React from 'react';
+import { TabsItemProps, TabsProps } from './types';
 declare const Tabs: {
-    ({ baseId, children, className, headingLevel, isBorderless, isManual, title, ...props }: SGDS.Component.Tabs): React.JSX.Element;
+    ({ baseId, children, className, headingLevel, isBorderless, isManual, title, ...props }: TabsProps): React.JSX.Element;
     displayName: string;
     Item: {
-        ({ isBorderless, children, className, id, tabLabel, ...props }: SGDS.Component.Tabs.Item): React.JSX.Element;
+        ({ isBorderless, children, className, id, tabLabel, ...props }: TabsItemProps): React.JSX.Element;
         displayName: string;
     };
 };

@@ -1,6 +1,7 @@
 import React from 'react';
+import { HideThisPageProps } from './types';
 declare const HideThisPage: {
-    ({ className, escapeUrl, ...props }: SGDS.Component.HideThisPage): React.JSX.Element;
+    ({ className, escapeUrl, ...props }: HideThisPageProps): React.JSX.Element;
     displayName: string;
 };
 export default HideThisPage;

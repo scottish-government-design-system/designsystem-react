@@ -40,8 +40,8 @@ const react_1 = __importStar(require("react"));
 const ActionLink_1 = __importDefault(require("../../common/ActionLink"));
 const ConditionalWrapper_1 = __importDefault(require("../../common/ConditionalWrapper"));
 const Item = ({ children, title }) => {
-    let values = [];
-    let actions = [];
+    const values = [];
+    const actions = [];
     const describedById = (0, react_1.useId)();
     react_1.Children.forEach(children, (child) => {
         const thisChild = child;

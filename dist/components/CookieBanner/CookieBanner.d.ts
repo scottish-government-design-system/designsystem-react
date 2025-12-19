@@ -1,8 +1,9 @@
+import { AbstractNotificationBannerProps } from '../../common/AbstractNotificationBanner/types';
 declare const CookieBanner: {
-    ({ children, className, title, ...props }: SGDS.Common.AbstractNotificationBanner): import("react").JSX.Element;
+    ({ children, className, title, ...props }: AbstractNotificationBannerProps): import("react").JSX.Element;
     displayName: string;
     Buttons: {
-        ({ children }: SGDS.Common.AbstractNotificationBanner.Buttons): import("react").JSX.Element;
+        ({ children }: import("../../common/AbstractNotificationBanner/types").AbstractNotificationBannerButtonsProps): import("react").JSX.Element;
         displayName: string;
     };
 };

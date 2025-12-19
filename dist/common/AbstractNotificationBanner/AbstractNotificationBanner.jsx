@@ -10,7 +10,7 @@ const Buttons = ({ children }) => {
     return (<div className="ds_button-group">{children}</div>);
 };
 const AbstractNotificationBanner = ({ children, className, hasColourIcon, hasInverseIcon, icon, isDismissable, title = 'Information', ...props }) => {
-    let content = [];
+    const content = [];
     let buttons;
     react_1.Children.forEach(children, (child) => {
         const thisChild = child;

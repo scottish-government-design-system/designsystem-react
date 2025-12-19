@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const HintText = ({ children, id, text, ...props }) => {
-    return (<p className="ds_hint-text" dangerouslySetInnerHTML={text ? { __html: text } : undefined} id={id} {...props}>
-            {!text ? children : null}
+const HintText = ({ children, id, ...props }) => {
+    return (<p className="ds_hint-text" id={id} {...props}>
+            {children}
         </p>);
 };
 HintText.displayName = 'HintText';

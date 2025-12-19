@@ -1,6 +1,7 @@
 import React from 'react';
+import { FileIconProps } from './types';
 declare const FileIcon: {
-    ({ ariaLabel, className, icon }: SGDS.Common.FileIcon): React.JSX.Element;
+    ({ ariaLabel, className, icon }: FileIconProps): React.JSX.Element;
     displayName: string;
 };
 export default FileIcon;

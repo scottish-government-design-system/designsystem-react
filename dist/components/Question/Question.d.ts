@@ -1,5 +1,6 @@
+import { QuestionProps } from './types';
 declare const Question: {
-    ({ children, className, errorMessage, hasError, hintText, legend, tagName, ...props }: SGDS.Component.Question): import("react").JSX.Element;
+    ({ children, className, errorMessage, hasError, hintText, legend, tagName, ...props }: QuestionProps): import("react").JSX.Element;
     displayName: string;
 };
 export default Question;

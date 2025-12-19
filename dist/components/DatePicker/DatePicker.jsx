@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const date_picker_1 = __importDefault(require("@scottish-government/design-system/src/components/date-picker/date-picker"));
 const ErrorMessage_1 = __importDefault(require("../ErrorMessage"));
 const TextInput_1 = __importDefault(require("../TextInput"));

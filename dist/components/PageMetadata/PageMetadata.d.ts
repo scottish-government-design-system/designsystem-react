@@ -1,8 +1,9 @@
+import { MetdataItemProps, MetadataProps } from "./types";
 declare const Metadata: {
-    ({ children, className, isInline, ...props }: SGDS.Component.Metadata): import("react").JSX.Element;
+    ({ children, className, isInline, ...props }: MetadataProps): import("react").JSX.Element;
     displayName: string;
     Item: {
-        ({ children, className, name, ...props }: SGDS.Component.Metadata.Item): import("react").JSX.Element;
+        ({ children, className, name, ...props }: MetdataItemProps): import("react").JSX.Element;
         displayName: string;
     };
 };

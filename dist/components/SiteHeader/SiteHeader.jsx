@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const Icon_1 = __importDefault(require("../../common/Icon"));
 const SiteNavigation_1 = __importDefault(require("../SiteNavigation"));
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const site_navigation_1 = __importDefault(require("@scottish-government/design-system/src/components/site-navigation/site-navigation"));
 const Brand = ({ children, homeUrl = '/', linkComponent, siteTitle }) => {
     function processChildren(children) {

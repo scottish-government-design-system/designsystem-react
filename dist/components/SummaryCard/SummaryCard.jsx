@@ -41,8 +41,8 @@ const ActionLink_1 = __importDefault(require("../../common/ActionLink"));
 const ConditionalWrapper_1 = __importDefault(require("../../common/ConditionalWrapper"));
 const WrapperTag_1 = __importDefault(require("../../common/WrapperTag"));
 const SummaryCard = ({ children, className, headingLevel = 'h3', title, ...props }) => {
-    let actions = [];
-    let remainingChildren = [];
+    const actions = [];
+    const remainingChildren = [];
     const describedById = (0, react_1.useId)();
     react_1.Children.forEach(children, (child) => {
         const thisChild = child;

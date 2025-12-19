@@ -37,7 +37,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const skip_links_1 = __importDefault(require("@scottish-government/design-system/src/components/skip-links/skip-links"));
 const Link = ({ children, fragmentId }) => {
     return (<li className="ds_skip-links__item">

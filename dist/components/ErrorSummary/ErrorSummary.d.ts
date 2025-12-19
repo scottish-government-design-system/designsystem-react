@@ -1,8 +1,9 @@
+import { ErrorSummaryItemProps, ErrorSummaryProps } from './types';
 declare const ErrorSummary: {
-    ({ children, className, title, ...props }: SGDS.Component.ErrorSummary): import("react").JSX.Element;
+    ({ children, className, title, ...props }: ErrorSummaryProps): import("react").JSX.Element;
     displayName: string;
     Item: {
-        ({ children, fragmentId, linkComponent }: SGDS.Component.ErrorSummary.Item): import("react").JSX.Element;
+        ({ children, fragmentId, linkComponent }: ErrorSummaryItemProps): import("react").JSX.Element;
         displayName: string;
     };
 };

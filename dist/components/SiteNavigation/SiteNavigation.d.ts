@@ -1,8 +1,9 @@
+import { SiteNavigationItemProps, SiteNavigationProps } from "./types";
 declare const SiteNavigation: {
-    ({ children, className, ...props }: SGDS.Component.SiteNavigation): import("react").JSX.Element;
+    ({ children, className, ...props }: SiteNavigationProps): import("react").JSX.Element;
     displayName: string;
     Item: {
-        ({ children, isCurrent, href, linkComponent }: SGDS.Component.SiteNavigation.Item): import("react").JSX.Element;
+        ({ children, isCurrent, href, linkComponent }: SiteNavigationItemProps): import("react").JSX.Element;
         displayName: string;
     };
 };

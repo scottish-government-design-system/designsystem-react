@@ -26,7 +26,7 @@ const RadioButton = ({ checked, hintText, id, isSmall, label, name, onBlur, onCh
         ].join(' ')}>
             <input aria-describedby={hintText ? hintTextId : undefined} className="ds_radio__input" defaultChecked={!!checked} id={id} name={name} onBlur={handleBlur} onChange={handleChange} type="radio"/>
             <label className="ds_radio__label" htmlFor={id}>{label}</label>
-            {hintText && <HintText_1.default id={hintTextId} text={hintText}/>}
+            {hintText && <HintText_1.default id={hintTextId}>{hintText}</HintText_1.default>}
         </div>);
 };
 RadioButton.displayName = 'RadioButton';

@@ -1,5 +1,6 @@
+import { NotificationPanelProps } from './types';
 declare const NotificationPanel: {
-    ({ ariaLive, children, className, headingLevel, title, ...props }: SGDS.Component.NotificationPanel): import("react").JSX.Element;
+    ({ ariaLive, children, className, headingLevel, title, ...props }: NotificationPanelProps): import("react").JSX.Element;
     displayName: string;
 };
 export default NotificationPanel;

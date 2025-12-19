@@ -29,7 +29,7 @@ const Select = function ({ children, className, defaultValue, errorMessage, hasE
     }
     return (<>
             <label className="ds_label" htmlFor={id}>{label}</label>
-            {hintText && <HintText_1.default id={hintTextId} text={hintText}/>}
+            {hintText && <HintText_1.default id={hintTextId}>{hintText}</HintText_1.default>}
             {errorMessage && <ErrorMessage_1.default id={errorMessageId}>{errorMessage}</ErrorMessage_1.default>}
             <div className={[
             "ds_select-wrapper",

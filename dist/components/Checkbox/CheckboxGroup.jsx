@@ -39,7 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CheckboxGroup = void 0;
 const react_1 = __importStar(require("react"));
 const context_1 = require("../../utils/context");
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const checkboxes_1 = __importDefault(require("@scottish-government/design-system/src/forms/checkbox/checkboxes"));
 const CheckboxGroup = ({ children, className, isSmall, ...props }) => {
     const ref = (0, react_1.useRef)(null);

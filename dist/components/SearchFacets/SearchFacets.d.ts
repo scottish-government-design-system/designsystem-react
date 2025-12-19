@@ -1,13 +1,14 @@
 import React from 'react';
+import { SearchFacetsGroupProps, SearchFacetsItemProps, SearchFacetsProps } from './types';
 declare const Facets: {
-    ({ children, className, ...props }: SGDS.Component.SearchFacets): React.JSX.Element;
+    ({ children, className, ...props }: SearchFacetsProps): React.JSX.Element;
     displayName: string;
     Item: {
-        ({ accessibleName, joinContent, onClick, title, ...props }: SGDS.Component.SearchFacets.Item): React.JSX.Element;
+        ({ accessibleName, joinContent, onClick, title, ...props }: SearchFacetsItemProps): React.JSX.Element;
         displayName: string;
     };
     Group: {
-        ({ children, joinContent, title, ...props }: SGDS.Component.SearchFacets.Group): React.JSX.Element;
+        ({ children, joinContent, title, ...props }: SearchFacetsGroupProps): React.JSX.Element;
         displayName: string;
     };
 };

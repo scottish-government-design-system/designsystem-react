@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const Icon_1 = __importDefault(require("../../common/Icon"));
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const back_to_top_1 = __importDefault(require("@scottish-government/design-system/src/components/back-to-top/back-to-top"));
 const BackToTop = ({ className, href = '#page-top', ...props }) => {
     const ref = (0, react_1.useRef)(null);

@@ -4,13 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const autocomplete_1 = __importDefault(require("@scottish-government/design-system/src/components/autocomplete/autocomplete"));
 const Button_1 = __importDefault(require("../Button"));
 const SiteSearch = function ({ action = '/search', autocompleteEndpoint, autocompleteSuggestionMappingFunction, className, id = 'site-search', method = 'GET', minLength = 3, name = 'q', placeholder = 'Search', ...props }) {
     const ref = (0, react_1.useRef)(null);
     const hasAutocomplete = !!autocompleteEndpoint;
-    let autocompleteId = hasAutocomplete ? id + '-autocomplete' : '';
+    const autocompleteId = hasAutocomplete ? id + '-autocomplete' : '';
     (0, react_1.useEffect)(() => {
         if (hasAutocomplete && ref.current) {
             const options = {};
@@ -25,7 +25,7 @@ const SiteSearch = function ({ action = '/search', autocompleteEndpoint, autocom
         }
     }, [ref, autocompleteEndpoint, autocompleteId, hasAutocomplete, minLength, autocompleteSuggestionMappingFunction]);
     return (<div className={[
-            'ds_site-search', ,
+            'ds_site-search',
             className,
             hasAutocomplete ? 'ds_autocomplete' : undefined
         ].join(' ')} id={autocompleteId ? autocompleteId : undefined} ref={ref} {...props}>

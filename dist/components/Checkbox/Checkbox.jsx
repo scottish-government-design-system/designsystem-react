@@ -29,7 +29,7 @@ const Checkbox = ({ checked, hintText, id, isSmall, isExclusive, label, name, on
 
                 <input aria-describedby={hintText ? hintTextId : undefined} className="ds_checkbox__input" data-behaviour={behaviour} defaultChecked={!!checked} id={id} name={name || id} onBlur={handleBlur} onChange={handleChange} type="checkbox"/>
                 <label className="ds_checkbox__label" htmlFor={id}>{label}</label>
-                {hintText && <HintText_1.default id={hintTextId} text={hintText}/>}
+                {hintText && <HintText_1.default id={hintTextId}>{hintText}</HintText_1.default>}
             </div>
         </>);
 };

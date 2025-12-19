@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const character_count_1 = __importDefault(require("@scottish-government/design-system/src/forms/character-count/character-count"));
 const ConditionalWrapper_1 = __importDefault(require("../../common/ConditionalWrapper"));
 const ErrorMessage_1 = __importDefault(require("../ErrorMessage"));
@@ -39,7 +39,7 @@ const Textarea = ({ className, countThreshold, errorMessage, hasError, hintText,
     }
     return (<ConditionalWrapper_1.default condition={typeof maxlength !== 'undefined' && maxlength > 0} wrapper={(children) => <div ref={ref} data-threshold={countThreshold} data-module="ds-character-count">{children}</div>}>
             <label className="ds_label" htmlFor={id}>{label}</label>
-            {hintText && <HintText_1.default id={hintTextId} text={hintText}/>}
+            {hintText && <HintText_1.default id={hintTextId}>{hintText}</HintText_1.default>}
             {errorMessage && <ErrorMessage_1.default id={errorMessageId}>{errorMessage}</ErrorMessage_1.default>}
 
             <textarea aria-describedby={describedbys.join(' ')} aria-invalid={hasError} className={[

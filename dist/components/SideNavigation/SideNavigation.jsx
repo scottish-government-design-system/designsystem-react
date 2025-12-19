@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
-// @ts-ignore
+// @ts-expect-error no types from core SGDS
 const side_navigation_1 = __importDefault(require("@scottish-government/design-system/src/components/side-navigation/side-navigation"));
 const SideNavigationList = function ({ children, isRoot }) {
     return (<ul className="ds_side-navigation__list" id={isRoot ? 'side-navigation-root' : undefined}>

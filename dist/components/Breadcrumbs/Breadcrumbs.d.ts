@@ -1,8 +1,9 @@
+import { BreadcrumbItemProps } from "./types";
 declare const Breadcrumbs: {
-    ({ children, ...props }: SGDS.Component.Breadcrumbs): import("react").JSX.Element;
+    ({ children, ...props }: React.AllHTMLAttributes<HTMLElement>): import("react").JSX.Element;
     displayName: string;
     Item: {
-        ({ children, isHidden, href, linkComponent, ...props }: SGDS.Component.Breadcrumbs.Item): import("react").JSX.Element;
+        ({ children, isHidden, href, linkComponent, ...props }: BreadcrumbItemProps): import("react").JSX.Element;
         displayName: string;
     };
 };

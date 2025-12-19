@@ -66,7 +66,7 @@ const Link = ({ children, href, linkComponent, ...props }) => {
 };
 const Org = ({ href, title, children, ...props }) => {
     children = react_1.Children.map(children, child => {
-        let thisChild = child;
+        const thisChild = child;
         if (thisChild && ['img', 'svg', 'picture'].includes(thisChild.type)) {
             return react_1.default.cloneElement(thisChild, { className: 'ds_site-footer__org-logo' });
         }

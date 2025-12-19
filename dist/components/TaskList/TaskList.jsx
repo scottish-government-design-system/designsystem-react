@@ -15,12 +15,14 @@ const TaskItem = ({ children, className, href, id, isComplete = false, linkCompo
     }
     const LINK_CLASS = 'ds_task-list__task-link';
     function getLinkElement(children) {
+        let linkElement;
         if (linkComponent) {
-            return linkComponent({ className: LINK_CLASS, href, children });
+            linkElement = linkComponent({ className: LINK_CLASS, href, children });
         }
-        else if (href) {
-            return <a href={href} className={LINK_CLASS}>{children}</a>;
+        else {
+            linkElement = <a href={href} className={LINK_CLASS}>{children}</a>;
         }
+        return linkElement;
     }
     return (<li className={[
             'ds_task-list__task',
@@ -62,7 +64,7 @@ const TaskGroup = ({ children, className, intro, title, ...props }) => {
 };
 const TaskList = ({ children, className, headingId = 'task-list', title, ...props }) => {
     let taskCount = 0;
-    let incompleteTaskIds = [];
+    const incompleteTaskIds = [];
     let completedTasksCount = 0;
     function processChild(item) {
         if (item.type.displayName === 'TaskList.Item') {
