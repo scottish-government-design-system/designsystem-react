@@ -7,7 +7,6 @@ export interface DatePickerProps extends React.AllHTMLAttributes<HTMLElement> {
     errorMessage?: string | React.ReactNode;
     id: string;
     hintText?: string | React.ReactNode;
-    iconPath?: string;
     label: string;
     maxDate?: string;
     minDate?: string;

@@ -12,7 +12,6 @@ const DatePicker = ({
     hasError,
     hintText,
     id,
-    iconPath = './',
     label,
     maxDate,
     minDate,
@@ -29,11 +28,10 @@ const DatePicker = ({
     useEffect(() => {
         if (ref.current) {
             new DSDatePicker(ref.current, {
-                dateSelectCallback,
-                imagePath: iconPath
+                dateSelectCallback
             }).init();
         }
-    }, [ref, dateSelectCallback, iconPath]);
+    }, [ref, dateSelectCallback]);
 
     function handleBlur(event: React.FocusEvent) {
         if (typeof onBlur === 'function') {
