@@ -7,6 +7,18 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 
 ---
 
+## unpublished
+
+### Added
+- FileUpload component
+### Changed
+- Updates to support DS v4:
+  - Remove the 'iconPath' prop from DatePicker, which is no longer required in DS v4
+  - Remove a lot of @ts-expect-error now the Design System supplies TS types
+  - Remove call to DS Aspect Box script, which is being removed from the DS (it was required for IE11 support, which is being dropped)
+  - SiteSearch has improved type safety
+- Allow hintText and errorMessage props to accept either string or React.ReactNode in: Checkbox, DatePicker, Question, Radio, Select, Textarea, TetInput
+
 ## [1.0.0] - 2026-04-21
 
 ### Added
@@ -26,8 +38,6 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 - SiteSearch: check for presence of an autocomplete element before firing the DS script
 ### Security
 - Update dependencies
-
----
 
 ## [0.13.0] - 2025-12-19
 

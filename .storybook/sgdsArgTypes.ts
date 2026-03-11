@@ -79,7 +79,10 @@ const SGDSArgTypes = {
     errorMessage: (options?: ArgType) => {
         return Object.assign({
             description: 'Text to use for an error message',
-            type: 'string'
+            type: 'string',
+            table: {
+                type: { summary: 'string' }
+            }
         }, options) as InputType;
     },
     hasError: (options?: ArgType) => {
@@ -96,10 +99,20 @@ const SGDSArgTypes = {
             type: 'string'
         }, options) as InputType;
     },
+    hidden: (options?: ArgType) => {
+        return Object.assign({
+            table: {
+                disable: true
+            }
+        }, options) as InputType;
+    },
     hintText: (options?: ArgType) => {
         return Object.assign({
             description: 'Text to use for the field\'s hint text',
-            type: 'string'
+            type: 'string',
+            table: {
+                type: { summary: 'string' }
+            }
         }, options) as InputType;
     },
     href: (options?: ArgType) => {
@@ -190,7 +203,10 @@ const SGDSArgTypes = {
             control: { type: 'select' },
             options: params.options,
             description: params.description,
-            type: typeof params.options[0]
+            type: typeof params.options[0],
+            table: {
+                type: { summary: typeof params.options[0] }
+            }
         } as InputType;
     },
     tagColour: (options?: ArgType) => {
