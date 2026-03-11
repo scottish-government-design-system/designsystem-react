@@ -1,3 +1,5 @@
+import { FormFieldBase } from '../../shared-types';
+
 type TextArgs = {
     buttonText: string
     buttonTextPlural: string
@@ -11,17 +13,13 @@ type TextArgs = {
     leftDropzone: string
 }
 
-export interface FileUploadProps extends React.AllHTMLAttributes<HTMLElement> {
+export interface FileUploadProps extends FormFieldBase<HTMLElement> {
     accept?: string,
     capture?: boolean | 'user' | 'environment'
     className?: string
-    errorMessage?: string | React.ReactNode
     files?: File[]
-    hasError?: boolean
-    hintText?: string | React.ReactNode
     id: string
     isMultiple?: boolean
-    label: string
     name?: string
     text?: Partial<TextArgs>
 }
