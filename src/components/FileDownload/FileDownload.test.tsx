@@ -5,7 +5,7 @@ import FileDownload from './FileDownload';
 const FILE_TITLE = 'Scotland\'s Artificial Intelligence Strategy - Trustworthy, Ethical and Inclusive';
 const FILE_URL = 'my-file.file';
 
-test('inset text renders correctly', () => {
+test('File download renders correctly', () => {
     render(
         <FileDownload fileUrl={FILE_URL} title={FILE_TITLE} data-testid="file-download" />
     );

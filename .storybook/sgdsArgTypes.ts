@@ -52,6 +52,16 @@ const SGDSArgTypes = {
             type: 'string'
         }, options) as InputType;
     },
+    boolean: (options?: ArgType) => {
+        return Object.assign({
+            control: 'boolean',
+            table: {
+                type: {
+                    summary: 'boolean'
+                }
+            }
+        }, options) as InputType;
+    },
     children: (options?: ArgType) => {
         return Object.assign({
             control: false
@@ -69,7 +79,10 @@ const SGDSArgTypes = {
     errorMessage: (options?: ArgType) => {
         return Object.assign({
             description: 'Text to use for an error message',
-            type: 'string'
+            type: 'string',
+            table: {
+                type: { summary: 'string' }
+            }
         }, options) as InputType;
     },
     hasError: (options?: ArgType) => {
@@ -86,10 +99,20 @@ const SGDSArgTypes = {
             type: 'string'
         }, options) as InputType;
     },
+    hidden: (options?: ArgType) => {
+        return Object.assign({
+            table: {
+                disable: true
+            }
+        }, options) as InputType;
+    },
     hintText: (options?: ArgType) => {
         return Object.assign({
             description: 'Text to use for the field\'s hint text',
-            type: 'string'
+            type: 'string',
+            table: {
+                type: { summary: 'string' }
+            }
         }, options) as InputType;
     },
     href: (options?: ArgType) => {
@@ -169,6 +192,22 @@ const SGDSArgTypes = {
             description: 'Function to fire in response to a click event',
             type: 'function'
         }, options) as InputType;
+    },
+    select: (params: {
+        default?: string,
+        description?: string,
+        options: string[] | number[]
+    }) => {
+        return {
+            defaultValue: { summary: params.default },
+            control: { type: 'select' },
+            options: params.options,
+            description: params.description,
+            type: typeof params.options[0],
+            table: {
+                type: { summary: typeof params.options[0] }
+            }
+        } as InputType;
     },
     tagColour: (options?: ArgType) => {
         return Object.assign({
