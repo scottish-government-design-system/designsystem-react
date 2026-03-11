@@ -1,11 +1,11 @@
-import { test, expect } from 'vitest';
-import { screen, render } from '@testing-library/react';
+import { test, expect, vi } from 'vitest';
+import { screen, render, fireEvent } from '@testing-library/react';
 import FileUpload from './FileUpload';
 
-test('file upload renders correctly', () => {
-    const ID = 'my-file-upload'
-    const LABEL_TEXT = 'Upload a file';
+const ID = 'my-file-upload'
+const LABEL_TEXT = 'Upload a file';
 
+test('file upload renders correctly', () => {
     render(
         <FileUpload data-testid="file-upload" id={ID} label={LABEL_TEXT} />
     );
@@ -73,7 +73,6 @@ test('file upload renders correctly', () => {
 });
 
 test('multiple file upload', () => {
-    const ID = 'my-file-upload'
     const LABEL_TEXT = 'Upload files';
 
     render(
@@ -94,8 +93,6 @@ test('multiple file upload', () => {
 });
 
 test('with hint text', () => {
-    const ID = 'my-file-upload'
-    const LABEL_TEXT = 'Upload files';
     const HINT_TEXT = 'My hint text'
 
     render(
@@ -112,8 +109,6 @@ test('with hint text', () => {
 });
 
 test('with error text', () => {
-    const ID = 'my-file-upload'
-    const LABEL_TEXT = 'Upload files';
     const ERROR_TEXT = 'My error text'
 
     render(
@@ -127,4 +122,64 @@ test('with error text', () => {
     expect(errorText).toHaveClass('ds_question__error-message');
     expect(errorText?.textContent).toEqual(ERROR_TEXT);
     expect(errorText?.previousElementSibling).toEqual(label);
+});
+
+test('with blur fn', () => {
+    const ONBLUR_FUNCTION = vi.fn();
+
+    render(
+        <FileUpload onBlur={ONBLUR_FUNCTION} id={ID} label={LABEL_TEXT} />
+    );
+
+    const fileInput = document.getElementById(ID);
+
+    if (fileInput) {
+        fireEvent.blur(fileInput);
+    }
+
+    expect(ONBLUR_FUNCTION).toHaveBeenCalled();
+});
+
+test('with change fn', () => {
+    const ONCHANGE_FUNCTION = vi.fn();
+
+    render(
+        <FileUpload onChange={ONCHANGE_FUNCTION} id={ID} label={LABEL_TEXT} />
+    );
+
+    const fileInput = document.getElementById(ID);
+
+    if (fileInput) {
+        fireEvent.change(fileInput);
+    }
+
+    expect(ONCHANGE_FUNCTION).toHaveBeenCalled();
+});
+
+test('passing additional props', () => {
+    render(
+        <FileUpload
+            data-testid="file-upload"
+            id={ID}
+            label={LABEL_TEXT}
+            data-test="foo"
+        />
+    );
+
+    const fileUploadElement = screen.getByTestId('file-upload');
+    expect(fileUploadElement?.dataset.test).toEqual('foo');
+});
+
+test('passing additional CSS classes', () => {
+    render(
+        <FileUpload
+            data-testid="file-upload"
+            id={ID}
+            label={LABEL_TEXT}
+            className="foo"
+        />
+    );
+
+    const fileUploadElement = screen.getByTestId('file-upload');
+    expect(fileUploadElement).toHaveClass('foo');
 });

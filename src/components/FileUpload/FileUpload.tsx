@@ -15,6 +15,8 @@ const FileUpload = ({
     isMultiple,
     label,
     name,
+    onBlur,
+    onChange,
     text,
     ...props
 }: FileUploadProps) => {
@@ -36,6 +38,18 @@ const FileUpload = ({
             new DSFileUpload(ref.current, options).init();
         }
     }, [ref]);
+
+    function handleBlur(event: React.FocusEvent<HTMLInputElement>) {
+        if (typeof onBlur === 'function') {
+            onBlur(event);
+        }
+    }
+
+    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+        if (typeof onChange === 'function') {
+            onChange(event);
+        }
+    }
 
     return (
         <div className={[
@@ -60,6 +74,8 @@ const FileUpload = ({
                 id={id}
                 multiple={isMultiple}
                 name={name || id}
+                onBlur={handleBlur}
+                onChange={handleChange}
                 type="file"
             />
         </div>
