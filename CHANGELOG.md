@@ -7,6 +7,14 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 
 ---
 
+## unpublished
+
+### Added
+- FileUpload component
+### Changed
+- Allow hintText and errorMessage props to accept either string or React.ReactNode in: Checkbox, DatePicker, Question, Radio, Select, Textarea, TextInput
+- NotificationBanner and WarningText use updated warning icon
+
 ## [1.0.0] - 2026-04-21
 
 ### Added
