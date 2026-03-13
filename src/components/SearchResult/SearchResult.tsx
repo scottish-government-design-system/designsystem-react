@@ -126,14 +126,12 @@ SearchResult.Content = SearchResultContent;
 SearchResult.Context = SearchResultContext;
 SearchResult.ContextItem = SearchResultContextItem;
 SearchResult.Media = SearchResultMedia;
-SearchResult.Meta = SearchResultMeta;
-SearchResult.MetaItem = Metadata.Item;
+SearchResult.Metadata = SearchResultMeta;
 
 SearchResultContent.displayName = 'SearchResult.Content';
 SearchResultContext.displayName = 'SearchResult.Context';
 SearchResultContextItem.displayName = 'SearchResult.ContextItem';
 SearchResultMedia.displayName = 'SearchResult.Media';
-SearchResultMeta.displayName = 'SearchResult.Meta';
-SearchResult.MetaItem.displayName = 'SearchResult.MetaItem';
+SearchResultMeta.displayName = 'SearchResult.Metadata';
 
 export default SearchResult;

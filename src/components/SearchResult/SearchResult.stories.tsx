@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import argTypes from '../../../.storybook/sgdsArgTypes';
 import SearchResult from './SearchResult';
+import Metadata from '../PageMetadata';
 // @ts-expect-error no types
 import coo from '../../../static/images/highland-cow.jpg';
 
@@ -29,20 +30,20 @@ export const Default: Story = {
     )
 };
 
-export const Metadata: Story = {
+export const WithMetadata: Story = {
     render: (args) => (
         <SearchResult {...args}>
             <SearchResult.Content>
                 Official statistics showing emissions of greenhouse gases in Scotland over the period 1990 to 2022.
             </SearchResult.Content>
-            <SearchResult.Meta>
-                <SearchResult.MetaItem name="Publication type">
+            <SearchResult.Metadata>
+                <Metadata.Item name="Publication type">
                     Statistics
-                </SearchResult.MetaItem>
-                <SearchResult.MetaItem name="Date">
+                </Metadata.Item>
+                <Metadata.Item name="Date">
                     18 June 2024
-                </SearchResult.MetaItem>
-            </SearchResult.Meta>
+                </Metadata.Item>
+            </SearchResult.Metadata>
         </SearchResult>
     )
 };
@@ -93,14 +94,14 @@ export const KitchenSink: Story = {
                 </SearchResult.Media>
                 Official statistics showing emissions of greenhouse gases in Scotland over the period 1990 to 2022.
             </SearchResult.Content>
-            <SearchResult.Meta>
-                <SearchResult.MetaItem name="Publication type">
+            <SearchResult.Metadata>
+                <Metadata.Item name="Publication type">
                     Statistics
-                </SearchResult.MetaItem>
-                <SearchResult.MetaItem name="Date">
+                </Metadata.Item>
+                <Metadata.Item name="Date">
                     18 June 2024
-                </SearchResult.MetaItem>
-            </SearchResult.Meta>
+                </Metadata.Item>
+            </SearchResult.Metadata>
             <SearchResult.Context title="Part of">
                 <SearchResult.ContextItem><a href="#">Environment statistics</a></SearchResult.ContextItem>
                 <SearchResult.ContextItem><a href="#">Energy statistics</a></SearchResult.ContextItem>

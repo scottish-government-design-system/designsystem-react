@@ -18,6 +18,10 @@ export default defineConfig({
       exclude: ["src/images", "**/*.stories.+(tsx|ts)"],
       include: ["src/**"],
       reporter: ["text", "lcov"],
+      thresholds: {
+        branches: 80,
+        lines: -10,
+      }
     },
     projects: [
       {

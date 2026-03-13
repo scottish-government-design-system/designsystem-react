@@ -52,6 +52,16 @@ const SGDSArgTypes = {
             type: 'string'
         }, options) as InputType;
     },
+    boolean: (options?: ArgType) => {
+        return Object.assign({
+            control: 'boolean',
+            table: {
+                type: {
+                    summary: 'boolean'
+                }
+            }
+        }, options) as InputType;
+    },
     children: (options?: ArgType) => {
         return Object.assign({
             control: false
@@ -169,6 +179,19 @@ const SGDSArgTypes = {
             description: 'Function to fire in response to a click event',
             type: 'function'
         }, options) as InputType;
+    },
+    select: (params: {
+        default?: string,
+        description?: string,
+        options: string[] | number[]
+    }) => {
+        return {
+            defaultValue: { summary: params.default },
+            control: { type: 'select' },
+            options: params.options,
+            description: params.description,
+            type: typeof params.options[0]
+        } as InputType;
     },
     tagColour: (options?: ArgType) => {
         return Object.assign({

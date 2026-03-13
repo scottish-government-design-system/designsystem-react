@@ -1,6 +1,7 @@
 import { test, expect } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import SearchResult from './SearchResult';
+import Metadata from '../PageMetadata';
 
 const RESULT_TITLE = 'My title';
 const RESULT_HREF = '#foo';
@@ -15,11 +16,11 @@ test('search result renders correctly', () => {
             <SearchResult.Content>
                 {RESULT_CONTENT}
             </SearchResult.Content>
-            <SearchResult.Meta>
-                <SearchResult.MetaItem name={META_KEY}>
+            <SearchResult.Metadata>
+                <Metadata.Item name={META_KEY}>
                     {META_VALUE}
-                </SearchResult.MetaItem>
-            </SearchResult.Meta>
+                </Metadata.Item>
+            </SearchResult.Metadata>
             <SearchResult.Context>
                 <SearchResult.ContextItem>{CONTEXT_VALUE}</SearchResult.ContextItem>
             </SearchResult.Context>
