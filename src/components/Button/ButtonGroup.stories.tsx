@@ -17,6 +17,15 @@ const meta = {
                     summary: 'boolean'
                 }
             }
+        },
+        isWrap: {
+            description: 'Force wrap buttons on small screens',
+            control: 'boolean',
+            table: {
+                type: {
+                    summary: 'boolean'
+                }
+            }
         }
     },
     args: {
@@ -37,5 +46,18 @@ export const Default: Story = {
 export const Inline: Story = {
     args: {
         isInline: true
+    }
+};
+
+export const Wrap: Story = {
+    args: {
+        isWrap: true
+    }
+};
+
+export const InlineWrap: Story = {
+    args: {
+        isInline: true,
+        isWrap: true
     }
 };

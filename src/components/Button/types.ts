@@ -18,4 +18,5 @@ export interface ButtonProps extends React.AllHTMLAttributes<HTMLButtonElement> 
 
 export interface ButtonGroupProps extends React.AllHTMLAttributes<HTMLElement> {
     isInline?: boolean;
+    isWrap?: boolean;
 }

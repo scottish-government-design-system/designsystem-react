@@ -24,6 +24,27 @@ test('inline button group', () => {
     expect(buttonGroup).toHaveClass('ds_button-group--inline');
 });
 
+test('wrap button group', () => {
+    render(
+        <ButtonGroup isWrap data-testid="button-group">
+
+        </ButtonGroup>
+    );
+    const buttonGroup = screen.getByTestId('button-group');
+    expect(buttonGroup).toHaveClass('ds_button-group--wrap');
+});
+
+test('inline-wrap button group', () => {
+    render(
+        <ButtonGroup isInline isWrap data-testid="button-group">
+
+        </ButtonGroup>
+    );
+    const buttonGroup = screen.getByTestId('button-group');
+    expect(buttonGroup).toHaveClass('ds_button-group--inline');
+    expect(buttonGroup).toHaveClass('ds_button-group--wrap');
+});
+
 test('passing additional props', () => {
     render(
         <ButtonGroup data-test="foo" data-testid="button-group">
