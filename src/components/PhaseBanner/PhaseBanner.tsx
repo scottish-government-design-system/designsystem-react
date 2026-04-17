@@ -1,5 +1,6 @@
 import Tag from "../Tag/Tag";
 import { PhaseBannerProps } from "./types";
+import clsx from 'clsx';
 
 const PhaseBanner = ({
     children,
@@ -9,10 +10,10 @@ const PhaseBanner = ({
 }: PhaseBannerProps) => {
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_phase-banner',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <div className="ds_wrapper">

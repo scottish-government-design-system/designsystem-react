@@ -2,6 +2,7 @@ import React, { Children } from 'react';
 import Icon from "../../common/Icon";
 import { Cancel } from '../../../src/images/icons';
 import { SearchFacetsGroupProps, SearchFacetsItemProps, SearchFacetsProps } from './types';
+import clsx from 'clsx';
 
 const FacetsItem = ({
     accessibleName,
@@ -71,10 +72,10 @@ const Facets = ({
     });
 
     return (
-        <div className={[
+        <div className={clsx([
                 "ds_facets",
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <p className="visually-hidden">There {facetCount === 1 ? 'is' : 'are'} {facetCount} search {facetCount === 1 ? 'filter' : 'filters'} applied</p>

@@ -1,4 +1,5 @@
 import { MetdataItemProps, MetadataProps } from "./types";
+import clsx from 'clsx';
 
 const MetadataItem = ({
     children,
@@ -7,10 +8,10 @@ const MetadataItem = ({
     ...props
 }: MetdataItemProps) => {
     return (
-        <div className={[
+        <div className={clsx([
             'ds_metadata__item',
             className
-        ].join(' ')}
+        ])}
             {...props}
         >
             <dt className="ds_metadata__key">{name}</dt>{' '}
@@ -29,11 +30,11 @@ const Metadata = ({
 }: MetadataProps) => {
     return (
         <dl
-            className={[
+            className={clsx([
                 'ds_metadata',
                 isInline && 'ds_metadata--inline',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             {children}

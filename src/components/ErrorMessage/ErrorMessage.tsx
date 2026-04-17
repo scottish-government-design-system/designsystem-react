@@ -1,4 +1,5 @@
 import { ErrorMessageProps } from "./types";
+import clsx from 'clsx';
 
 const ErrorMessage = ({
     children,
@@ -8,10 +9,10 @@ const ErrorMessage = ({
 }: ErrorMessageProps) => {
     return (
         <p
-            className={[
+            className={clsx([
                 'ds_question__error-message',
                 className
-            ].join(' ')}
+            ])}
             id={id}
             {...props}
         >

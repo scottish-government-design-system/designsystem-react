@@ -1,4 +1,5 @@
 import { DetailsProps } from "./types";
+import clsx from 'clsx';
 
 const Details = ({
     children,
@@ -8,10 +9,10 @@ const Details = ({
 }: DetailsProps) => {
     return (
         <details
-            className={[
+            className={clsx([
                 "ds_details",
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <summary className="ds_details__summary">

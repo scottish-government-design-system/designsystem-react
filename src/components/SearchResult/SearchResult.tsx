@@ -3,6 +3,7 @@ import ConditionalWrapper from '../../common/ConditionalWrapper';
 import AspectBox from '../AspectBox';
 import Metadata from '../PageMetadata';
 import { SearchResultContextProps, SearchResultProps } from './types';
+import clsx from 'clsx';
 
 const SearchResultLinkHrefContext = createContext('');
 
@@ -93,10 +94,10 @@ const SearchResult = ({
     const LINK_CLASS = 'ds_search-result__link';
 
     return (
-        <div className={[
+        <div className={clsx([
             'ds_search-result',
-            isPromoted ? 'ds_search-result--promoted' : ''
-        ].join(' ')}
+            isPromoted && 'ds_search-result--promoted'
+        ])}
             {...props}
         >
             <ConditionalWrapper

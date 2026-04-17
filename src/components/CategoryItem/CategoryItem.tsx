@@ -1,6 +1,7 @@
 import ConditionalWrapper from "../../common/ConditionalWrapper";
 import WrapperTag from "../../common/WrapperTag";
 import { CategoryItemProps } from "./types";
+import clsx from 'clsx';
 
 const CategoryItem = ({
     children,
@@ -27,10 +28,10 @@ const CategoryItem = ({
     return (
         <WrapperTag
             tagName={tagName}
-            className={[
+            className={clsx([
                 'ds_category-item',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <WrapperTag

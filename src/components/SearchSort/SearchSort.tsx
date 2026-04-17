@@ -2,6 +2,7 @@ import { AllHTMLAttributes } from "react";
 import Button from "../Button";
 import Select from "../Select";
 import { SearchSortProps } from "./types";
+import clsx from 'clsx';
 
 const Option = ({
     children,
@@ -24,10 +25,10 @@ const SearchSort = ({
 }: SearchSortProps) => {
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_sort-options',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <Select id={id} label={label}>

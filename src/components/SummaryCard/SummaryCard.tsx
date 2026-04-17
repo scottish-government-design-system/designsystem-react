@@ -5,6 +5,7 @@ import ConditionalWrapper from '../../common/ConditionalWrapper';
 import WrapperTag from "../../common/WrapperTag";
 import { SummaryCardProps } from './types';
 import { ActionLinkProps } from '../../common/ActionLink/types';
+import clsx from 'clsx';
 
 const SummaryCard = ({
     children,
@@ -29,10 +30,10 @@ const SummaryCard = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_summary-card',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <div className="ds_summary-card__header">

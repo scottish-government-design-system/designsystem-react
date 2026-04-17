@@ -1,4 +1,5 @@
 import { PageHeaderProps } from "./types";
+import clsx from 'clsx';
 
 const PageHeader = ({
     children,
@@ -10,10 +11,10 @@ const PageHeader = ({
 }: PageHeaderProps) => {
     return (
         <header
-            className={[
+            className={clsx([
                 'ds_page-header',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             {label && <span className="ds_page-header__label  ds_content-label">{label}</span>}

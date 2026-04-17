@@ -1,6 +1,7 @@
 import React, { Children } from 'react';
 import ConditionalWrapper from '../../common/ConditionalWrapper';
 import { SiteFooterLicenseProps, SiteFooterLinkProps, SiteFooterOrgProps, SiteFooterProps } from './types';
+import clsx from 'clsx';
 
 const License = ({
     children,
@@ -79,10 +80,10 @@ const SiteFooter = ({
 }: SiteFooterProps) => {
     return (
         <footer
-            className={[
+            className={clsx([
                 "ds_site-footer",
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <div className="ds_wrapper">

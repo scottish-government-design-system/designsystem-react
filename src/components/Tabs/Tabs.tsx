@@ -2,6 +2,7 @@ import React, { Children, useEffect, useRef, useId } from 'react';
 import WrapperTag from '../../common/WrapperTag';
 import DSTabs from '@scottish-government/design-system/src/components/tabs/tabs';
 import { TabListItemProps, TabsItemProps, TabsProps } from './types';
+import clsx from 'clsx';
 
 const TabItem = ({
     isBorderless,
@@ -13,11 +14,11 @@ const TabItem = ({
 }: TabsItemProps) => {
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_tabs__content',
                 !isBorderless && 'ds_tabs__content--bordered',
                 className
-            ].join(' ')}
+            ])}
             data-label={tabLabel}
             id={id}
             {...props}
@@ -78,11 +79,11 @@ const Tabs = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_tabs',
                 isManual && 'ds_tabs--manual',
                 className
-            ].join(' ')}
+            ])}
             ref={ref}
             {...props}
         >

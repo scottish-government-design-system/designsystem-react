@@ -5,6 +5,7 @@ import ConditionalWrapper from '../../common/ConditionalWrapper';
 import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText';
 import { TextInputProps } from './types';
+import clsx from 'clsx';
 
 const TextInput = ({
     buttonIcon,
@@ -32,7 +33,11 @@ const TextInput = ({
     const errorMessageId = `error-message-${id}`;
     const hintTextId = `hint-text-${id}`;
     const ref = useRef(null);
-    const inputWrapperClasses = `${hasButton ? 'ds_input__wrapper  ds_input__wrapper--has-icon' : ''} ${isCurrency ? 'ds_currency-wrapper' : ''}`;
+    const inputWrapperClasses = clsx(
+        hasButton && 'ds_input__wrapper',
+        hasButton && 'ds_input__wrapper--has-icon',
+        isCurrency && 'ds_currency-wrapper'
+    );
     const describedbys: string[] = [];
 
     if (hintText) { describedbys.push(hintTextId) };
@@ -72,12 +77,12 @@ const TextInput = ({
                 <input
                     aria-describedby={describedbys.join(' ')}
                     aria-invalid={hasError}
-                    className={[
+                    className={clsx([
                         'ds_input',
                         className,
-                        hasError ? 'ds_input--error' : '',
-                        width ? `ds_input--${width}` : '',
-                    ].join(' ')}
+                        hasError && 'ds_input--error',
+                        width && `ds_input--${width}`,
+                    ])}
                     defaultValue={value}
                     id={id}
                     maxLength={maxlength}

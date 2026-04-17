@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import DSHideThisPage from '@scottish-government/design-system/src/components/hide-this-page/hide-this-page';
 import { HideThisPageProps } from './types';
+import clsx from 'clsx';
 
 const HideThisPage = ({
     className,
@@ -30,10 +31,10 @@ const HideThisPage = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_hide-page',
                 className
-            ].join(' ')}
+            ])}
             ref={ref}
             {...props}
         >

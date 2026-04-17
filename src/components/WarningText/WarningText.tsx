@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 const WarningText = ({
     children,
     className,
@@ -5,10 +7,10 @@ const WarningText = ({
 }: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_warning-text',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <strong className="ds_warning-text__icon" aria-hidden="true"></strong>

@@ -1,4 +1,5 @@
 import { SiteNavigationItemProps, SiteNavigationProps } from "./types";
+import clsx from 'clsx';
 
 const Item = ({
     children,
@@ -14,13 +15,15 @@ const Item = ({
         ariaCurrent = 'page';
     }
 
+    const classNamesString = clsx(classNames);
+
     function processChildren(children: React.ReactNode) {
         if (linkComponent) {
-            return linkComponent({ className: classNames.join(' '), href, children });
+            return linkComponent({ className: classNamesString, href, children });
         } else if (href) {
-            return <a href={href} aria-current={ariaCurrent ? ariaCurrent : undefined} className={classNames.join(' ')}>{children}</a>;
+            return <a href={href} aria-current={ariaCurrent ? ariaCurrent : undefined} className={classNamesString}>{children}</a>;
         } else {
-            return <span className={classNames.join(' ')}>{children}</span>;
+            return <span className={classNamesString}>{children}</span>;
         }
     }
 
@@ -40,10 +43,10 @@ const SiteNavigation = ({
 }: SiteNavigationProps) => {
     return (
         <nav
-            className={[
+            className={clsx([
                 'ds_site-navigation',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <ul className="ds_site-navigation__list">

@@ -3,6 +3,7 @@ import { useEffect, useRef } from 'react';
 import AbstractNotificationBanner from '../../common/AbstractNotificationBanner';
 import DSCookieBanner from '@scottish-government/design-system/src/components/cookie-notification/cookie-notification.js';
 import { AbstractNotificationBannerProps } from '../../common/AbstractNotificationBanner/types';
+import clsx from 'clsx';
 
 const CookieBanner = ({
     children,
@@ -22,12 +23,12 @@ const CookieBanner = ({
     return (
         <>
             <AbstractNotificationBanner
-                className={[
+                className={clsx([
                     'ds_notification--large',
                     'ds_notification--cookie',
                     'js-initial-cookie-content',
                     className
-                ].join(' ')}
+                ])}
                 data-module="ds-cookie-notification"
                 ref={ref}
                 title={title}

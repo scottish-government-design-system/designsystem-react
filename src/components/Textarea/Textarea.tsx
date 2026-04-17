@@ -4,6 +4,7 @@ import ConditionalWrapper from '../../common/ConditionalWrapper';
 import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText';
 import { TextInputBase } from '../../shared-types';
+import clsx from 'clsx';
 
 const Textarea = ({
     className,
@@ -61,11 +62,11 @@ const Textarea = ({
             <textarea
                 aria-describedby={describedbys.join(' ')}
                 aria-invalid={hasError}
-                className={[
+                className={clsx([
                     'ds_input',
                     hasError && 'ds_input--error',
                     className
-                ].join(' ')}
+                ])}
                 defaultValue={value}
                 id={id}
                 maxLength={maxlength}

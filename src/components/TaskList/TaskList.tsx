@@ -4,6 +4,7 @@ import HintText from '../../common/HintText';
 import ScreenReaderText from '../../common/ScreenReaderText';
 import Tag from '../Tag';
 import { TaskListGroupProps, TaskListItemProps, TaskListProps } from './types';
+import clsx from 'clsx';
 
 const TaskItem = ({
     children,
@@ -36,10 +37,10 @@ const TaskItem = ({
 
     return (
         <li
-            className={[
+            className={clsx([
                 'ds_task-list__task',
                 className
-            ].join(' ')}
+            ])}
             id={id}
             {...props}
         >
@@ -83,10 +84,10 @@ const TaskGroup = ({
 }: TaskListGroupProps) => {
     return (
         <li
-            className={[
+            className={clsx([
                 'ds_task-list-group__section',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <h2 className="ds_task-list-heading">{title}</h2>

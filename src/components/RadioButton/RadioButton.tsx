@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-
 import HintText from '../../common/HintText';
 import { CheckboxRadioContext } from '../../utils/context';
 import { RadioButtonProps } from './types';
+import clsx from 'clsx';
 
 const RadioButton = ({
     checked,
@@ -33,10 +33,10 @@ const RadioButton = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_radio',
                 isSmall && 'ds_radio--small'
-            ].join(' ')}>
+            ])}>
             <input
                 aria-describedby={hintText ? hintTextId : undefined}
                 className="ds_radio__input"

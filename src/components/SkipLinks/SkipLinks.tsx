@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import dsSkipLinks from '@scottish-government/design-system/src/components/skip-links/skip-links';
 import { SkipLinksLinkProps, SkipLinksProps } from './types';
+import clsx from 'clsx';
 
 const Link = ({
     children,
@@ -29,10 +30,10 @@ const SkipLinks = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_skip-links',
-                isStatic && 'ds_skip-links--static',
-            ].join(' ')}
+                isStatic && 'ds_skip-links--static'
+            ])}
             {...props}
         >
             <ul className="ds_skip-links__list">

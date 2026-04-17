@@ -1,4 +1,5 @@
 import { TagProps } from "./types";
+import clsx from 'clsx';
 
 const Tag = ({
     children,
@@ -8,11 +9,11 @@ const Tag = ({
 }: TagProps) => {
     return (
         <span
-            className={[
+            className={clsx([
                 'ds_tag',
                 className,
-                colour && `ds_tag--${colour}`,
-            ].join(' ')}
+                colour && `ds_tag--${colour}`
+            ])}
             {...props}
         >
             {children}

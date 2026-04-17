@@ -1,6 +1,7 @@
 import { useId } from 'react';
 import FileIcon from '../../common/FileIcon';
 import { FileDownloadProps } from './types';
+import clsx from 'clsx';
 
 const FileDownload = ({
     className,
@@ -17,11 +18,11 @@ const FileDownload = ({
     const metaContainerId = `file-download-${useId()}`;
 
     return (
-        <div className={[
+        <div className={clsx([
             'ds_file-download',
             isHighlighted && 'ds_file-download--highlighted',
             className
-        ].join(' ')}
+        ])}
             {...props}
         >
             <div className="ds_file-download__thumbnail">

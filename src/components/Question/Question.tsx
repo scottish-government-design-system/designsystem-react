@@ -2,6 +2,7 @@ import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText'
 import WrapperTag from '../../common/WrapperTag';
 import { QuestionProps } from './types';
+import clsx from 'clsx';
 
 const Question = function ({
     children,
@@ -16,11 +17,11 @@ const Question = function ({
     return (
         <WrapperTag
             tagName={tagName}
-            className={[
+            className={clsx([
                 'ds_question',
                 hasError && 'ds_question--error',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             {legend && <legend>{legend}</legend>}

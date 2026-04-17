@@ -1,9 +1,9 @@
 import React, { Children, useId } from 'react';
-
 import ActionLink from '../../common/ActionLink';
 import ConditionalWrapper from '../../common/ConditionalWrapper';
 import { SummaryListItemProps, SummaryListProps } from './types';
 import { ActionLinkProps } from '@/src/common/ActionLink/types';
+import clsx from 'clsx';
 
 const Item = ({
     children,
@@ -80,11 +80,11 @@ const SummaryList = ({
 }: SummaryListProps) => {
     return (
         <ol
-            className={[
+            className={clsx([
                 'ds_summary-list',
                 isBorderless && 'ds_summary-list--no-border',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
            {children}

@@ -2,6 +2,7 @@ import Icon from '../../common/Icon';
 import ScreenReaderText from '../../common/ScreenReaderText';
 import WrapperTag from '../../common/WrapperTag';
 import { ButtonProps } from './types';
+import clsx from 'clsx';
 
 const Button = ({
     buttonStyle,
@@ -26,15 +27,15 @@ const Button = ({
     return (
         <WrapperTag
             tagName={tagName}
-            className={[
+            className={clsx([
                 !hasLinkStyle ? 'ds_button' : 'ds_link',
                 width && `ds_button--${width}`,
                 buttonStyle && `ds_button--${buttonStyle}`,
                 isSmall && 'ds_button--small',
-                (icon && !isIconOnly) ? 'ds_button--has-icon' : undefined,
+                (icon && !isIconOnly) && 'ds_button--has-icon',
                 isIconLeft && 'ds_button--has-icon--left',
                 className
-            ].join(' ')}
+            ])}
             href={href}
             {...(tagName === 'button' ? { type: type } : {})}
             {...props}

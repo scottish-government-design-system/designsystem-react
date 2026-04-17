@@ -1,5 +1,6 @@
 import WrapperTag from '../../common/WrapperTag';
 import { NotificationPanelProps } from './types';
+import clsx from 'clsx';
 
 const NotificationPanel = function ({
     ariaLive,
@@ -12,10 +13,10 @@ const NotificationPanel = function ({
     return (
         <div
             aria-live={ariaLive}
-            className={[
+            className={clsx([
                 'ds_notification-panel',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <WrapperTag

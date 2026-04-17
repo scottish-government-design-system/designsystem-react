@@ -1,5 +1,6 @@
 import React from 'react';
 import { ContentsNavItemProps, ContentsNavProps } from './types';
+import clsx from 'clsx';
 
 const ContentsNavItem = ({
     children,
@@ -15,13 +16,15 @@ const ContentsNavItem = ({
         ariaCurrent = 'page';
     }
 
+    const classNamesString = clsx(classNames);
+
     function processChildren(children: React.ReactNode) {
         if (linkComponent) {
-            return linkComponent({ className: classNames.join(' '), href, children });
+            return linkComponent({ className: classNamesString, href, children });
         } else if (href) {
-            return <a href={href} aria-current={ariaCurrent ? ariaCurrent : undefined} className={classNames.join(' ')}>{children}</a>;
+            return <a href={href} aria-current={ariaCurrent ? ariaCurrent : undefined} className={classNamesString}>{children}</a>;
         } else {
-            return <span aria-current={ariaCurrent ? ariaCurrent : undefined} className={classNames.join(' ')}>{children}</span>;
+            return <span aria-current={ariaCurrent ? ariaCurrent : undefined} className={classNamesString}>{children}</span>;
         }
     }
 
@@ -44,10 +47,10 @@ const ContentsNav = ({
     return (
         <nav
             aria-label={ariaLabel}
-            className={[
+            className={clsx([
                 'ds_contents-nav',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <h2 className="ds_contents-nav__title">{title}</h2>

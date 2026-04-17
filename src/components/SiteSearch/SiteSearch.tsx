@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import DSAutocomplete from '@scottish-government/design-system/src/components/autocomplete/autocomplete';
 import Button from '../Button';
 import { SiteSearchProps, SuggestionMappingFunctionProps } from './types';
+import clsx from 'clsx';
 
 const SiteSearch = function ({
     action = '/search',
@@ -48,11 +49,11 @@ const SiteSearch = function ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_site-search',
                 className,
-                hasAutocomplete ? 'ds_autocomplete' : undefined
-            ].join(' ')}
+                hasAutocomplete && 'ds_autocomplete'
+            ])}
             id={autocompleteId ? autocompleteId : undefined}
             ref={ref}
             {...props}
@@ -69,11 +70,11 @@ const SiteSearch = function ({
                     <input aria-autocomplete={hasAutocomplete ? 'list' : undefined}
                         aria-owns={hasAutocomplete ? 'autocomplete-suggestions' : undefined}
                         autoComplete={hasAutocomplete ? 'off' : undefined}
-                        className={[
+                        className={clsx([
                             'ds_input',
                             'ds_site-search__input',
-                            hasAutocomplete ? 'js-autocomplete-input' : undefined
-                        ].join(' ')}
+                            hasAutocomplete && 'js-autocomplete-input'
+                        ])}
                         id={id}
                         name={name}
                         placeholder={placeholder}

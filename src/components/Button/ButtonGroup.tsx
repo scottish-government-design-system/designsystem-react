@@ -1,4 +1,5 @@
 import { ButtonGroupProps } from "./types";
+import clsx from 'clsx';
 
 const ButtonGroup = ({
     children,
@@ -7,11 +8,11 @@ const ButtonGroup = ({
     ...props
 }: ButtonGroupProps) => {
     return (
-        <div className={[
+        <div className={clsx([
             "ds_button-group",
-            isInline ? "ds_button-group--inline" : undefined,
+            isInline && "ds_button-group--inline",
             className
-        ].join(' ')} { ...props } >
+        ])} { ...props } >
             {children}
         </div>
     );

@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { ErrorSummaryItemProps, ErrorSummaryProps } from './types';
+import clsx from 'clsx';
 
 const ErrorSummaryItem = ({
     children,
@@ -34,10 +35,10 @@ const ErrorSummary = ({
     const summaryTitleId = useId();
 
     return (
-        <div className={[
+        <div className={clsx([
                 'ds_error-summary',
                 className
-            ].join(' ')}
+            ])}
             aria-labelledby={summaryTitleId}
             role="alert"
             {...props}

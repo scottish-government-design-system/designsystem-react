@@ -2,6 +2,7 @@ import { Children } from 'react';
 import Icon from '../Icon';
 import ScreenReaderText from '../ScreenReaderText';
 import { AbstractNotificationBannerProps, AbstractNotificationBannerButtonsProps } from './types';
+import clsx from 'clsx';
 
 const Buttons = ({
     children
@@ -33,29 +34,30 @@ const AbstractNotificationBanner = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_notification',
                 className
-            ].join(' ')}
+            ])}
             data-module="ds-notification"
             {...props}
         >
             <div className="ds_wrapper">
                 <div className={
-                    [
+                    clsx([
                         'ds_notification__content',
                         isDismissable && 'ds_notification__content--has-close'
-                    ].join(' ')}
+                    ])}
                 >
                     <h2 className="visually-hidden">{title}</h2>
 
                     {icon &&
                         <span
-                        className={[
+                            className={clsx([
                                 'ds_notification__icon',
                                 hasInverseIcon && 'ds_notification__icon--inverse',
                                 hasColourIcon && 'ds_notification__icon--colour'
-                            ].join(' ')} aria-hidden="true">
+                            ])}
+                            aria-hidden="true">
                             <Icon icon={icon} />
                         </span>
                     }

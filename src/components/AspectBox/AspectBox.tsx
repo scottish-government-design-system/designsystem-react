@@ -1,5 +1,6 @@
 import React, { Children, useRef } from 'react';
 import { AspectBoxProps } from './types';
+import clsx from 'clsx';
 
 const AspectBox = ({
     children,
@@ -34,11 +35,11 @@ const AspectBox = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_aspect-box',
                 ratioClassName,
                 className
-            ].join(' ')}
+            ])}
             ref={ref}
             {...props}
         >

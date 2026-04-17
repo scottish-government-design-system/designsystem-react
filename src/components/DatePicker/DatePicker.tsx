@@ -3,6 +3,7 @@ import DSDatePicker from '@scottish-government/design-system/src/components/date
 import ErrorMessage from '../ErrorMessage';
 import TextInput from '../TextInput';
 import { DatePickerProps } from './types';
+import clsx from 'clsx';
 
 const DatePicker = ({
     className,
@@ -48,11 +49,11 @@ const DatePicker = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 "ds_datepicker",
                 multiple && "ds_datepicker--multiple",
                 className
-            ].join(' ')}
+            ])}
             data-disableddates={disabledDates}
             data-maxdate={maxDate}
             data-mindate={minDate}

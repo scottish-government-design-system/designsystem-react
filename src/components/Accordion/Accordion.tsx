@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useRef, useId } from 'reac
 import WrapperTag from '../../common/WrapperTag';
 import DSAccordion from '@scottish-government/design-system/src/components/accordion/accordion';
 import { AccordionItemProps, AccordionProps } from './types';
+import clsx from 'clsx';
 
 let accordionItemCounter = 0;
 const AccordionHeadingLevelContext = createContext('h3');
@@ -30,19 +31,19 @@ const AccordionItem = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_accordion-item',
                 className
-            ].join(' ')}
+            ])}
             id={processedId}
             {...props}
         >
             <input
                 aria-labelledby={`panel-${processedId}-heading`}
-                className={[
+                className={clsx([
                     'ds_accordion-item__control',
                     'visually-hidden'
-                ].join(' ')}
+                ])}
                 defaultChecked={isOpen}
                 id={`${processedId}-control`}
                 type="checkbox"
@@ -93,21 +94,21 @@ const Accordion = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_accordion',
-                isSmall ? 'ds_accordion--small' : '',
+                isSmall && 'ds_accordion--small',
                 className
-            ].join(' ')}
+            ])}
             ref={ref}
             {...props}
         >
             { !hideOpenAll && (
                 <button
-                className={[
+                className={clsx([
                     'ds_accordion__open-all',
                     'ds_link',
                     'js-open-all'
-                ].join(' ')}
+                ])}
                 type='button'
                 >
                     Open all

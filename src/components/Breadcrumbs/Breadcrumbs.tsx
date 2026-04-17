@@ -1,4 +1,5 @@
 import { BreadcrumbItemProps } from "./types";
+import clsx from 'clsx';
 
 const BreadcrumbItem = ({
     children,
@@ -20,10 +21,10 @@ const BreadcrumbItem = ({
     }
 
     return (
-        <li className={[
+        <li className={clsx([
             'ds_breadcrumbs__item',
             isHidden && 'visually-hidden'
-        ].join(' ')}
+        ])}
             {...props}
         >
             {processChildren(children)}

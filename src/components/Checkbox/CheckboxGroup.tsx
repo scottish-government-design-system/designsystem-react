@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { CheckboxRadioContext } from '../../utils/context';
 import DSCheckboxes from '@scottish-government/design-system/src/components/checkbox/checkboxes'
 import { CheckboxGroupProps } from './types';
+import clsx from 'clsx';
 
 export const CheckboxGroup = ({
     children,
@@ -20,11 +21,11 @@ export const CheckboxGroup = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_checkboxes',
                 'ds_field-group',
                 className
-            ].join(' ')}
+            ])}
             data-module="ds-checkboxes"
             ref={ref}
             {...props}

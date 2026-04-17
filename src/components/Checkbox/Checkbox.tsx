@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { CheckboxRadioContext } from '../../utils/context';
-
 import HintText from '../../common/HintText';
 import { CheckboxProps } from './types';
+import clsx from 'clsx';
 
 const Checkbox = ({
     checked,
@@ -36,10 +36,10 @@ const Checkbox = ({
         <>
             {isExclusive && <p className="ds_checkbox-separator">or</p>}
             <div
-                className={[
+                className={clsx([
                     'ds_checkbox',
                     isSmall && 'ds_checkbox--small'
-                ].join(' ')}>
+                ])}>
 
                 <input
                     aria-describedby={hintText ? hintTextId : undefined}

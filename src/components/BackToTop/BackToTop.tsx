@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Icon from '../../common/Icon';
 import DSBackToTop from '@scottish-government/design-system/src/components/back-to-top/back-to-top';
 import { BackToTopProps } from './types';
+import clsx from 'clsx';
 
 const BackToTop = ({
     className,
@@ -19,10 +20,10 @@ const BackToTop = ({
 
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_back-to-top',
                 className
-            ].join(' ')}
+            ])}
             ref={ref}
             {...props}
         >

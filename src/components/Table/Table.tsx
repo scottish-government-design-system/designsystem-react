@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import DSTable from '@scottish-government/design-system/src/components/table/table';
 import { TableProps } from './types';
+import clsx from 'clsx';
 
 const Table = ({
     children,
@@ -19,10 +20,10 @@ const Table = ({
 
     return (
         <table
-            className={[
+            className={clsx([
                 'ds_table',
                 className
-            ].join(' ')}
+            ])}
             data-smallscreen={smallscreen}
             ref={ref}
             {...props}

@@ -1,4 +1,5 @@
 import { SequentialNavigationLinkProps, SequentialNavigationProps } from "./types";
+import clsx from 'clsx';
 
 const SeqNavLink = ({
     children,
@@ -7,15 +8,15 @@ const SeqNavLink = ({
     linkComponent,
     textLabel
 }:SequentialNavigationLinkProps) => {
-    const LINK_CLASSES = [
+    const LINK_CLASSES = clsx([
         'ds_sequential-nav__button',
         isPrev ? 'ds_sequential-nav__button--left' : 'ds_sequential-nav__button--right'
-    ].join(' ');
+    ]);
 
-    const ITEM_CLASSES = [
+    const ITEM_CLASSES = clsx([
         'ds_sequential-nav__item',
         isPrev ? 'ds_sequential-nav__item--prev' : 'ds_sequential-nav__item--next'
-    ].join(' ');
+    ]);
 
     function processChildren(children: React.ReactNode) {
         const linkInner = <span className="ds_sequential-nav__text" data-label={textLabel}>{children}</span>
@@ -62,10 +63,10 @@ const SequentialNavigation = ({
 }: SequentialNavigationProps) => {
     return (
         <nav
-            className={[
+            className={clsx([
                 'ds_sequential-nav',
                 className
-            ].join(' ')}
+            ])}
             aria-label={ariaLabel}
             {...props}
         >

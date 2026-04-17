@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import DSSideNavigation from '@scottish-government/design-system/src/components/side-navigation/side-navigation';
 import { SideNavigationItemProps, SideNavigationListProps, SideNavigationProps } from './types';
+import clsx from 'clsx';
 
 const SideNavigationList = function ({
     children,
@@ -26,10 +27,10 @@ const SideNavigationItem = function ({
 
     return (
         <li
-            className={[
+            className={clsx([
                 'ds_side-navigation__item',
                 children && 'ds_side-navigation__item--has-children'
-            ].join(' ')}
+            ])}
         >
             {isCurrent ?
                 <span className={LINK_CLASS + ' ds_current'}>{title}</span> :
@@ -62,10 +63,10 @@ const SideNavigation = function ({
     return (
         <nav
             aria-label={ariaLabel}
-            className={[
+            className={clsx([
                 'ds_side-navigation',
                 className
-            ].join(' ')}
+            ])}
             data-module="ds-side-navigation"
             ref={ref}
             {...props}

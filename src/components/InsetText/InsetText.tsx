@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 const InsetText = ({
     children,
     className,
@@ -5,10 +7,10 @@ const InsetText = ({
 }: React.AllHTMLAttributes<HTMLElement>) => {
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_inset-text',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <div className="ds_inset-text__text">

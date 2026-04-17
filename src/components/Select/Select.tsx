@@ -1,6 +1,7 @@
 import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText';
 import { SelectProps } from './types';
+import clsx from 'clsx';
 
 const Select = function ({
     children,
@@ -43,12 +44,12 @@ const Select = function ({
             {hintText && <HintText id={hintTextId}>{hintText}</HintText>}
             {errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
             <div
-                className={[
+                className={clsx([
                     "ds_select-wrapper",
                     hasError && 'ds_input--error',
                     width && `ds_input--${width}`,
                     className
-                ].join(' ')}
+                ])}
                 {...props}
             >
                 <select

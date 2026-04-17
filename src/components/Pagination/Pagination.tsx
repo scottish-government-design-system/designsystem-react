@@ -1,6 +1,7 @@
 import Icon from "../../common/Icon";
 import { PaginationPageProps, PaginationProps } from "./types";
 import { LinkComponentProps } from "../../shared-types";
+import clsx from 'clsx';
 
 export const Page = ({
     ariaLabel,
@@ -19,11 +20,11 @@ export const Page = ({
     }
 
     function processChildren(children: React.ReactNode) {
-        const classNames = [
+        const classNames = clsx([
             'ds_pagination__link',
             className,
-            isCurrent ? 'ds_current' : undefined
-        ].join(' ');
+            isCurrent && 'ds_current'
+        ]);
 
         const linkProps: LinkComponentProps = {
             'aria-label': ariaLabel,
@@ -108,10 +109,10 @@ const Pagination = ({
     }
 
     return (
-        <nav className={[
+        <nav className={clsx([
                 'ds_pagination',
                 className
-            ].join(' ')}
+            ])}
             aria-label={ariaLabel}
             {...props}
         >

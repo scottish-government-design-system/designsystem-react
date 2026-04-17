@@ -1,6 +1,7 @@
 import Icon from '../../common/Icon';
 import WrapperTag from '../../common/WrapperTag';
 import { ConfirmationMessageProps } from './types';
+import clsx from 'clsx';
 
 const ConfirmationMessage = ({
     ariaLive = 'polite',
@@ -13,10 +14,10 @@ const ConfirmationMessage = ({
     return (
         <div
             aria-live={ariaLive}
-            className={[
+            className={clsx([
                 'ds_confirmation-message',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <Icon className="ds_confirmation-message__icon" icon="CheckCircle" iconSize="24" />

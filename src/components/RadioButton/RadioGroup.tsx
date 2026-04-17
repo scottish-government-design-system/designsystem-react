@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckboxRadioContext } from '../../utils/context';
 import { RadioGroupProps } from './types';
+import clsx from 'clsx';
 
 const RadioGroup = ({
     children,
@@ -12,12 +13,12 @@ const RadioGroup = ({
 }: RadioGroupProps) => {
     return (
         <div
-            className={[
+            className={clsx([
                 'ds_radios',
                 'ds_field-group',
                 isInline && 'ds_field-group--inline',
                 className
-            ].join(' ')}
+            ])}
             {...props}
         >
             <CheckboxRadioContext value={{ isSmall: !!isSmall, name}}>

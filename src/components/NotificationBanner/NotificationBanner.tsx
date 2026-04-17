@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import AbstractNotificationBanner from '../../common/AbstractNotificationBanner';
 import DSNotificationBanner from '@scottish-government/design-system/src/components/notification-banner/notification-banner';
 import { AbstractNotificationBannerProps } from '../../common/AbstractNotificationBanner/types';
+import clsx from 'clsx';
 
 const NotificationBanner = ({
     children,
@@ -24,10 +25,10 @@ const NotificationBanner = ({
 
     return (
         <AbstractNotificationBanner
-            className={[
+            className={clsx([
                 'ds_reversed',
                 className
-            ].join(' ')}
+            ])}
             isDismissable={isDismissable}
             icon={hasIcon ? "PriorityHigh" : undefined}
             hasColourIcon={hasColourIcon}
