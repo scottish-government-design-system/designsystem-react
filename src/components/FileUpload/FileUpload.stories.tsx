@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import FileUpload from './FileUpload';
 import argTypes from '../../../.storybook/sgdsArgTypes';
+import { defaultText } from '@scottish-government/design-system/src/components/file-upload/file-upload';
 
 const meta = {
     title: 'Components/FileUpload',
@@ -8,7 +9,8 @@ const meta = {
     args: {
         // capture?: boolean | 'user' | 'environment'
         id: 'file-upload',
-        label: 'Upload a file'
+        label: 'Upload a file',
+        text: JSON.parse(JSON.stringify(defaultText))
     },
     argTypes: {
         accept: {
