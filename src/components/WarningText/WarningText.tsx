@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Icon } from '../../common';
 
 const WarningText = ({
     children,
@@ -13,7 +14,9 @@ const WarningText = ({
             ])}
             {...props}
         >
-            <strong className="ds_warning-text__icon" aria-hidden="true"></strong>
+            <strong className="ds_warning-text__icon" aria-hidden="true">
+                <Icon isFilled icon='Warning' />
+            </strong>
             <strong className="visually-hidden">Warning</strong>
             <div className="ds_warning-text__text">
                 {children}

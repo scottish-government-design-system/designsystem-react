@@ -30,7 +30,7 @@ const NotificationBanner = ({
                 className
             ])}
             isDismissable={isDismissable}
-            icon={hasIcon ? "PriorityHigh" : undefined}
+            icon={hasIcon ? "Warning" : undefined}
             hasColourIcon={hasColourIcon}
             hasInverseIcon={hasInverseIcon}
             ref={ref}
