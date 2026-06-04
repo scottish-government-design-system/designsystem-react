@@ -1,9 +1,5 @@
 export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-<<<<<<< HEAD
 export type IconName = 'ArrowUpward' | 'CalendarToday' | 'Cancel' | 'CheckCircle' | 'ChevronLeft' | 'ChevronRight' | 'Close' | 'Description' | 'DoubleChevronLeft' | 'DoubleChevronRight' | 'Error' | 'ExpandLess' | 'ExpandMore' | 'Info' | 'List' | 'Menu' | 'PriorityHigh' | 'Search' | 'Warning';
-=======
-export type IconName = 'ArrowUpward' | 'CalendarToday' | 'Cancel' | 'CheckCircle' | 'ChevronLeft' | 'ChevronRight' | 'Close' | 'Description' | 'DoubleChevronLeft' | 'DoubleChevronRight' | 'Error' | 'ExpandLess' | 'ExpandMore' | 'List' | 'Menu' | 'PriorityHigh' | 'Search' | 'Warning';
->>>>>>> 94c9455 (Bump to DS 4.1.1 to include the 'file upload' component.)
 export type DocumentIconName = 'Audio' | 'Csv' | 'Excel' | 'File' | 'Generic' | 'Geodata' | 'Ical' | 'Ico' | 'Image' | 'Odf' | 'Odg' | 'Odp' | 'Ods' | 'Odt' | 'Pdf' | 'Ppt' | 'Rtf' | 'Text' | 'Video' | 'Word' | 'Xml' | 'Zip';
 export type InputWidth = 'fixed-20' | 'fixed-10' | 'fixed-5' | 'fixed-4' | 'fixed-3' | 'fixed-2' | 'fluid-three-quarters' | 'fluid-two-thirds' | 'fluid-half' | 'fluid-one-third' | 'fluid-one-quarter';
 export type TagColour = 'grey' | 'green' | 'teal' | 'blue' | 'purple' | 'pink' | 'red' | 'orange' | 'yellow';
