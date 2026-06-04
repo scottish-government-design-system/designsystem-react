@@ -12,13 +12,15 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "npx eslint && npm run svgr && npm run tsc",
+    "build-storybook": "storybook build",
+    "prepare": "npm run build",
+    "prepublishOnly": "vitest test.tsx --run",
     "svgr": "npx @svgr/cli node_modules/@scottish-government/design-system/src/images/icons/svg --config-file .svgrrc",
     "svgr_documents": "npx @svgr/cli node_modules/@scottish-government/design-system/src/images/documents/svg --config-file .svgrrc_documents",
     "test": "vitest test.tsx",
-    "test:coverage": "vitest test.tsx run --coverage",
+    "test:coverage": "vitest test.tsx --run --coverage",
     "tsc": "node ./node_modules/typescript/bin/tsc",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006"
   },
   "peerDependencies": {
     "@scottish-government/design-system": "^4.1.1"
@@ -27,11 +29,11 @@
     "@chromatic-com/storybook": "^4.1.3",
     "@eslint/js": "^9.39.1",
     "@scottish-government/design-system": "^4.1.1",
-    "@storybook/addon-a11y": "^10.0.8",
-    "@storybook/addon-docs": "^10.0.8",
-    "@storybook/addon-onboarding": "^10.0.8",
-    "@storybook/addon-vitest": "^10.0.8",
-    "@storybook/react-vite": "^10.0.8",
+    "@storybook/addon-a11y": "^10.4.1",
+    "@storybook/addon-docs": "^10.4.2",
+    "@storybook/addon-onboarding": "^10.4.2",
+    "@storybook/addon-vitest": "^10.4.2",
+    "@storybook/react-vite": "^10.4.2",
     "@svgr/cli": "^8.1.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
@@ -41,9 +43,9 @@
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.2.2",
-    "@vitest/browser": "4.0.10",
-    "@vitest/browser-playwright": "^4.0.10",
-    "@vitest/coverage-v8": "^4.0.10",
+    "@vitest/browser": "^4.1.8",
+    "@vitest/browser-playwright": "^4.1.8",
+    "@vitest/coverage-v8": "^4.1.8",
     "clsx": "^2.1.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react": "^7.37.5",
@@ -51,9 +53,9 @@
     "jsdom": "^27.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "storybook": "^10.1.10",
+    "storybook": "^10.4.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.47.0",
-    "vitest": "^4.0.10"
+    "vitest": "^4.1.8"
   }
 }
