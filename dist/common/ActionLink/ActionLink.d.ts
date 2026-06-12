@@ -1,6 +1,6 @@
 import { ActionLinkProps } from './types';
 declare const ActionLink: {
-    ({ children, describedby, href, linkComponent, onclick }: ActionLinkProps): string | number | bigint | boolean | Iterable<import("react").ReactNode> | Promise<string | number | bigint | boolean | import("react").ReactElement<unknown, string | import("react").JSXElementConstructor<any>> | import("react").ReactPortal | Iterable<import("react").ReactNode> | null | undefined> | import("react").JSX.Element | null | undefined;
+    ({ children, describedby, href, linkComponent, onclick }: ActionLinkProps): string | number | bigint | boolean | Iterable<import("react").ReactNode> | Promise<string | number | bigint | boolean | import("react").ReactPortal | import("react").ReactElement<unknown, string | import("react").JSXElementConstructor<any>> | Iterable<import("react").ReactNode> | null | undefined> | import("react").JSX.Element | null | undefined;
     displayName: string;
 };
 export default ActionLink;

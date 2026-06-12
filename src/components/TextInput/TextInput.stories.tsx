@@ -10,7 +10,7 @@ const meta = {
         buttonIcon: {
             control: { type: 'select' },
             description: 'Name of the icon to use',
-            options: ['ArrowUpward', 'CalendarToday', 'Cancel', 'CheckCircle', 'ChevronLeft', 'ChevronRight', 'Close', 'Description', 'DoubleChevronLeft', 'DoubleChevronRight', 'Error', 'ExpandLess', 'ExpandMore', 'List', 'Menu', 'PriorityHigh', 'Search'],
+            options: ['ArrowUpward', 'CalendarToday', 'Cancel', 'CheckCircle', 'ChevronLeft', 'ChevronRight', 'Close', 'Description', 'DoubleChevronLeft', 'DoubleChevronRight', 'Error', 'ExpandLess', 'ExpandMore', 'Info', 'List', 'Menu', 'PriorityHigh', 'Search', 'Warning'],
             type: 'string'
         },
         buttonText: {

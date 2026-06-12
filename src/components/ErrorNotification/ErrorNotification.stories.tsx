@@ -1,25 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import argTypes from '../../../.storybook/sgdsArgTypes';
 
-import ConfirmationMessage from './ConfirmationMessage';
+import ErrorNotification from './ErrorNotification';
 
 const meta = {
-    title: 'Deprecated/ConfirmationMessage',
-    component: ConfirmationMessage,
+    title: 'Components/NotificationMessage/ErrorNotification',
+    component: ErrorNotification,
     argTypes: {
         ariaLive: argTypes.ariaLive(),
         children: argTypes.children(),
         headingLevel: argTypes.headingLevel(),
+        icon: { table: { disable: true } },
         isDismissable: argTypes.boolean()
     },
     args: {
         ariaLive: 'polite',
-        children: (<p>You have added the landlord <strong>John Smith</strong> to the application.</p>),
+        children: (<p>That link does not seem to be working.<br />Please try again.</p>),
         headingLevel: 'h3',
         isDismissable: false,
-        title: 'Landlord added successfully',
+        title: 'Something went wrong',
     }
-} satisfies Meta<typeof ConfirmationMessage>;
+} satisfies Meta<typeof ErrorNotification>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

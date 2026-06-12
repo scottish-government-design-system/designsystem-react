@@ -33,7 +33,7 @@ const meta = {
         },
         icon: {
             description: 'Name of the icon component to use',
-            options: ['ArrowUpward', 'CalendarToday', 'Cancel', 'CheckCircle', 'ChevronLeft', 'ChevronRight', 'Close', 'Description', 'DoubleChevronLeft', 'DoubleChevronRight' ,'Error', 'ExpandLess', 'ExpandMore', 'List', 'PriorityHigh', 'Search'],
+            options: ['ArrowUpward', 'CalendarToday', 'Cancel', 'CheckCircle', 'ChevronLeft', 'ChevronRight', 'Close', 'Description', 'DoubleChevronLeft', 'DoubleChevronRight' ,'Error', 'ExpandLess', 'ExpandMore', 'Info', 'List', 'PriorityHigh', 'Search', 'Warning'],
             control: { type: 'select' },
             type: 'string'
         },
