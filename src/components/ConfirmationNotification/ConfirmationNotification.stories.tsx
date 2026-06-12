@@ -10,6 +10,7 @@ const meta = {
         ariaLive: argTypes.ariaLive(),
         children: argTypes.children(),
         headingLevel: argTypes.headingLevel(),
+        icon: { table: { disable: true } },
         isDismissable: argTypes.boolean()
     },
     args: {
