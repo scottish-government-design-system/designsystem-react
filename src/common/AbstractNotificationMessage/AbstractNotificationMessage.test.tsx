@@ -1,15 +1,15 @@
 import { test, expect } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
-import ConfirmationMessage from './ConfirmationMessage';
+import AbstractNotificationMessage from './AbstractNotificationMessage';
 
 const NOTIFICATION_TEXT = 'Further details of the notification message';
 const TITLE_TEXT = 'Important information';
 
-test('confirmation notification message renders correctly', () => {
+test('abstract notification message renders correctly', () => {
     render(
-        <ConfirmationMessage title={TITLE_TEXT}>
+        <AbstractNotificationMessage title={TITLE_TEXT}>
             {NOTIFICATION_TEXT}
-        </ConfirmationMessage>
+        </AbstractNotificationMessage>
     );
 
     const container = document.querySelector('.ds_notification-message');
@@ -23,11 +23,11 @@ test('confirmation notification message renders correctly', () => {
     expect(content?.textContent).toEqual(NOTIFICATION_TEXT)
 });
 
-test('confirmation notification message with close button', () => {
+test('abstract notification message with close button', () => {
     render(
-        <ConfirmationMessage isDismissable>
+        <AbstractNotificationMessage isDismissable>
             {NOTIFICATION_TEXT}
-        </ConfirmationMessage>
+        </AbstractNotificationMessage>
     );
 
     const closeButton = screen.getByRole('button');
@@ -43,11 +43,11 @@ test('confirmation notification message with close button', () => {
     expect(closeButtonIcon).toHaveClass('ds_icon', 'ds_icon--fill');
 });
 
-test('confirmation notification message with icon', () => {
+test('abstract notification message with icon', () => {
     render(
-        <ConfirmationMessage icon="Search">
+        <AbstractNotificationMessage icon="Search">
             {NOTIFICATION_TEXT}
-        </ConfirmationMessage>
+        </AbstractNotificationMessage>
     );
 
 
@@ -58,16 +58,16 @@ test('confirmation notification message with icon', () => {
 });
 
 test("does not render body when no children specified", () => {
-  const { container } = render(<ConfirmationMessage title={TITLE_TEXT} />);
+  const { container } = render(<AbstractNotificationMessage title={TITLE_TEXT} />);
 
   expect(
     container.querySelector(".ds_notification-message__body"),
   ).not.toBeInTheDocument();
 });
 
-test('confirmation notification message with custom aria live and custom header level', () => {
+test('abstract notification message with custom aria live and custom header level', () => {
     render(
-        <ConfirmationMessage headingLevel="h2" ariaLive="assertive" title={TITLE_TEXT}/>
+        <AbstractNotificationMessage headingLevel="h2" ariaLive="assertive" title={TITLE_TEXT}/>
     );
 
     const container = document.querySelector('.ds_notification-message');
@@ -80,9 +80,9 @@ test('confirmation notification message with custom aria live and custom header 
 
 test('passing additional props', () => {
     render(
-        <ConfirmationMessage data-test="foo">
+        <AbstractNotificationMessage data-test="foo">
             {NOTIFICATION_TEXT}
-        </ConfirmationMessage>
+        </AbstractNotificationMessage>
     )
 
     const container = document.querySelector('.ds_notification-message') as HTMLElement;
@@ -91,9 +91,9 @@ test('passing additional props', () => {
 
 test('passing additional CSS classes', () => {
     render(
-        <ConfirmationMessage className="foo">
+        <AbstractNotificationMessage className="foo">
             {NOTIFICATION_TEXT}
-        </ConfirmationMessage>
+        </AbstractNotificationMessage>
     )
 
     const container = document.querySelector('.ds_notification-message') as HTMLElement;

@@ -4,7 +4,7 @@ import { ActionLinkProps } from '../../common/ActionLink/types';
 declare const SummaryList: {
     ({ children, className, isBorderless, ...props }: SummaryListProps): React.JSX.Element;
     Action: {
-        ({ children, describedby, href, linkComponent, onclick }: ActionLinkProps): string | number | bigint | boolean | Iterable<React.ReactNode> | Promise<string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | React.ReactPortal | Iterable<React.ReactNode> | null | undefined> | React.JSX.Element | null | undefined;
+        ({ children, describedby, href, linkComponent, onclick }: ActionLinkProps): string | number | bigint | boolean | Iterable<React.ReactNode> | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | React.JSX.Element | null | undefined;
         displayName: string;
     };
     Item: {
