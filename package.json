@@ -1,12 +1,16 @@
 {
   "name": "@scottish-government/designsystem-react",
   "description": "A React/JSX implementation of the Scottish Government Design System",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": {
     "name": "Scottish Government Digital Design System team",
     "email": "designsystem@gov.scot",
     "url": "https://designsystem.gov.scot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scottish-government-design-system/designsystem-react"
   },
   "typings": "dist/index.d.ts",
   "main": "dist/index.js",

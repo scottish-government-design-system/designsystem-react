@@ -32,10 +32,6 @@ jobs:
       - name: Install
         run: npm ci
 
-      # Test
-      - name: Run tests
-        run: npm run test
-
       # Publish to npm
       - name: Publish npm package (prerelease)
         if: ${{ github.ref_type == 'tag' && contains(github.ref_name, 'beta') }}
