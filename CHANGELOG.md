@@ -7,13 +7,24 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 
 ---
 
-## unpublished
-
+## [1.1.0] - 2026-06-17
 ### Added
 - FileUpload component
+- Components to represent each of the notification message states
+  - Confirmation notification
+  - Error notification
+  - Information notification
+  - Warning notification
 ### Changed
 - Allow hintText and errorMessage props to accept either string or React.ReactNode in: Checkbox, DatePicker, Question, Radio, Select, Textarea, TextInput
 - NotificationBanner and WarningText use updated warning icon
+- Updated to use v4.1.1 of SG Design System
+### Deprecated
+- Confirmation message is deprecated, use confirmation notification instead
+
+## [1.0.1] - 2026-04-22
+### Fixed
+- Broken paths on cookie banner and summary list
 
 ## [1.0.0] - 2026-04-21
 
