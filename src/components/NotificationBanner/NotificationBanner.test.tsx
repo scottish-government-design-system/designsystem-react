@@ -52,3 +52,16 @@ test('instantiating/initialising DS component script', () => {
     expect(notificationBanner).toHaveClass('js-initialised');
     expect(notificationBanner).toHaveClass('js-instantiated');
 });
+
+test('hidden notification banner', () => {
+    render(
+        <NotificationBanner isHidden>
+        </NotificationBanner>
+    );
+
+    const bannerTitle = screen.getByRole('heading');
+    const bannerContent = bannerTitle.parentElement;
+    const bannerWrapper = bannerContent?.parentElement;
+    const bannerContainer = bannerWrapper?.parentElement;
+    expect(bannerContainer).toHaveClass('fully-hidden');
+});

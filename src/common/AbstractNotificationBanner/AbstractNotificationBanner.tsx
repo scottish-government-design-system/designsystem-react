@@ -17,6 +17,7 @@ const AbstractNotificationBanner = ({
     hasInverseIcon,
     icon,
     isDismissable,
+    isHidden,
     title = 'Information',
     ...props
 }: AbstractNotificationBannerProps) => {
@@ -36,6 +37,7 @@ const AbstractNotificationBanner = ({
         <div
             className={clsx([
                 'ds_notification',
+                isHidden ? 'fully-hidden' : undefined,
                 className
             ])}
             data-module="ds-notification"
