@@ -123,6 +123,7 @@ const Pagination = ({
                         className="ds_pagination__link--text  ds_pagination__link--icon"
                         data-search="pagination-previous"
                         href={pattern.replace('$1', String(page - 1))}
+                        linkComponent={linkComponent}
                         onClick={onClick}
                     >
                         <Icon icon="ChevronLeft" />
@@ -178,6 +179,7 @@ const Pagination = ({
                         ariaLabel="Next page"
                         href={pattern.replace('$1', String(page + 1))}
                         className="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon"
+                        linkComponent={linkComponent}
                         onClick={onClick}
                     >
                         <span className="ds_pagination__link-label">Next</span>
