@@ -9,7 +9,13 @@ const meta = {
     title: 'Components/Search results/Result',
     component: SearchResult,
     argTypes: {
-        children: argTypes.children()
+        children: argTypes.children(),
+        tagName: {
+            control: { type: 'select' },
+            description: 'HTML tag name to use for the search result',
+            options: ['li', 'div'],
+            type: 'string'
+        }
     },
     args: {
         title: 'Greenhouse gas statistics 1990-2022',
