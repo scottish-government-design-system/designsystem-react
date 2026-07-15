@@ -9,6 +9,12 @@ const meta = {
     component: PageHeader,
     argTypes: {
         children: argTypes.children(),
+        heading: {
+            description: 'Text (allowing HTML/JSX) to use for the H1 element',
+            type: {
+                name: 'string'
+            }
+        },
         label: {
             description: 'Text to use for a label shown above the H1 element',
             type: 'string'
@@ -16,8 +22,7 @@ const meta = {
         title: {
             description: 'Text to use for the H1 element',
             type: {
-                name: 'string',
-                required: true
+                name: 'string'
             }
         }
     },

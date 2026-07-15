@@ -4,6 +4,7 @@ import clsx from 'clsx';
 const PageHeader = ({
     children,
     className,
+    heading,
     label,
     title,
     titleId,
@@ -18,7 +19,7 @@ const PageHeader = ({
             {...props}
         >
             {label && <span className="ds_page-header__label  ds_content-label">{label}</span>}
-            <h1 id={titleId} className="ds_page-header__title">{title}</h1>
+            <h1 id={titleId} className="ds_page-header__title">{heading || title}</h1>
 
             {children}
         </header>
