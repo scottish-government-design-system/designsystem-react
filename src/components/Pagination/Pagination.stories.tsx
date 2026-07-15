@@ -67,3 +67,12 @@ export const Click: Story = {
         await userEvent.click(canvas.getAllByRole('link')[0]);
     }
 }
+
+export const LinkComponent: Story = {
+    args: {
+        linkComponent: ({ className,...props }) => (
+            <button className={className} {...props}/>
+        ),
+        page: 10
+    }
+}
