@@ -8,6 +8,7 @@ import clsx from 'clsx';
 const CookieBanner = ({
     children,
     className,
+    isHidden = true,
     title = 'Information',
     ...props
 }: AbstractNotificationBannerProps) => {
@@ -30,6 +31,7 @@ const CookieBanner = ({
                     className
                 ])}
                 data-module="ds-cookie-notification"
+                isHidden={isHidden}
                 ref={ref}
                 title={title}
                 {...props}

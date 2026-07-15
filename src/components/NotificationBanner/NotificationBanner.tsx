@@ -11,6 +11,7 @@ const NotificationBanner = ({
     hasIcon,
     hasInverseIcon,
     isDismissable,
+    isHidden,
     title = 'Information',
     ...props
 }: AbstractNotificationBannerProps) => {
@@ -29,10 +30,11 @@ const NotificationBanner = ({
                 'ds_reversed',
                 className
             ])}
-            isDismissable={isDismissable}
             icon={hasIcon ? "Warning" : undefined}
             hasColourIcon={hasColourIcon}
             hasInverseIcon={hasInverseIcon}
+            isDismissable={isDismissable}
+            isHidden={isHidden}
             ref={ref}
             title={title}
             {...props}

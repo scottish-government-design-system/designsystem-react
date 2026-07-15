@@ -103,6 +103,20 @@ test('abstract notification banner with buttons', () => {
     expect(buttonContainer?.previousElementSibling).toEqual(textContainer);
 });
 
+test('hidden abstract notification banner', () => {
+    render(
+        <AbstractNotificationBanner isHidden>
+            {NOTIFICATION_TEXT}
+        </AbstractNotificationBanner>
+    );
+
+    const bannerTitle = screen.getByRole('heading');
+    const bannerContent = bannerTitle.parentElement;
+    const bannerWrapper = bannerContent?.parentElement;
+    const bannerContainer = bannerWrapper?.parentElement;
+    expect(bannerContainer).toHaveClass('fully-hidden');
+});
+
 test('passing additional props', () => {
     render(
         <AbstractNotificationBanner data-test="foo">
