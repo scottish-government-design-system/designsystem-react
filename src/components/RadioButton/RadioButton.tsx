@@ -12,7 +12,8 @@ const RadioButton = ({
     label,
     name,
     onBlur,
-    onChange
+    onChange,
+    ...props
 }: RadioButtonProps) => {
     const hintTextId = `hint-text-${id}`;
 
@@ -45,7 +46,9 @@ const RadioButton = ({
                 name={name}
                 onBlur={handleBlur}
                 onChange={handleChange}
-                type="radio" />
+                type="radio"
+                {...props}
+            />
             <label
                 className="ds_radio__label"
                 htmlFor={id}
