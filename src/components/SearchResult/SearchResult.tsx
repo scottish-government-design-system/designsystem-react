@@ -1,5 +1,5 @@
 import { Children, createContext, useContext } from 'react';
-import ConditionalWrapper from '../../common/ConditionalWrapper';
+import { ConditionalWrapper, WrapperTag } from '../../common';
 import AspectBox from '../AspectBox';
 import Metadata from '../PageMetadata';
 import { SearchResultContextProps, SearchResultProps } from './types';
@@ -88,16 +88,18 @@ const SearchResult = ({
     isPromoted,
     linkComponent,
     promotedTitle = 'Recommended',
+    tagName = 'li',
     title,
     ...props
 }: SearchResultProps) => {
     const LINK_CLASS = 'ds_search-result__link';
 
     return (
-        <div className={clsx([
+        <WrapperTag className={clsx([
             'ds_search-result',
             isPromoted && 'ds_search-result--promoted'
         ])}
+            tagName={tagName}
             {...props}
         >
             <ConditionalWrapper
@@ -118,7 +120,7 @@ const SearchResult = ({
                     {children}
                 </SearchResultLinkHrefContext>
             </ConditionalWrapper>
-        </div>
+        </WrapperTag>
     );
 };
 

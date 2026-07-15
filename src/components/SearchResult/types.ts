@@ -5,9 +5,10 @@ export interface SearchResultContextProps extends React.AllHTMLAttributes<HTMLDL
 }
 
 export interface SearchResultProps extends React.AllHTMLAttributes<HTMLElement> {
-    href: string;
-    isPromoted?: boolean;
-    linkComponent?: LinkComponent;
-    promotedTitle?: string;
-    title: string;
+    href: string
+    isPromoted?: boolean
+    linkComponent?: LinkComponent
+    promotedTitle?: string
+    tagName?: 'div' | 'li'
+    title: string
 }

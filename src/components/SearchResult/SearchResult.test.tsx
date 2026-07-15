@@ -30,6 +30,7 @@ test('search result renders correctly', () => {
     const searchResult = screen.getByTestId('searchresult');
     expect(searchResult).toHaveClass('ds_search-result');
     expect(searchResult).not.toHaveClass('ds_search-result--promoted');
+    expect(searchResult.tagName).toEqual('LI');
 
     const title = screen.getByRole('heading');
     expect(title).toHaveClass('ds_search-result__title');
@@ -195,6 +196,19 @@ test('linkComponent is used for title link', () => {
     expect(link.tagName).toBe('SPAN');
     expect(link?.parentElement).toEqual(title);
     expect(link?.previousElementSibling).toBeNull();
+});
+
+test('search result with DIV as tagName', () => {
+    render(
+        <SearchResult href={RESULT_HREF} title={RESULT_TITLE} data-testid="searchresult" tagName="div">
+            <SearchResult.Content>
+                {RESULT_CONTENT}
+            </SearchResult.Content>
+        </SearchResult>
+    );
+
+    const searchResult = screen.getByTestId('searchresult');
+    expect(searchResult.tagName).toEqual('DIV');
 });
 
 test('passing additional props', () => {
