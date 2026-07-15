@@ -35,11 +35,14 @@ test('question with hint text', () => {
         </Question>
     );
 
+    const questionElement = document.querySelector('.ds_question');
     const hintTextElement = screen.getByRole('paragraph');
     const firstQuestionChild = document.querySelector('.ds_question')?.childNodes[0]
     expect(hintTextElement).toHaveClass('ds_hint-text');
     expect(hintTextElement.textContent).toEqual(HINT_TEXT);
     expect(hintTextElement).toBe(firstQuestionChild);
+    expect(hintTextElement).toHaveAttribute('id');
+    expect(questionElement).not.toHaveAttribute('aria-describedby');
 });
 
 test('question with error', () => {
@@ -56,6 +59,35 @@ test('question with error', () => {
     expect(questionElement).toHaveClass('ds_question--error');
     expect(errorMessageElement).toBeInTheDocument();
     expect(errorMessageElement?.textContent).toEqual(ERROR_MESSAGE_TEXT);
+});
+
+test('fieldset question with hint text', () => {
+    const HINT_TEXT = 'My hint text';
+
+    render(
+        <Question tagName="fieldset" hintText={HINT_TEXT}>
+        </Question>
+    );
+
+    const questionElement = document.querySelector('.ds_question');
+    const hintTextElement = screen.getByRole('paragraph');
+    expect(hintTextElement).toHaveAttribute('id');
+    expect(questionElement).toHaveAttribute('aria-describedby', hintTextElement.id);
+});
+
+test('fieldset question with error', () => {
+    const ERROR_MESSAGE_TEXT = 'My error message';
+
+    render(
+        <Question tagName="fieldset" hasError errorMessage={ERROR_MESSAGE_TEXT}>
+        </Question>
+    );
+
+    const questionElement = document.querySelector('.ds_question');
+    const errorMessageElement = questionElement?.querySelector('.ds_question__error-message');
+    expect(errorMessageElement).toHaveAttribute('id');
+    expect(questionElement).toHaveAttribute('aria-describedby', errorMessageElement?.id);
+
 });
 
 test('passing additional props', () => {
