@@ -5,5 +5,5 @@ export interface QuestionProps extends React.AllHTMLAttributes<HTMLElement> {
     hasError?: boolean;
     hintText?: string | React.ReactNode;
     legend?: string;
-    tagName: QuestionTags;
+    tagName?: QuestionTags;
 }
