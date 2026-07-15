@@ -3,16 +3,16 @@ import { render, screen, within } from '@testing-library/react';
 import PageHeader from './PageHeader';
 
 const LABEL_TEXT = 'Guide';
-const TITLE_TEXT = 'Apply for or renew a disabled parking permit';
+const HEADING_TEXT = 'Apply for or renew a disabled parking permit';
 
 test('notification banner renders correctly', () => {
     render(
-        <PageHeader label={LABEL_TEXT} title={TITLE_TEXT}/>
+        <PageHeader label={LABEL_TEXT} heading={HEADING_TEXT}/>
     );
 
     const header = screen.getByRole('banner');
-    const title = within(header).getByRole('heading');
-    const label = title.previousElementSibling;
+    const heading = within(header).getByRole('heading');
+    const label = heading.previousElementSibling;
 
     expect(header).toHaveClass('ds_page-header');
     expect(header.tagName).toEqual('HEADER');
@@ -21,26 +21,36 @@ test('notification banner renders correctly', () => {
     expect(label?.textContent).toEqual(LABEL_TEXT);
     expect(label?.tagName).toEqual('SPAN');
 
-    expect(title).toHaveClass('ds_page-header__title');
-    expect(title.textContent).toEqual(TITLE_TEXT);
-    expect(title.tagName).toEqual('H1');
+    expect(heading).toHaveClass('ds_page-header__title');
+    expect(heading.innerHTML).toEqual(HEADING_TEXT);
+    expect(heading.tagName).toEqual('H1');
+});
+
+test('header with title prop (legacy)', () => {
+    render(
+        <PageHeader label={LABEL_TEXT} title={HEADING_TEXT}/>
+    );
+
+    const header = screen.getByRole('banner');
+    const heading = within(header).getByRole('heading');
+    expect(heading.innerHTML).toEqual(HEADING_TEXT);
 });
 
 test('header with no label', () => {
     render(
-        <PageHeader title={TITLE_TEXT}/>
+        <PageHeader heading={HEADING_TEXT}/>
     );
 
     const header = screen.getByRole('banner');
-    const title = within(header).getByRole('heading');
-    const label = title.previousElementSibling;
+    const heading = within(header).getByRole('heading');
+    const label = heading.previousElementSibling;
 
     expect(label).not.toBeInTheDocument();
 });
 
 test('passing additional props', () => {
     render(
-       <PageHeader data-test="foo" label={LABEL_TEXT} title={TITLE_TEXT}/>
+       <PageHeader data-test="foo" label={LABEL_TEXT} heading={HEADING_TEXT}/>
     )
 
     const header = screen.getByRole('banner');
@@ -49,7 +59,7 @@ test('passing additional props', () => {
 
 test('passing additional CSS classes', () => {
     render(
-       <PageHeader className="foo" label={LABEL_TEXT} title={TITLE_TEXT}/>
+       <PageHeader className="foo" label={LABEL_TEXT} heading={HEADING_TEXT}/>
     )
 
     const header = screen.getByRole('banner');

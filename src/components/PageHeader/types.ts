@@ -1,5 +1,6 @@
-export interface PageHeaderProps extends React.AllHTMLAttributes<HTMLHeadingElement> {
+export interface PageHeaderProps extends React.AllHTMLAttributes<HTMLElement> {
     label?: string;
-    title: string;
+    heading?: string | React.ReactNode;
+    title?: string
     titleId?: string;
 }
