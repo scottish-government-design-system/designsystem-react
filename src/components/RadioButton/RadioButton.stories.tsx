@@ -23,6 +23,7 @@ const meta = {
         id: 'arrears-radio',
         label: 'Arrears',
         name: 'radio-name',
+        value: 'arrears'
     }
 } satisfies Meta<typeof RadioButton>;
 

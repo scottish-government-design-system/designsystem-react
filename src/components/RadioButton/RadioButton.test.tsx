@@ -33,6 +33,18 @@ test('checked radio', () => {
     expect(radio).toHaveAttribute('checked')
 });
 
+test('radio with explicit value', () => {
+    const RADIO_VALUE = 'pensioncredit';
+
+    render(
+        <RadioButton name="benefitType" checked label="Pension Credit" id="pensioncredit" value={RADIO_VALUE} />
+    );
+
+    const radio = screen.getByRole('radio');
+
+    expect(radio).toHaveAttribute('value', RADIO_VALUE);
+});
+
 test('radio with blur fn', () => {
     const ONBLUR_FUNCTION = vi.fn();
 
@@ -112,4 +124,14 @@ test('small radio', () => {
     const radioContainer = radio.parentElement;
 
     expect(radioContainer).toHaveClass('ds_radio--small');
+});
+
+test('passing additional props', () => {
+    render(
+        <RadioButton data-test="foo" label="Pension Credit" id="pensioncredit" />
+    );
+
+    const radio = screen.getByRole('radio');
+
+    expect(radio?.dataset.test).toEqual('foo');
 });
