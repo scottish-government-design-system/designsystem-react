@@ -42,7 +42,7 @@ const Item = ({
                     ))}
                 </ConditionalWrapper>
             </span>
-            {actions &&
+            {!!actions.length &&
                 <div className="ds_summary-list__actions">
                     <ConditionalWrapper
                         condition={actions.length > 1}

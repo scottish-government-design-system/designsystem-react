@@ -43,7 +43,7 @@ const SummaryCard = ({
                     tagName={headingLevel}
                 >{title}</WrapperTag>
 
-                {actions &&
+                {!!actions.length &&
                     <ConditionalWrapper
                         condition={actions.length > 1}
                         wrapper={(children: React.JSX.Element) => <ul className="ds_summary-card__actions-list">{children}</ul>}
