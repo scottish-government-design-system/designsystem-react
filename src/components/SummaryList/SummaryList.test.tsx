@@ -131,6 +131,19 @@ test('summary list item with multiple actions', () => {
     expect(actionsList?.children[1].textContent).toEqual(ITEM_ACTIONS[1].title);
 });
 
+test('summary list item with no actions has no actions container', () => {
+    render(
+        <SummaryList.Item title={TITLE}>
+            <SummaryList.Value>{VALUE_1}</SummaryList.Value>
+        </SummaryList.Item>
+    );
+
+    const item = screen.getAllByRole('listitem')[0];
+    const actions = item.querySelector('.ds_summary-list__actions');
+
+    expect(actions).not.toBeInTheDocument();
+});
+
 test('passing additional props', () => {
     render(
         <SummaryList data-test="foo" />

@@ -87,6 +87,24 @@ test('summary card with multiple actions renders actions as a list', () => {
     expect(actionsList.children[0].tagName).toEqual('LI');
 });
 
+test('summary card with no actions has no actions container', () => {
+    render(
+        <SummaryCard
+            data-testid="foo"
+            title={TITLE_TEXT}
+        >
+            <SummaryCard.Action href={ACTIONS[0].href}>{ACTIONS[0].title}</SummaryCard.Action>
+            <SummaryList data-testid="bar" />
+        </SummaryCard>
+    );
+
+    const summaryCard = screen.getByTestId('foo');
+    const title = within(summaryCard).getByRole('heading');
+    const header = title.parentElement as HTMLElement;
+    const actionsList = within(header).queryByRole('list')
+    expect(actionsList).not.toBeInTheDocument();
+});
+
 test('passing additional props', () => {
     render(
         <SummaryCard
