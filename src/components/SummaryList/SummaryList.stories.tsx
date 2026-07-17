@@ -39,9 +39,6 @@ const meta = {
                     Edinburgh<br />
                     EH1 3DG
                 </SummaryList.Value>
-                <SummaryList.Action href="#baz">
-                    Change
-                </SummaryList.Action>
             </SummaryList.Item>
             <SummaryList.Item title="Contact details">
                 <SummaryList.Value name="Email">
