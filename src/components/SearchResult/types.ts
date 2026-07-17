@@ -1,7 +1,7 @@
 import { LinkComponent } from "../../shared-types";
 
 export interface SearchResultContextProps extends React.AllHTMLAttributes<HTMLDListElement> {
-    title: string;
+    title?: string;
 }
 
 export interface SearchResultProps extends React.AllHTMLAttributes<HTMLElement> {
