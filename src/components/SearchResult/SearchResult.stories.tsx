@@ -8,6 +8,13 @@ import coo from '../../../static/images/highland-cow.jpg';
 const meta = {
     title: 'Components/Search results/Result',
     component: SearchResult,
+    decorators: [
+        Story => (
+            <ol className="ds_no-bullets">
+                <Story />
+            </ol>
+        )
+    ],
     argTypes: {
         children: argTypes.children(),
         tagName: {
