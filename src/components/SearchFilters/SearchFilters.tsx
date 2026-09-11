@@ -56,11 +56,10 @@ const Filters = ({
 }: SearchFiltersProps) => {
     return (
         <div className="ds_search-filters" {...props}>
-            <div className="ds_details  ds_no-margin" data-module="ds-details">
-                <input id="filters-toggle" type="checkbox" className="ds_details__toggle  visually-hidden"/>
-                <label htmlFor="filters-toggle" className="ds_details__summary">
-                    Search filters
-                </label>
+            <details className="ds_details  ds_no-margin" data-module="ds-details">
+                <summary className="ds_details__summary">
+                    <span className="visually-hidden">Show </span>Search filters
+                </summary>
 
                 <SkipLinks isStatic>
                     <SkipLinks.Link fragmentId={searchResultsContainerId}>Skip to results</SkipLinks.Link>
@@ -77,7 +76,7 @@ const Filters = ({
                         <Button isSmall width="max" className="ds_no-margin">Apply filter</Button>
                     </form>
                 </div>
-            </div>
+            </details>
         </div>
     )
 }
