@@ -16,25 +16,15 @@ test('search filters boilerplate renders correctly', () => {
     const details = filters.querySelector('.ds_details');
     expect(details).toBeInTheDocument();
     expect(details).toHaveClass('ds_no-margin')
-    expect(details?.tagName).toEqual('DIV');
+    expect(details?.tagName).toEqual('DETAILS');
     expect(details).toHaveAttribute('data-module', 'ds-details');
     expect(details?.parentElement).toEqual(filters);
 
-    const detailsToggle = filters.querySelector('.ds_details__toggle');
-    expect(detailsToggle).toBeInTheDocument();
-    expect(detailsToggle).toHaveClass('visually-hidden');
-    expect(detailsToggle?.tagName).toEqual('INPUT');
-    expect(detailsToggle).toHaveAttribute('type', 'checkbox');
-    expect(detailsToggle).toHaveAttribute('id', 'filters-toggle');
-    expect(detailsToggle?.parentElement).toEqual(details);
-
     const detailsSummary = filters.querySelector('.ds_details__summary');
     expect(detailsSummary).toBeInTheDocument();
-    expect(detailsSummary?.tagName).toEqual('LABEL');
-    expect(detailsSummary).toHaveAttribute('for', 'filters-toggle');
+    expect(detailsSummary?.tagName).toEqual('SUMMARY');
     expect(detailsSummary).toHaveTextContent('Search filters');
     expect(detailsSummary?.parentElement).toEqual(details);
-    expect(detailsSummary?.previousElementSibling).toEqual(detailsToggle);
 
     const skipLinks = filters.querySelector('.ds_skip-links');
 
