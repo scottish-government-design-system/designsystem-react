@@ -1,7 +1,6 @@
-import React, { useId } from 'react';
+import { useId } from 'react';
+import { ConditionalWrapper, HintText } from '../../common';
 import ErrorMessage from '../ErrorMessage';
-import HintText from '../../common/HintText'
-import WrapperTag from '../../common/WrapperTag';
 import { QuestionProps } from './types';
 import clsx from 'clsx';
 
@@ -15,30 +14,32 @@ const Question = function ({
     tagName = 'div',
     ...props
 }: QuestionProps) {
+    const errorMessageId = `error-message-${useId()}`
+    const hintTextId = `hint-text-${useId()}`;
     const describedbys: string[] = [];
 
-    const hintTextId = `hint-text-${useId()}`;
-    const errorMessageId = `error-message-${useId()}`
-
-    if (tagName === 'fieldset' && hintText) { describedbys.push(hintTextId) };
-    if (tagName === 'fieldset' && errorMessage) { describedbys.push(errorMessageId) };
+    if (hintText) { describedbys.push(hintTextId) };
+    if (errorMessage) { describedbys.push(errorMessageId) };
 
     return (
-        <WrapperTag
-            aria-describedby={describedbys.length ? describedbys.join(' ') : undefined}
+        <div
             className={clsx([
-                'ds_question',
-                hasError && 'ds_question--error',
-                className
+            'ds_question',
+            hasError && 'ds_question--error',
+            className
             ])}
-            tagName={tagName}
             {...props}
         >
-            {legend && <legend>{legend}</legend>}
-            {hintText && <HintText id={hintTextId}>{hintText}</HintText>}
-            {hasError && errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
-            {children}
-        </WrapperTag>
+            <ConditionalWrapper
+                condition={tagName === 'fieldset'}
+                wrapper={(children: React.JSX.Element) => <fieldset aria-describedby={describedbys.join(' ')}>{children}</fieldset>}
+            >
+                {legend && <legend>{legend}</legend>}
+                {hintText && <HintText id={hintTextId}>{hintText}</HintText>}
+                {hasError && errorMessage && <ErrorMessage id={errorMessageId}>{errorMessage}</ErrorMessage>}
+                {children}
+            </ConditionalWrapper>
+        </div>
     );
 };
 
