@@ -4,9 +4,8 @@ import { defineConfig } from 'vitest/config';
 import react from "@vitejs/plugin-react-swc";
 import { playwright } from '@vitest/browser-playwright';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+const dirname = import.meta.dirname
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({

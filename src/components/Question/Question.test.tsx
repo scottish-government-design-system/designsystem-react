@@ -70,9 +70,10 @@ test('fieldset question with hint text', () => {
     );
 
     const questionElement = document.querySelector('.ds_question');
+    const fieldsetElement = questionElement?.querySelector('fieldset');
     const hintTextElement = screen.getByRole('paragraph');
     expect(hintTextElement).toHaveAttribute('id');
-    expect(questionElement).toHaveAttribute('aria-describedby', hintTextElement.id);
+    expect(fieldsetElement).toHaveAttribute('aria-describedby', hintTextElement.id);
 });
 
 test('fieldset question with error', () => {
@@ -84,9 +85,10 @@ test('fieldset question with error', () => {
     );
 
     const questionElement = document.querySelector('.ds_question');
+    const fieldsetElement = questionElement?.querySelector('fieldset');
     const errorMessageElement = questionElement?.querySelector('.ds_question__error-message');
     expect(errorMessageElement).toHaveAttribute('id');
-    expect(questionElement).toHaveAttribute('aria-describedby', errorMessageElement?.id);
+    expect(fieldsetElement).toHaveAttribute('aria-describedby', errorMessageElement?.id);
 
 });
 

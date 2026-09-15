@@ -26,7 +26,8 @@ export default defineConfig([
     ignores: [
       "coverage/**",
       "dist/**",
-      "node_modules/**"
+      "node_modules/**",
+      "storybook-static/**"
     ]
   }
 ]);
