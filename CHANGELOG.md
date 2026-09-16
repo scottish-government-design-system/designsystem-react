@@ -7,6 +7,13 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 
 ---
 
+## [1.2.0] - 2026-09-16
+### Changed
+- Fieldsets in Question components HTML altered to match SG Design System 
+- Fieldsets in Question components now use aria-describedby to relate the fieldset to hint text and error messages 
+- SearchFilters component now uses native details element
+- Updated to use v4.2.0 of SG Design System
+
 ## [1.1.0] - 2026-06-17
 ### Added
 - FileUpload component
