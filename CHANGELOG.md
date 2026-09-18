@@ -7,6 +7,10 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 
 ---
 
+## [1.2.1] - 2026-09-18
+### Removed
+- 'dist' folder no longer included in the git repository
+
 ## [1.2.0] - 2026-09-16
 ### Changed
 - Fieldsets in Question components HTML altered to match SG Design System 
