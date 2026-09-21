@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import FileUpload from './FileUpload';
 import argTypes from '../../../.storybook/sgdsArgTypes';
-import { defaultText } from '@scottish-government/design-system/src/components/file-upload/file-upload';
+import { defaultText } from '@scottish-government/design-system/dist/scripts/components/file-upload/file-upload';
 
 const meta = {
     title: 'Components/FileUpload',

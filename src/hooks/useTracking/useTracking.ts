@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import DSTracking from '@scottish-government/design-system/src/base/tools/tracking/tracking';
+import DSTracking from '@scottish-government/design-system/dist/scripts/base/tools/tracking/tracking';
 
 export default function () {
     useEffect(() => {

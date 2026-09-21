@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useRef, useId } from 'react';
 import WrapperTag from '../../common/WrapperTag';
-import DSAccordion from '@scottish-government/design-system/src/components/accordion/accordion';
+import DSAccordion from '@scottish-government/design-system/dist/scripts/components/accordion/accordion';
 import { AccordionItemProps, AccordionProps } from './types';
 import clsx from 'clsx';
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import DSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
+import DSDatePicker from '@scottish-government/design-system/dist/scripts/components/date-picker/date-picker';
 import ErrorMessage from '../ErrorMessage';
 import TextInput from '../TextInput';
 import { DatePickerProps } from './types';

@@ -7,6 +7,12 @@ Changes are grouped under the labels: `Added`, `Changed`, `Deprecated`, `Fixed`,
 
 ---
 
+## [1.2.2] - 2026-09-21
+### Fixed
+- Changes to help the package be imported in a test runner
+  - Use `"jsx": "react-jsx"` in TypeScript config (lets `/dist` be loaded by Node)
+  - Use imported SG Design System modules from `/dist/scripts` rather than `/src` (also allows loading by Node)
+
 ## [1.2.1] - 2026-09-18
 ### Removed
 - 'dist' folder no longer included in the git repository

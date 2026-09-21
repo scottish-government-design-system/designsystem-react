@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import DSHideThisPage from '@scottish-government/design-system/src/components/hide-this-page/hide-this-page';
+import DSHideThisPage from '@scottish-government/design-system/dist/scripts/components/hide-this-page/hide-this-page';
 import { HideThisPageProps } from './types';
 import clsx from 'clsx';
 

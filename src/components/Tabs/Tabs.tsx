@@ -1,6 +1,6 @@
 import React, { Children, useEffect, useRef, useId } from 'react';
 import WrapperTag from '../../common/WrapperTag';
-import DSTabs from '@scottish-government/design-system/src/components/tabs/tabs';
+import DSTabs from '@scottish-government/design-system/dist/scripts/components/tabs/tabs';
 import { TabListItemProps, TabsItemProps, TabsProps } from './types';
 import clsx from 'clsx';
 

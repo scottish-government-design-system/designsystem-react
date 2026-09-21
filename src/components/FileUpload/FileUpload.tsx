@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { FileUploadProps } from './types';
 import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText';
-import DSFileUpload from '@scottish-government/design-system/src/components/file-upload/file-upload'
+import DSFileUpload from '@scottish-government/design-system/dist/scripts/components/file-upload/file-upload'
 
 const FileUpload = ({
     accept,

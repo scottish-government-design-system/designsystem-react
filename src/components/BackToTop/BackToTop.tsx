@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Icon from '../../common/Icon';
-import DSBackToTop from '@scottish-government/design-system/src/components/back-to-top/back-to-top';
+import DSBackToTop from '@scottish-government/design-system/dist/scripts/components/back-to-top/back-to-top';
 import { BackToTopProps } from './types';
 import clsx from 'clsx';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { CheckboxRadioContext } from '../../utils/context';
-import DSCheckboxes from '@scottish-government/design-system/src/components/checkbox/checkboxes'
+import DSCheckboxes from '@scottish-government/design-system/dist/scripts/components/checkbox/checkboxes'
 import { CheckboxGroupProps } from './types';
 import clsx from 'clsx';
 

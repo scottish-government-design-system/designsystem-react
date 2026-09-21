@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import AbstractNotificationBanner from '../../common/AbstractNotificationBanner';
-import DSCookieBanner from '@scottish-government/design-system/src/components/cookie-notification/cookie-notification';
+import DSCookieBanner from '@scottish-government/design-system/dist/scripts/components/cookie-notification/cookie-notification';
 import { AbstractNotificationBannerProps } from '../../common/AbstractNotificationBanner/types';
 import clsx from 'clsx';
 

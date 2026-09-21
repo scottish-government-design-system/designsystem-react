@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import DSSideNavigation from '@scottish-government/design-system/src/components/side-navigation/side-navigation';
+import DSSideNavigation from '@scottish-government/design-system/dist/scripts/components/side-navigation/side-navigation';
 import { SideNavigationItemProps, SideNavigationListProps, SideNavigationProps } from './types';
 import clsx from 'clsx';
 
