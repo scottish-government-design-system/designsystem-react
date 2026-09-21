@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import DSTable from '@scottish-government/design-system/src/components/table/table';
+import DSTable from '@scottish-government/design-system/dist/scripts/components/table/table';
 import { TableProps } from './types';
 import clsx from 'clsx';
 

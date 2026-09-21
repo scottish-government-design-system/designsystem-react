@@ -1,7 +1,7 @@
 import React, { Children, useEffect, useRef } from 'react';
 import Icon from '../../common/Icon';
 import SiteNavigation from '../SiteNavigation';
-import DSMobileMenu from '@scottish-government/design-system/src/components/site-navigation/site-navigation';
+import DSMobileMenu from '@scottish-government/design-system/dist/scripts/components/site-navigation/site-navigation';
 import { SiteHeaderBrandProps, SiteHeaderProps } from './types';
 import { SiteNavigationProps } from '../SiteNavigation/types';
 

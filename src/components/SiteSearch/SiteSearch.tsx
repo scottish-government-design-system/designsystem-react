@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import DSAutocomplete from '@scottish-government/design-system/src/components/autocomplete/autocomplete';
+import DSAutocomplete from '@scottish-government/design-system/dist/scripts/components/autocomplete/autocomplete';
 import Button from '../Button';
 import { SiteSearchProps, SuggestionMappingFunctionProps } from './types';
 import clsx from 'clsx';

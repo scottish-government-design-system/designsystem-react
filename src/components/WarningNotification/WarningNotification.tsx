@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import AbstractNotificationMessage from '../../common/AbstractNotificationMessage';
-import DSNotificationMessage from '@scottish-government/design-system/src/components/notification-message/notification-message';
+import DSNotificationMessage from '@scottish-government/design-system/dist/scripts/components/notification-message/notification-message';
 import { AbstractNotificationMessageProps } from '../../common/AbstractNotificationMessage/types';
 import clsx from 'clsx';
 
@@ -21,7 +21,7 @@ const WarningNotification = ({
             new DSNotificationMessage(ref.current).init();
         }
     }, [ref]);
-    
+
     return (
         <AbstractNotificationMessage
             ariaLive={ariaLive}

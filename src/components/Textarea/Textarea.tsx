@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import DSCharacterCount from '@scottish-government/design-system/src/components/character-count/character-count';
+import DSCharacterCount from '@scottish-government/design-system/dist/scripts/components/character-count/character-count';
 import ConditionalWrapper from '../../common/ConditionalWrapper';
 import ErrorMessage from '../ErrorMessage';
 import HintText from '../../common/HintText';

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import dsSkipLinks from '@scottish-government/design-system/src/components/skip-links/skip-links';
+import dsSkipLinks from '@scottish-government/design-system/dist/scripts/components/skip-links/skip-links';
 import { SkipLinksLinkProps, SkipLinksProps } from './types';
 import clsx from 'clsx';
 
