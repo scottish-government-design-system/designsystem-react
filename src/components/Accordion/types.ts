@@ -1,5 +1,3 @@
-import { HeadingLevel } from "../../shared-types";
-
 export interface AccordionItemProps extends React.AllHTMLAttributes<HTMLElement> {
     id?: string;
     heading: string | React.ReactNode;
@@ -7,7 +5,6 @@ export interface AccordionItemProps extends React.AllHTMLAttributes<HTMLElement>
 }
 
 export interface AccordionProps extends React.AllHTMLAttributes<HTMLElement> {
-    headingLevel?: HeadingLevel;
     hideOpenAll?: boolean;
     isSmall?: boolean;
 }

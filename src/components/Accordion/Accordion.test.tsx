@@ -1,5 +1,5 @@
 import { test, expect, vi } from 'vitest';
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Accordion from './Accordion';
 
 const ACCORDION_ID = 'my-accordion';
@@ -9,8 +9,6 @@ const CONTENT_TEXT = `Veterans are entitled to the same healthcare as any citize
     are health care options and support available specifically for veterans`;
 
 test('accordion renders correctly', () => {
-    const DEFAULT_HEADING_LEVEL = 'h3';
-
     render(
         <Accordion id={ACCORDION_ID} data-testid={ACCORDION_ID}>
             <Accordion.Item id="accordion-1" heading="Healthcare for veterans">
@@ -32,7 +30,6 @@ test('accordion renders correctly', () => {
 
     const accordion = screen.getByTestId(ACCORDION_ID);
     const openAllButton = document.querySelector('.ds_accordion__open-all');
-    const firstAccordionTitle = document.querySelector('.ds_accordion-item__title');
 
     expect(accordion).toHaveClass('ds_accordion');
     expect(accordion.tagName).toEqual('DIV');
@@ -41,8 +38,6 @@ test('accordion renders correctly', () => {
     expect(openAllButton).toHaveAttribute('type', 'button');
     expect(openAllButton?.textContent).toEqual('Open all sections');
     expect(openAllButton?.innerHTML).toEqual('Open all <span class="visually-hidden">sections</span>');
-
-    expect(firstAccordionTitle?.tagName).toEqual(DEFAULT_HEADING_LEVEL.toUpperCase());
 });
 
 test('accordion without open all', () => {
@@ -80,24 +75,6 @@ test('empty accordion has no open all', () => {
 
     expect(openAllButton).toBeNull();
 })
-
-test('accordion with custom heading level', () => {
-    const HEADING_LEVEL = 'h2';
-
-    render(
-        <Accordion id={ACCORDION_ID} data-testid={ACCORDION_ID} headingLevel={HEADING_LEVEL}>
-            <Accordion.Item id="accordion-1" heading="Healthcare for veterans">
-                <p>Veterans are entitled to the same healthcare as any citizen. And there
-                    are health care options and support available specifically for veterans.</p>
-                <p>If you have a health condition that’s related to your service, you’re
-                    entitled to priority treatment based on clinical need.</p>
-            </Accordion.Item>
-        </Accordion>
-    );
-
-    const firstAccordionTitle = document.querySelector('.ds_accordion-item__title');
-    expect(firstAccordionTitle?.tagName).toEqual(HEADING_LEVEL.toUpperCase());
-});
 
 test('instantiating/initialising DS component script', () => {
     render(
@@ -138,31 +115,18 @@ test('accordion item renders correctly', () => {
     );
 
     const accordionItem = screen.getByTestId(ACCORDION_ITEM_ID);
-    const input = within(accordionItem).getByRole('checkbox');
     const header = document.querySelector('.ds_accordion-item__header');
-    const title = header?.querySelector('.ds_accordion-item__title');
     const indicator = header?.querySelector('.ds_accordion-item__indicator');
-    const label = header?.querySelector('.ds_accordion-item__label');
     const body = document.querySelector('.ds_accordion-item__body');
 
     expect(accordionItem).toHaveClass('ds_accordion-item');
     expect(accordionItem).toHaveAttribute('id', ACCORDION_ITEM_ID);
+    expect(accordionItem.tagName).toEqual('DETAILS');
 
-    expect(input).toHaveClass('ds_accordion-item__control', 'visually-hidden')
-    expect(input).toHaveAttribute('id', `${ACCORDION_ITEM_ID}-control`);
-
-    expect(header?.tagName).toEqual('DIV');
-
-    expect(title).toHaveAttribute('id', `panel-${ACCORDION_ITEM_ID}-heading`);
-    expect(title?.tagName).toEqual('H3');
-    expect(title?.textContent).toEqual(TITLE_TEXT);
+    expect(header?.tagName).toEqual('SUMMARY');
+    expect(header?.textContent).toEqual(TITLE_TEXT);
 
     expect(indicator?.tagName).toEqual('SPAN');
-
-    expect(label).toHaveAttribute('for', input.id);
-    expect(label?.tagName).toEqual('LABEL');
-    expect(label?.textContent).toEqual('Show this section');
-    expect(label?.children[0]).toHaveClass('visually-hidden');
 
     expect(body?.innerHTML).toEqual(`<p>${CONTENT_TEXT}</p>`);
 });
@@ -199,9 +163,7 @@ test('open accordion item', () => {
     );
 
     const accordionItem = screen.getByTestId(ACCORDION_ITEM_ID);
-    const input = within(accordionItem).getByRole('checkbox');
-
-    expect(input).toHaveAttribute('checked');
+    expect(accordionItem).toHaveAttribute('open');
 });
 
 test('small accordion item', () => {
@@ -228,9 +190,8 @@ test('deprecated title prop still works with warning', () => {
     );
 
     const header = document.querySelector('.ds_accordion-item__header');
-    const title = header?.querySelector('.ds_accordion-item__title');
 
-    expect(title?.textContent).toEqual(TITLE_TEXT);
+    expect(header?.textContent).toEqual(TITLE_TEXT);
     expect(consoleWarnSpy).toHaveBeenCalledWith(
         'Warning: Using the `title` prop for heading text on an Accordion.Item is deprecated and will be removed in a future release. Please use the `heading` prop instead.'
     );

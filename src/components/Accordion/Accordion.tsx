@@ -1,11 +1,9 @@
-import React, { createContext, useContext, useEffect, useRef, useId } from 'react';
-import WrapperTag from '../../common/WrapperTag';
+import { useEffect, useRef, useId } from 'react';
 import DSAccordion from '@scottish-government/design-system/dist/scripts/components/accordion/accordion';
 import { AccordionItemProps, AccordionProps } from './types';
 import clsx from 'clsx';
 
 let accordionItemCounter = 0;
-const AccordionHeadingLevelContext = createContext('h3');
 
 const AccordionItem = ({
     children,
@@ -19,8 +17,6 @@ const AccordionItem = ({
     accordionItemCounter = accordionItemCounter + 1;
     const processedId = rawId || `accordion-item-${useId()}`;
 
-    const headingLevel = useContext(AccordionHeadingLevelContext);
-
     if (title) {
         console.warn(
             'Warning: Using the `title` prop for heading text on an Accordion.Item is deprecated and will be removed in a future release. Please use the `heading` prop instead.'
@@ -30,51 +26,29 @@ const AccordionItem = ({
     }
 
     return (
-        <div
+        <details
             className={clsx([
                 'ds_accordion-item',
                 className
             ])}
             id={processedId}
+            open={isOpen}
             {...props}
         >
-            <input
-                aria-labelledby={`panel-${processedId}-heading`}
-                className={clsx([
-                    'ds_accordion-item__control',
-                    'visually-hidden'
-                ])}
-                defaultChecked={isOpen}
-                id={`${processedId}-control`}
-                type="checkbox"
-            />
-            <div className="ds_accordion-item__header">
-                <WrapperTag
-                    id={`panel-${processedId}-heading`}
-                    className="ds_accordion-item__title"
-                    tagName={headingLevel}
-                >
-                    {heading}
-                </WrapperTag>
+            <summary className="ds_accordion-item__header">
+                {heading}
                 <span className="ds_accordion-item__indicator" />
-                <label
-                    className="ds_accordion-item__label"
-                    htmlFor={`${processedId}-control`}
-                >
-                    <span className="visually-hidden">Show this section</span>
-                </label>
-            </div>
+            </summary>
             <div className="ds_accordion-item__body">
                 {children}
             </div>
-        </div>
+        </details>
     );
 };
 
 const Accordion = ({
     children,
     className,
-    headingLevel = 'h3',
     hideOpenAll,
     isSmall,
     ...props
@@ -117,9 +91,7 @@ const Accordion = ({
                 </button>
             )}
 
-            <AccordionHeadingLevelContext value={headingLevel}>
-                {children}
-            </AccordionHeadingLevelContext>
+            {children}
         </div>
     );
 };

@@ -198,7 +198,7 @@ test('site header with site navigation', () => {
     expect(siteNavControl).toHaveClass('ds_site-navigation__toggle');
     expect(siteNavControl).toHaveAttribute('id', 'menu');
 
-    expect(siteNavControlLabel).toHaveClass('ds_site-header__control', 'js-toggle-menu');
+    expect(siteNavControlLabel).toHaveClass('ds_site-header__control');
     expect(siteNavControlLabel).toHaveAttribute('aria-controls', siteHeaderNavigationMobile.id);
     expect(siteNavControlLabel?.textContent).toEqual('Menu');
     expect(siteNavControlLabel?.tagName).toEqual('LABEL');

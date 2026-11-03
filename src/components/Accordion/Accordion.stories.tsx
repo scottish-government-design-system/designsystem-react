@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import argTypes from '../../../.storybook/sgdsArgTypes';
 
 import Accordion from './Accordion';
 
@@ -7,9 +6,6 @@ const meta = {
     title: 'Components/Accordion',
     component: Accordion,
     argTypes: {
-        headingLevel: argTypes.headingLevel({
-            description: 'Heading level to use for the accordion items\' headings'
-        }),
         hideOpenAll: {
             control: 'boolean',
             description: 'Do not show the \'open all\' button',

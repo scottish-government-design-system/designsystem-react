@@ -66,7 +66,7 @@ test('search filter panel boilerplate renders correctly', () => {
 
     const filterPanel = screen.getByTestId('searchfilter');
     expect(filterPanel).toHaveClass('ds_accordion-item');
-    expect(filterPanel.tagName).toEqual('DIV');
+    expect(filterPanel.tagName).toEqual('DETAILS');
 
     const filterPanelBody = filterPanel.querySelector('.ds_accordion-item__body');
     expect(filterPanelBody).toBeInTheDocument();
@@ -105,15 +105,15 @@ test('search filter panel with an active filter count', () => {
 
     const filterPanel = screen.getByTestId('searchfilter');
 
-    const accordionTitle = filterPanel.querySelector('.ds_accordion-item__title');
-    expect(accordionTitle).toBeInTheDocument();
-    expect(accordionTitle).toHaveTextContent('Content type');
-    expect(accordionTitle).toHaveTextContent('(3 selected)');
+    const accordionHeader = filterPanel.querySelector('.ds_accordion-item__header');
+    expect(accordionHeader).toBeInTheDocument();
+    expect(accordionHeader).toHaveTextContent('Content type');
+    expect(accordionHeader).toHaveTextContent('(3 selected)');
 
-    const filterCountDiv = accordionTitle?.querySelector('.ds_search-filters__filter-count');
+    const filterCountDiv = accordionHeader?.querySelector('.ds_search-filters__filter-count');
     expect(filterCountDiv).toBeInTheDocument();
     expect(filterCountDiv).toHaveTextContent('(3 selected)');
-    expect(filterCountDiv?.parentElement).toEqual(accordionTitle);
+    expect(filterCountDiv?.parentElement).toEqual(accordionHeader);
 });
 
 test('search filter checkbox group renders correctly', () => {
